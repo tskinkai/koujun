@@ -63,6 +63,21 @@ nav {
   background: none; border: none; padding: 6px; min-width: 44px; min-height: 44px;
 }
 .nav-toggle span { width: 20px; height: 1px; background: var(--ink); display: block; }
+
+/* MOBILE RESERVE BAR（スマートフォン表示時にご予約ボタンを画面下部に固定） */
+.mobile-reserve-bar { display: none; }
+@media (max-width: 900px) {
+  .mobile-reserve-bar {
+    display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 600;
+    background: var(--ink); box-shadow: 0 -2px 12px rgba(0,0,0,0.15);
+  }
+  .mobile-reserve-bar a {
+    display: block; padding: 17px; text-align: center;
+    color: var(--white); font-size: 0.8rem; letter-spacing: 0.18em; text-decoration: none;
+  }
+  .mobile-reserve-bar a:active { background: var(--gold2); }
+  body { padding-bottom: 54px; }
+}
 @media (max-width: 900px) {
   nav { padding: 0 24px; }
   .nav-center {
@@ -322,6 +337,11 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
     <button class="nav-toggle" id="navToggle" aria-label="メニューを開く"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
+<!-- MOBILE RESERVE BAR -->
+<div class="mobile-reserve-bar">
+  <a href="reserve.html">ご予約はこちら</a>
+</div>
 
 <!-- HERO -->
 <div class="hero">

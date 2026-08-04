@@ -36,6 +36,21 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 .nav-cta:hover { background: var(--gold2); }
 .nav-toggle { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; min-width: 44px; min-height: 44px; }
 .nav-toggle span { width: 20px; height: 1px; background: var(--ink); display: block; }
+
+/* MOBILE RESERVE BAR（スマートフォン表示時にご予約ボタンを画面下部に固定） */
+.mobile-reserve-bar { display: none; }
+@media (max-width: 900px) {
+  .mobile-reserve-bar {
+    display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 600;
+    background: var(--ink); box-shadow: 0 -2px 12px rgba(0,0,0,0.15);
+  }
+  .mobile-reserve-bar a {
+    display: block; padding: 17px; text-align: center;
+    color: var(--white); font-size: 0.8rem; letter-spacing: 0.18em; text-decoration: none;
+  }
+  .mobile-reserve-bar a:active { background: var(--gold2); }
+  body { padding-bottom: 54px; }
+}
 @media (max-width: 900px) {
   nav { padding: 0 24px; }
   .nav-center { flex-direction: column; align-items: flex-start; gap: 0; position: fixed; top: 64px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--rule); padding: 4px 24px 16px; transform: translateY(-8px); opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; }
@@ -123,6 +138,11 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
     <button class="nav-toggle" id="navToggle" aria-label="メニューを開く"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
+<!-- MOBILE RESERVE BAR -->
+<div class="mobile-reserve-bar">
+  <a href="reserve.html">ご予約はこちら</a>
+</div>
 
 <!-- PAGE HERO -->
 <div class="page-hero">
