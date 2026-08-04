@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /Users/ts.kinkai/koujun 2>&1; echo \"---\"; ls -la /Users/ts.kinkai/ 2>&1 | head -50)"
+    ]
+  }
+}

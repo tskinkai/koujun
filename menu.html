@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>料理とワインについて｜中國菜 香醇（こうじゅん）</title>
+<meta name="description" content="中國菜 香醇のおまかせコース・アラカルトメニュー、ワインのご紹介。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8F6F3;--bg2:#F0EDE8;--white:#FFFFFF;--ink:#1A1A1A;--gold:#8B3A1A;--gold2:#A04520;--muted:#6B6560;--rule:rgba(0,0,0,0.1);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--ink);background:var(--bg);line-height:1.85;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:'Noto Serif JP',serif;font-weight:400;letter-spacing:.02em;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:1120px;margin:0 auto;padding:0 32px;}
+.eyebrow{font-size:.75rem;letter-spacing:.22em;color:var(--gold);margin-bottom:14px;display:block;}
+
+/* NAV (shared) */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(248,246,243,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);}
+.nav-inner{max-width:1120px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Noto Serif JP',serif;font-size:1.25rem;letter-spacing:.18em;color:var(--ink);}
+.logo span{color:var(--gold);}
+.nav-links{display:flex;gap:30px;align-items:center;font-size:.82rem;letter-spacing:.04em;}
+.nav-links a{position:relative;padding:4px 0;color:var(--ink);}
+.nav-links a.active{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--white);padding:10px 22px;border-radius:2px;font-size:.78rem;letter-spacing:.1em;transition:background .25s;white-space:nowrap;}
+.nav-cta:hover{background:var(--gold2);}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
+.nav-toggle span{width:22px;height:1px;background:var(--ink);display:block;}
+@media (max-width:900px){
+  .nav-links{position:fixed;top:63px;left:0;right:0;background:var(--white);flex-direction:column;align-items:flex-start;padding:24px 32px;gap:18px;border-bottom:1px solid var(--rule);transform:translateY(-8px);opacity:0;pointer-events:none;transition:all .25s;}
+  .nav-links.open{opacity:1;transform:translateY(0);pointer-events:auto;}
+  .nav-toggle{display:flex;}
+  .nav-cta{order:99;}
+}
+
+/* PAGE HERO */
+.page-hero{padding:150px 0 60px;text-align:center;background:var(--bg2);border-bottom:1px solid var(--rule);}
+.page-hero h1{font-size:1.9rem;margin-bottom:10px;}
+.page-hero p{color:var(--muted);font-size:.88rem;}
+
+/* NOTICE BAR */
+.notice{background:#F3E4DA;border-bottom:1px solid var(--rule);padding:14px 0;text-align:center;font-size:.82rem;color:var(--gold2);}
+
+/* TABS */
+.tabs-nav{position:sticky;top:63px;z-index:900;background:var(--bg);border-bottom:1px solid var(--rule);display:flex;justify-content:center;gap:8px;padding:0;}
+.tabs-nav button{background:none;border:none;padding:20px 28px;font-family:'Noto Serif JP',serif;font-size:.95rem;color:var(--muted);cursor:pointer;position:relative;letter-spacing:.05em;}
+.tabs-nav button.active{color:var(--gold);}
+.tabs-nav button.active::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:2px;background:var(--gold);}
+.tab-panel{display:none;padding:80px 0;}
+.tab-panel.active{display:block;}
+
+/* COURSE */
+.course-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+.course-card{background:var(--white);border:1px solid var(--rule);padding:32px;}
+.course-card .step{font-size:.72rem;letter-spacing:.15em;color:var(--gold);margin-bottom:8px;}
+.course-card h3{font-size:1.15rem;margin-bottom:10px;}
+.course-card p{color:var(--muted);font-size:.86rem;}
+.course-info{max-width:640px;margin:56px auto 0;background:var(--bg2);padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:center;}
+.course-info div span{display:block;font-size:.72rem;color:var(--muted);letter-spacing:.1em;margin-bottom:6px;}
+.course-info div strong{font-family:'Noto Serif JP',serif;font-size:1.15rem;color:var(--gold2);}
+@media (max-width:900px){.course-grid{grid-template-columns:1fr;}.course-info{grid-template-columns:1fr;}}
+
+/* ALACARTE */
+.ac-category{margin-bottom:56px;}
+.ac-category h3{font-size:1.15rem;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--rule);}
+.ac-list{display:grid;grid-template-columns:1fr 1fr;gap:16px 32px;}
+.ac-item{display:flex;justify-content:space-between;font-size:.9rem;padding:10px 0;border-bottom:1px dashed var(--rule);}
+.ac-item .name{color:var(--ink);}
+.ac-item .price{color:var(--muted);white-space:nowrap;margin-left:16px;}
+@media (max-width:600px){.ac-list{grid-template-columns:1fr;}}
+
+.original-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.original-card{background:var(--white);border:1px solid var(--rule);padding:0;overflow:hidden;position:relative;}
+.original-visual{aspect-ratio:4/3;background:var(--bg2);display:flex;align-items:center;justify-content:center;position:relative;}
+.original-visual svg{width:64px;height:64px;opacity:.55;}
+.swap-btn{position:absolute;inset:0;background:rgba(26,26,26,.55);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.78rem;opacity:0;transition:opacity .25s;cursor:pointer;}
+.original-visual:hover .swap-btn{opacity:1;}
+.original-body{padding:22px 24px;}
+.original-body h4{font-size:1rem;margin-bottom:8px;}
+.original-body p{font-size:.83rem;color:var(--muted);}
+@media (max-width:900px){.original-grid{grid-template-columns:1fr;}}
+
+/* WINE */
+.wine{background:var(--bg2);padding:80px 0;text-align:center;}
+.wine h2{font-size:1.6rem;margin-bottom:24px;}
+.wine p{color:var(--muted);font-size:.9rem;max-width:640px;margin:0 auto;}
+
+/* FOOTER */
+.footer{background:var(--ink);color:#D9D5CF;padding:64px 0 28px;}
+.footer .container{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:48px;}
+.footer .f-logo{font-family:'Noto Serif JP',serif;color:var(--white);font-size:1.15rem;letter-spacing:.15em;margin-bottom:16px;}
+.footer .f-logo span{color:#C77B4E;}
+.footer p.addr{font-size:.8rem;color:#A8A29A;max-width:280px;}
+.footer h4{color:var(--white);font-size:.85rem;letter-spacing:.1em;margin-bottom:18px;font-weight:400;}
+.footer a{color:#B8B3AC;font-size:.85rem;display:block;margin-bottom:10px;}
+.footer a:hover{color:var(--white);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:22px;text-align:center;font-size:.72rem;color:#8A857D;}
+@media (max-width:900px){.footer .container{grid-template-columns:1fr;gap:32px;}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">香<span>醇</span> KOUJUN</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">ホーム</a>
+      <a href="index.html#concept">コンセプト</a>
+      <a href="menu.html" class="active">メニュー</a>
+      <a href="index.html#gallery">ギャラリー</a>
+      <a href="index.html#chef">店主紹介</a>
+      <a href="index.html#info">店舗情報</a>
+      <a href="news.html">お知らせ</a>
+      <a href="reservation.html" class="nav-cta">ご予約はこちら</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="notice">現在開業準備中です。価格・内容は変更となる場合がございます。</div>
+
+<header class="page-hero">
+  <span class="eyebrow">MENU</span>
+  <h1>料理とワインについて</h1>
+  <p>素材の香りを活かしたお料理と、それを引き立てるワインをご用意します。</p>
+</header>
+
+<div class="tabs-nav">
+  <button class="active" data-tab="course">おまかせコース</button>
+  <button data-tab="alacarte">アラカルト</button>
+</div>
+
+<section class="tab-panel active" id="course" >
+  <div class="container">
+    <div class="course-grid">
+      <div class="course-card"><span class="step">01 ／ 前菜</span><h3>前菜三種盛り</h3><p>季節の食材を使った小さな前菜を三種、少しずつお楽しみいただけます。</p></div>
+      <div class="course-card"><span class="step">02 ／ スープ</span><h3>香り高い薬膳スープ</h3><p>じっくり煮込んだ滋味深いスープで、コースの始まりを整えます。</p></div>
+      <div class="course-card"><span class="step">03 ／ 魚</span><h3>本日の魚料理</h3><p>その日仕入れた魚を、素材の香りを活かした調理法でご提供します。</p></div>
+      <div class="course-card"><span class="step">04 ／ 肉</span><h3>厳選肉の一品</h3><p>火入れにこだわった肉料理。ワインとの相性を考えた味付けです。</p></div>
+      <div class="course-card"><span class="step">05 ／ 点心</span><h3>手作り点心</h3><p>店主が仕上げる点心を、蒸し立てでお楽しみいただきます。</p></div>
+      <div class="course-card"><span class="step">06 ／ 御飯</span><h3>看板炒飯</h3><p>コースの締めに、香醇自慢の一皿をコンパクトにご用意します。</p></div>
+    </div>
+    <div class="course-info">
+      <div><span>料金</span><strong>開業後に公開予定</strong></div>
+      <div><span>所要時間</span><strong>約120分</strong></div>
+      <div><span>ワインペアリング</span><strong>ご用意可能</strong></div>
+      <div><span>ご予約</span><strong>前日までにお願いします</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="tab-panel" id="alacarte">
+  <div class="container">
+
+    <div class="ac-category">
+      <h3>前菜</h3>
+      <div class="ac-list">
+        <div class="ac-item"><span class="name">よだれ鶏</span><span class="price">価格未定</span></div>
+        <div class="ac-item"><span class="name">香醇風前菜盛り合わせ</span><span class="price">価格未定</span></div>
+        <div class="ac-item"><span class="name">季節野菜の和え物</span><span class="price">価格未定</span></div>
+        <div class="ac-item"><span class="name">自家製ザーサイ</span><span class="price">価格未定</span></div>
+      </div>
+    </div>
+
+    <div class="ac-category">
+      <h3>点心・蒸し物</h3>
+      <div class="ac-list">
+        <div class="ac-item"><span class="name">小籠包</span><span class="price">価格未定</span></div>
+        <div class="ac-item"><span class="name">海老蒸し餃子</span><span class="price">価格未定</span></div>
+        <div class="ac-item"><span class="name">焼売</span><span class="price">価格未定</span></div>
+        <div class="ac-item"><span class="name">蒸し鶏の香味ソース</span><span class="price">価格未定</span></div>
+      </div>
+    </div>
+
+    <div class="ac-category">
+      <h3>炒め物・揚げ物</h3>
+      <div class="ac-list">
+        <div class="ac-item"><span class="name">青椒肉絲</span><span class="price">価格未定</span></div>
+        <div class="ac-item"><span class="name">酢豚</span><span class="price">価格未定</span></div>
+        <div class="ac-item"><span class="name">海鮮の中華炒め</span><span class="price">価格未定</span></div>
+        <div class="ac-item"><span class="name">唐揚げ 香醇風</span><span class="price">価格未定</span></div>
+      </div>
+    </div>
+
+    <div class="ac-category">
+      <h3>御飯・麺</h3>
+      <div class="ac-list">
+        <div class="ac-item"><span class="name">貴兵衛の貴族チャーハン（小）</span><span class="price">価格未定</span></div>
+        <div class="ac-item"><span class="name">担々麺</span><span class="price">価格未定</span></div>
+        <div class="ac-item"><span class="name">五目焼きそば</span><span class="price">価格未定</span></div>
+        <div class="ac-item"><span class="name">季節の炊き込み御飯</span><span class="price">価格未定</span></div>
+      </div>
+    </div>
+
+    <div class="ac-category">
+      <h3 style="border-bottom:none;margin-bottom:8px;">香醇オリジナルメニュー</h3>
+      <p style="color:var(--muted);font-size:.85rem;margin-bottom:24px;">写真にマウスを合わせると、実写真への差し替えボタンが表示されます（ファイル未選択の場合はイラストのままです）。</p>
+      <div class="original-grid">
+        <div class="original-card">
+          <div class="original-visual">
+            <svg viewBox="0 0 64 64" fill="none"><path d="M8 40h48v6a8 8 0 01-8 8H16a8 8 0 01-8-8v-6z" stroke="#8B3A1A" stroke-width="2"/><path d="M14 40c0-10 8-18 18-18s18 8 18 18" stroke="#8B3A1A" stroke-width="2"/></svg>
+            <label class="swap-btn">写真を差し替える<input type="file" accept="image/*" style="display:none" data-swap></label>
+          </div>
+          <div class="original-body"><h4>マーライオン豆腐</h4><p>豆腐の上から特製甘辛ソースが流れ落ちる、マーライオンの放水から着想した一品。</p></div>
+        </div>
+        <div class="original-card">
+          <div class="original-visual">
+            <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="34" rx="24" ry="14" stroke="#8B3A1A" stroke-width="2"/><path d="M12 34c0 8 9 14 20 14s20-6 20-14" stroke="#8B3A1A" stroke-width="2"/></svg>
+            <label class="swap-btn">写真を差し替える<input type="file" accept="image/*" style="display:none" data-swap></label>
+          </div>
+          <div class="original-body"><h4>貴兵衛の貴族チャーハン</h4><p>店主「貴」泰の名を冠した看板チャーハン。贅沢な具材と高温仕上げで香りを最大限に。</p></div>
+        </div>
+        <div class="original-card">
+          <div class="original-visual">
+            <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="20" stroke="#8B3A1A" stroke-width="2"/><path d="M22 32h20M32 22v20" stroke="#8B3A1A" stroke-width="2"/></svg>
+            <label class="swap-btn">写真を差し替える<input type="file" accept="image/*" style="display:none" data-swap></label>
+          </div>
+          <div class="original-body"><h4>あま辛大マヨ大</h4><p>唐揚げに自家製甘辛だれとマヨネーズをたっぷりと。やみつきになる一皿。</p></div>
+        </div>
+        <div class="original-card">
+          <div class="original-visual">
+            <svg viewBox="0 0 64 64" fill="none"><rect x="14" y="18" width="36" height="28" rx="4" stroke="#8B3A1A" stroke-width="2"/><path d="M20 46l6 8M44 46l-6 8" stroke="#8B3A1A" stroke-width="2"/></svg>
+            <label class="swap-btn">写真を差し替える<input type="file" accept="image/*" style="display:none" data-swap></label>
+          </div>
+          <div class="original-body"><h4>鳥塩大マヨ大</h4><p>塩ダレの鶏肉にレモンとマヨネーズを合わせた、あっさりながら深みのある味わい。</p></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="wine">
+  <div class="container">
+    <span class="eyebrow">WINE</span>
+    <h2>料理を引き立てるワイン</h2>
+    <p>中華料理とワインは、実は相性の良い組み合わせです。香醇では、油の香りや香辛料の風味に寄り添う赤・白・自然派ワインを中心に、一皿ごとに楽しめるペアリングをご用意する予定です。詳細は開業後に公開いたします。</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div>
+      <div class="f-logo">香<span>醇</span> KOUJUN</div>
+      <p class="addr">〒650-0012 兵庫県神戸市中央区北長狭通１丁目２１−２１ 2TAKAIB.L D2F</p>
+    </div>
+    <div>
+      <h4>NAVIGATION</h4>
+      <a href="index.html">ホーム</a>
+      <a href="menu.html">メニュー</a>
+      <a href="news.html">お知らせ</a>
+      <a href="reservation.html">ご予約</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+    <div>
+      <h4>OTHER</h4>
+      <a href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener">Instagram</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 中國菜 香醇（Koujun）</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const toggle=document.getElementById('navToggle');
+  const links=document.getElementById('navLinks');
+  if(toggle){toggle.addEventListener('click',()=>links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));}
+
+  const tabBtns=document.querySelectorAll('.tabs-nav button');
+  const panels={course:document.getElementById('course'),alacarte:document.getElementById('alacarte')};
+  tabBtns.forEach(btn=>btn.addEventListener('click',()=>{
+    tabBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    Object.values(panels).forEach(p=>p.classList.remove('active'));
+    panels[btn.dataset.tab].classList.add('active');
+    history.replaceState(null,'','#'+btn.dataset.tab);
+  }));
+  if(location.hash==='#alacarte'){document.querySelector('[data-tab="alacarte"]').click();}
+
+  document.querySelectorAll('[data-swap]').forEach(input=>{
+    input.addEventListener('change',e=>{
+      const file=e.target.files[0];
+      if(!file)return;
+      const url=URL.createObjectURL(file);
+      const visual=input.closest('.original-visual');
+      visual.style.backgroundImage='url('+url+')';
+      visual.style.backgroundSize='cover';
+      visual.style.backgroundPosition='center';
+      visual.querySelector('svg').style.display='none';
+    });
+  });
+});
+</script>
+</body>
+</html>

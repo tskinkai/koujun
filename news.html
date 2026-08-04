@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お知らせ｜中國菜 香醇（こうじゅん）</title>
+<meta name="description" content="中國菜 香醇からのお知らせ一覧。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8F6F3;--bg2:#F0EDE8;--white:#FFFFFF;--ink:#1A1A1A;--gold:#8B3A1A;--gold2:#A04520;--muted:#6B6560;--rule:rgba(0,0,0,0.1);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--ink);background:var(--bg);line-height:1.85;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:'Noto Serif JP',serif;font-weight:400;letter-spacing:.02em;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:1120px;margin:0 auto;padding:0 32px;}
+.eyebrow{font-size:.75rem;letter-spacing:.22em;color:var(--gold);margin-bottom:14px;display:block;}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(248,246,243,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);}
+.nav-inner{max-width:1120px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Noto Serif JP',serif;font-size:1.25rem;letter-spacing:.18em;color:var(--ink);}
+.logo span{color:var(--gold);}
+.nav-links{display:flex;gap:30px;align-items:center;font-size:.82rem;letter-spacing:.04em;}
+.nav-links a{position:relative;padding:4px 0;color:var(--ink);}
+.nav-links a.active{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--white);padding:10px 22px;border-radius:2px;font-size:.78rem;letter-spacing:.1em;transition:background .25s;white-space:nowrap;}
+.nav-cta:hover{background:var(--gold2);}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
+.nav-toggle span{width:22px;height:1px;background:var(--ink);display:block;}
+@media (max-width:900px){
+  .nav-links{position:fixed;top:63px;left:0;right:0;background:var(--white);flex-direction:column;align-items:flex-start;padding:24px 32px;gap:18px;border-bottom:1px solid var(--rule);transform:translateY(-8px);opacity:0;pointer-events:none;transition:all .25s;}
+  .nav-links.open{opacity:1;transform:translateY(0);pointer-events:auto;}
+  .nav-toggle{display:flex;}
+  .nav-cta{order:99;}
+}
+
+.page-hero{padding:150px 0 60px;text-align:center;background:var(--bg2);border-bottom:1px solid var(--rule);}
+.page-hero h1{font-size:1.9rem;margin-bottom:10px;}
+.page-hero p{color:var(--muted);font-size:.88rem;}
+
+.news-list{padding:80px 0;min-height:40vh;}
+.news-empty{text-align:center;color:var(--muted);font-size:.9rem;padding:60px 0;}
+.news-grid{display:grid;gap:0;border-top:1px solid var(--rule);}
+.news-item{display:grid;grid-template-columns:140px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--rule);align-items:baseline;}
+.news-item time{font-size:.8rem;color:var(--muted);letter-spacing:.05em;}
+.news-item .cat{display:inline-block;font-size:.7rem;color:var(--gold);border:1px solid var(--gold);padding:2px 8px;margin-right:12px;letter-spacing:.05em;}
+.news-item a{font-size:.92rem;}
+.news-item a:hover{color:var(--gold2);}
+@media (max-width:600px){.news-item{grid-template-columns:1fr;gap:6px;}}
+
+.footer{background:var(--ink);color:#D9D5CF;padding:64px 0 28px;}
+.footer .container{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:48px;}
+.footer .f-logo{font-family:'Noto Serif JP',serif;color:var(--white);font-size:1.15rem;letter-spacing:.15em;margin-bottom:16px;}
+.footer .f-logo span{color:#C77B4E;}
+.footer p.addr{font-size:.8rem;color:#A8A29A;max-width:280px;}
+.footer h4{color:var(--white);font-size:.85rem;letter-spacing:.1em;margin-bottom:18px;font-weight:400;}
+.footer a{color:#B8B3AC;font-size:.85rem;display:block;margin-bottom:10px;}
+.footer a:hover{color:var(--white);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:22px;text-align:center;font-size:.72rem;color:#8A857D;}
+@media (max-width:900px){.footer .container{grid-template-columns:1fr;gap:32px;}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">香<span>醇</span> KOUJUN</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">ホーム</a>
+      <a href="index.html#concept">コンセプト</a>
+      <a href="menu.html">メニュー</a>
+      <a href="index.html#gallery">ギャラリー</a>
+      <a href="index.html#chef">店主紹介</a>
+      <a href="index.html#info">店舗情報</a>
+      <a href="news.html" class="active">お知らせ</a>
+      <a href="reservation.html" class="nav-cta">ご予約はこちら</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <span class="eyebrow">NEWS</span>
+  <h1>お知らせ</h1>
+  <p>開業情報・営業に関するお知らせをこちらに掲載いたします。</p>
+</header>
+
+<!--
+  記事の追加方法：
+  1. news-article.html をコピーして新しいファイル名（例：news-2026-09-01.html）で保存し、本文を編集する
+  2. 下の <div class="news-grid"> 内に .news-item を1つ追加し、日付・カテゴリ・タイトル・リンク先を書き換える
+  3. news-empty の表示は自動的に非表示になります（news-grid に項目があれば .news-empty のdisplay:noneクラスを外してください）
+-->
+<section class="news-list">
+  <div class="container">
+    <div class="news-empty">現在、お知らせはございません。開業情報が決まりましたら、こちらとInstagramにてお知らせいたします。</div>
+
+    <!-- 記事が公開されたら、上のnews-emptyを削除し、下のコメントを外して項目を追加してください
+    <div class="news-grid">
+      <div class="news-item">
+        <time datetime="2026-00-00">2026.00.00</time>
+        <a href="news-article.html"><span class="cat">開業情報</span>開業日決定のお知らせ</a>
+      </div>
+    </div>
+    -->
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div>
+      <div class="f-logo">香<span>醇</span> KOUJUN</div>
+      <p class="addr">〒650-0012 兵庫県神戸市中央区北長狭通１丁目２１−２１ 2TAKAIB.L D2F</p>
+    </div>
+    <div>
+      <h4>NAVIGATION</h4>
+      <a href="index.html">ホーム</a>
+      <a href="menu.html">メニュー</a>
+      <a href="news.html">お知らせ</a>
+      <a href="reservation.html">ご予約</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+    <div>
+      <h4>OTHER</h4>
+      <a href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener">Instagram</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 中國菜 香醇（Koujun）</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const toggle=document.getElementById('navToggle');
+  const links=document.getElementById('navLinks');
+  if(toggle){toggle.addEventListener('click',()=>links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));}
+});
+</script>
+</body>
+</html>
