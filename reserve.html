@@ -34,7 +34,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 .nav-right-group { display: flex; align-items: center; gap: 36px; }
 .nav-cta { font-size: 0.68rem; letter-spacing: 0.2em; color: var(--white); background: var(--ink); padding: 9px 22px; text-decoration: none; transition: background 0.25s; white-space: nowrap; }
 .nav-cta:hover { background: var(--gold2); }
-.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
+.nav-toggle { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; min-width: 44px; min-height: 44px; }
 .nav-toggle span { width: 20px; height: 1px; background: var(--ink); display: block; }
 @media (max-width: 900px) {
   nav { padding: 0 24px; }
@@ -86,7 +86,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 
 .form-group { margin-bottom: 18px; }
 .form-group label { display: block; font-size: 0.75rem; color: var(--muted); margin-bottom: 6px; letter-spacing: 0.04em; }
-.form-group input, .form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--rule); background: var(--bg); font-family: inherit; font-size: 0.85rem; color: var(--ink); }
+.form-group input, .form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--rule); background: var(--bg); font-family: inherit; font-size: 16px; color: var(--ink); }
 .form-group textarea { min-height: 120px; resize: vertical; }
 .form-submit { background: var(--ink); color: var(--white); border: none; padding: 13px 30px; font-size: 0.8rem; letter-spacing: 0.12em; cursor: pointer; transition: background 0.25s; }
 .form-submit:hover { background: var(--gold2); }
