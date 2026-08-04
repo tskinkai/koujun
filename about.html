@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>香醇について｜中國菜 香醇（こうじゅん）</title>
+<meta name="description" content="中國菜 香醇のコンセプト・店名の由来・店主紹介。神戸・三宮に生まれる中華料理とワインの店。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:    #F8F6F3;
+  --bg2:   #F0EDE8;
+  --white: #FFFFFF;
+  --ink:   #1A1A1A;
+  --gold:  #8B3A1A;
+  --gold2: #A04520;
+  --muted: #6B6560;
+  --rule:  rgba(0,0,0,0.1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans JP', sans-serif; background: var(--white); color: var(--ink); font-weight: 300; line-height: 1.8; overflow-x: hidden; }
+a { color: inherit; }
+img, svg { max-width: 100%; display: block; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; display: flex; justify-content: space-between; align-items: center; padding: 0 56px; background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
+.nav-logo { font-family: 'Noto Serif JP', serif; font-size: 0.95rem; color: var(--ink); letter-spacing: 0.16em; text-decoration: none; }
+.nav-center { display: flex; gap: 32px; list-style: none; }
+.nav-center a { font-size: 0.7rem; letter-spacing: 0.2em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-center a:hover, .nav-center a.active { color: var(--gold); }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-cta { font-size: 0.68rem; letter-spacing: 0.2em; color: var(--white); background: var(--ink); padding: 9px 22px; text-decoration: none; transition: background 0.25s; white-space: nowrap; }
+.nav-cta:hover { background: var(--gold2); }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
+.nav-toggle span { width: 20px; height: 1px; background: var(--ink); display: block; }
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-center { flex-direction: column; align-items: flex-start; gap: 0; position: fixed; top: 64px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--rule); padding: 4px 24px 16px; transform: translateY(-8px); opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; }
+  .nav-center.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .nav-center a { display: block; padding: 14px 0; font-size: 0.75rem; border-bottom: 1px solid var(--rule); }
+  .nav-toggle { display: flex; }
+}
+
+/* PAGE HERO */
+.page-hero { padding: 144px 80px 80px; border-bottom: 1px solid var(--rule); background: var(--bg); }
+.page-hero-label { display: block; font-size: 0.6rem; letter-spacing: 0.45em; color: var(--gold); margin-bottom: 16px; }
+.page-hero-title { font-family: 'Noto Serif JP', serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 300; letter-spacing: 0.12em; line-height: 1.3; color: var(--ink); margin-bottom: 20px; }
+.page-hero-desc { font-size: 0.875rem; line-height: 2.1; color: var(--muted); max-width: 560px; }
+
+/* SECTION UTILS */
+.sec { padding: 96px 80px; max-width: 1160px; margin: 0 auto; }
+.sec-label { display: block; font-size: 0.58rem; letter-spacing: 0.45em; color: var(--gold); margin-bottom: 16px; }
+.sec-heading { font-family: 'Noto Serif JP', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 300; letter-spacing: 0.1em; line-height: 1.6; color: var(--ink); margin-bottom: 24px; }
+.sec-body { font-size: 0.875rem; line-height: 2.2; color: var(--muted); }
+.sec-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 32px; font-size: 0.68rem; letter-spacing: 0.28em; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(160,120,64,0.35); padding-bottom: 3px; transition: opacity 0.2s; }
+.sec-link:hover { opacity: 0.65; }
+.sec-link::after { content: '→'; }
+.divider { border: none; border-top: 1px solid var(--rule); margin: 0 80px; }
+
+/* PHOTO PLACEHOLDER */
+.photo-ph { position: relative; overflow: hidden; background: var(--bg2); display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; }
+.photo-ph-swap { position: absolute; inset: auto 0 0 0; background: rgba(26,26,26,0.6); color: rgba(255,255,255,0.92); font-size: 0.66rem; letter-spacing: 0.12em; padding: 10px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px; opacity: 0; transition: opacity 0.2s; cursor: pointer; }
+.photo-ph:hover .photo-ph-swap { opacity: 1; }
+
+/* CONCEPT */
+.concept-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.concept-img { width: 100%; aspect-ratio: 3/4; }
+.concept-text-col { padding-top: 40px; }
+.concept-quote { font-family: 'Noto Serif JP', serif; font-size: clamp(0.95rem, 1.8vw, 1.15rem); font-weight: 300; line-height: 2.1; color: var(--ink); border-left: 2px solid var(--gold); padding-left: 24px; margin: 28px 0; }
+.concept-quote em { font-style: normal; color: var(--gold); }
+.concept-sig { font-size: 0.78rem; letter-spacing: 0.2em; color: var(--muted); }
+
+/* NAME */
+.name-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.name-logo-col { display: flex; align-items: center; justify-content: center; padding: 20px 40px; }
+.name-logo-col svg { width: 100%; max-width: 260px; }
+.name-body p { font-size: 0.875rem; line-height: 2.2; color: var(--muted); margin-bottom: 18px; }
+.name-body strong { font-weight: 400; color: var(--gold); }
+.name-em { font-style: normal; font-family: 'Noto Serif JP', serif; font-size: 1.15em; font-weight: 500; color: var(--ink); letter-spacing: 0.05em; }
+
+/* CHEF */
+.chef-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.chef-photo .photo-ph { aspect-ratio: 3/4; width: 100%; }
+.chef-name { font-family: 'Noto Serif JP', serif; font-size: 1.15rem; font-weight: 400; color: var(--ink); letter-spacing: 0.08em; margin-bottom: 20px; }
+.chef-name span { display: block; font-family: 'Noto Sans JP', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; color: var(--muted); margin-top: 4px; font-weight: 300; }
+.chef-body p { font-size: 0.875rem; line-height: 2.2; color: var(--muted); margin-bottom: 16px; }
+.chef-blockquote { font-family: 'Noto Serif JP', serif; font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 300; line-height: 2; color: var(--ink); border-left: 2px solid var(--gold); padding-left: 24px; margin-bottom: 20px; }
+.chef-sig { font-size: 0.78rem; letter-spacing: 0.2em; color: var(--muted); padding-left: 24px; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* FOOTER */
+footer { background: #1A1A1A; padding: 64px 80px 36px; }
+.footer-top { display: grid; grid-template-columns: auto 1fr auto; gap: 80px; align-items: start; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.footer-logo { font-family: 'Noto Serif JP', serif; font-size: 1rem; color: #C8A96E; letter-spacing: 0.16em; margin-bottom: 12px; }
+.footer-address { font-size: 0.73rem; line-height: 2; color: rgba(255,255,255,0.38); }
+.footer-nav { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-nav a { font-size: 0.7rem; letter-spacing: 0.18em; color: rgba(255,255,255,0.42); text-decoration: none; transition: color 0.2s; }
+.footer-nav a:hover { color: #C8A96E; }
+.footer-sns { display: flex; gap: 12px; }
+.footer-sns a { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.38); transition: border-color 0.2s, color 0.2s; text-decoration: none; }
+.footer-sns a:hover { border-color: #C8A96E; color: #C8A96E; }
+.footer-sns svg { width: 16px; height: 16px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; flex-wrap: wrap; gap: 10px; }
+.footer-copy { font-size: 0.63rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.28); }
+
+@media (max-width: 900px) {
+  .page-hero { padding: 120px 24px 56px; }
+  .sec { padding: 64px 24px; }
+  .divider { margin: 0 24px; }
+  .concept-wrap, .name-wrap, .chef-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .concept-text-col { padding-top: 0; }
+  .concept-img { aspect-ratio: 16/9; }
+  footer { padding: 48px 24px 32px; }
+  .footer-top { grid-template-columns: 1fr; gap: 36px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">中國菜 香醇</a>
+  <ul class="nav-center" id="navCenter">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html" class="active">香醇について</a></li>
+    <li><a href="course.html">コース</a></li>
+    <li><a href="menu.html">メニュー</a></li>
+    <li><a href="access.html">アクセス</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="nav-cta" href="reserve.html">ご予約はこちら</a>
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <span class="page-hero-label">ABOUT</span>
+  <h1 class="page-hero-title">香醇について</h1>
+  <p class="page-hero-desc">
+    コンセプト、店名に込めた想い、そして店主の歩み。<br>
+    神戸・三宮に生まれる「中國菜 香醇」について、じっくりとご紹介します。
+  </p>
+</div>
+
+<!-- CONCEPT -->
+<section class="sec" id="concept">
+  <div class="concept-wrap">
+    <div class="reveal">
+      <div class="concept-img photo-ph" id="ph-concept">
+        <!-- PHOTO PLACEHOLDER: 料理と会話が弾む食卓のイメージ -->
+        <label class="photo-ph-swap" for="upload-concept">写真を差し替える</label>
+        <input type="file" id="upload-concept" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-concept')">
+      </div>
+    </div>
+    <div class="concept-text-col reveal">
+      <span class="sec-label">CONCEPT</span>
+      <h2 class="sec-heading">また、来たい。<br>そう思える場所へ。</h2>
+      <p class="sec-body">
+        友人と、恋人と、ご夫婦で、会社の仲間と——<br>
+        大切な人と食卓を囲む時間には、特別な力があります。<br>
+        中華料理とワインがその場を彩り、会話が自然と弾む。<br>
+        そんな場所を三宮に作りたい。それが、香醇のはじまりです。
+      </p>
+      <blockquote class="concept-quote">
+        「美味しいね」と、素直に感じていただける料理と<br>
+        ワインをご用意したいと考えています。<br>
+        詳しくない方にも、<em>肩肘張らず</em>楽しんでいただける——<br>
+        それが私の願いです。
+      </blockquote>
+      <p class="sec-body">
+        中華料理は、素材と火の入れ方によって表情を大きく変える奥深い料理です。香醇では、手間を惜しまず、素材が持つ本来の香りと旨みを丁寧に引き出すことを大切にしています。そして、その一皿にもっともふさわしいワインを添えることで、料理とお酒がともに引き立ち合う——そんな食体験をお届けしたいと考えています。
+      </p>
+      <p class="concept-sig">— 店主 &nbsp;村川 貴泰</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- NAME -->
+<section class="sec" id="name">
+  <div class="name-wrap">
+    <div class="name-logo-col reveal">
+      <svg viewBox="0 0 320 560" xmlns="http://www.w3.org/2000/svg">
+        <rect width="320" height="560" fill="#F8F6F3"/>
+        <line x1="160" y1="48" x2="160" y2="512" stroke="#8B3A1A" stroke-width="0.6" opacity="0.2"/>
+        <text x="160" y="196" font-family="Noto Serif JP, serif" font-size="200" font-weight="300" fill="none" stroke="#8B3A1A" stroke-width="1.2" stroke-linejoin="round" text-anchor="middle" dominant-baseline="middle" opacity="0.75">香</text>
+        <circle cx="160" cy="296" r="2.5" fill="#8B3A1A" opacity="0.35"/>
+        <text x="160" y="400" font-family="Noto Serif JP, serif" font-size="200" font-weight="300" fill="none" stroke="#8B3A1A" stroke-width="1.2" stroke-linejoin="round" text-anchor="middle" dominant-baseline="middle" opacity="0.75">醇</text>
+      </svg>
+    </div>
+    <div class="reveal">
+      <span class="sec-label">THOUGHT</span>
+      <h2 class="sec-heading">「香醇」という<br>名前に込めた想い</h2>
+      <div class="name-body">
+        <p><em class="name-em">「香」</em>という字は、芳しい香りを意味します。中華料理が放つ複雑な香辛料の薫り、ワインが注がれた瞬間にグラスから立ち上る果実や土の香り。その一瞬に、人は思わず息を止め、次の一口への期待を膨らませます。香醇では、その「香り」を食体験の入口として大切にしたいと考えています。</p>
+        <p><em class="name-em">「醇」</em>には、<strong>コク・旨み・まろやかさ</strong>という意味があります。発酵や熟成、長い仕込みの時間を経てはじめて生まれる、角のとれた深い味わい。それは料理にも、ワインにも、そして人間関係にも宿るものだと思っています。</p>
+        <p>急がず、丁寧に、時間をかけて作られたものだけが持つ豊かさ。<em class="name-em">「香醇」</em>という名には、料理やワインの味わいだけでなく、その場で過ごす時間そのものが、まろやかで満ち足りたものであってほしいという願いを込めました。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CHEF -->
+<section class="sec" id="chef">
+  <div class="chef-wrap">
+    <div class="chef-photo reveal">
+      <div class="photo-ph" id="ph-chef">
+        <!-- PHOTO PLACEHOLDER: 店主 村川 貴泰 -->
+        <label class="photo-ph-swap" for="upload-chef">写真を差し替える</label>
+        <input type="file" id="upload-chef" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-chef')">
+      </div>
+    </div>
+    <div class="reveal">
+      <span class="sec-label">CHEF</span>
+      <h2 class="sec-heading">店主について</h2>
+      <p class="chef-name">村川 貴泰 <span>Takayasu Murakawa</span></p>
+      <div class="chef-body">
+        <p>長年にわたり、ホテルの料理長や中華料理店のシェフたちと直接向き合う仕事をしてきました。食材の提案、メニュー開発の相談、季節ごとの食材の使い方——そうした現場での対話を重ねるなかで、中華料理が持つ奥深さと、その可能性の広さを肌で学んできました。</p>
+        <p>と同時に、気づいたことがあります。プロの料理人たちが食材にかける情熱と、それが一般のお客様に届くまでの距離の遠さ。素材の良さも、調理の技も、知っている人にしか伝わっていない——その「もったいなさ」が、開業を決意した理由のひとつです。</p>
+        <blockquote class="chef-blockquote">
+          中華料理やワインに詳しくない方にこそ、<br>
+          その豊かさを体験してほしい。
+        </blockquote>
+        <p>肩肘張らず、でも手を抜かない。現場で培った食への眼と、料理への純粋な敬意を持って、神戸・三宮にその場所を作ります。皆さまをお迎えできる日を、楽しみにしております。</p>
+        <p class="chef-sig">— 村川 貴泰</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <p class="footer-logo">中國菜 香醇</p>
+      <p class="footer-address">〒650-0012<br>兵庫県神戸市中央区北長狭通１丁目２１−２１<br>2TAKAIB.L D2F</p>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="about.html">香醇について</a></li>
+      <li><a href="course.html">コース</a></li>
+      <li><a href="menu.html">メニュー</a></li>
+      <li><a href="access.html">アクセス</a></li>
+      <li><a href="reserve.html">ご予約・お問い合わせ</a></li>
+      <li><a href="news.html">お知らせ</a></li>
+      <li><a href="privacy.html">プライバシーポリシー</a></li>
+    </ul>
+    <div>
+      <p class="sec-label" style="color:rgba(247,243,236,0.3);margin-bottom:14px;">FOLLOW</p>
+      <div class="footer-sns">
+        <a href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 中國菜 香醇 All rights reserved.</p>
+    <p class="footer-copy">店主 村川 貴泰</p>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -28px 0px' });
+  els.forEach(el => io.observe(el));
+
+  const navToggle = document.getElementById('navToggle');
+  const navCenter = document.getElementById('navCenter');
+  if (navToggle) {
+    navToggle.addEventListener('click', () => navCenter.classList.toggle('open'));
+    navCenter.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navCenter.classList.remove('open')));
+  }
+
+  function replacePhoto(input, phId) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const el = document.getElementById(phId);
+      el.style.backgroundImage = 'url(' + e.target.result + ')';
+      el.querySelectorAll('svg').forEach(s => s.style.display = 'none');
+    };
+    reader.readAsDataURL(file);
+  }
+</script>
+</body>
+</html>
