@@ -134,7 +134,10 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 .wine-note { font-size: 0.8rem; line-height: 2; color: var(--muted); border-left: 2px solid var(--gold); padding-left: 20px; margin-top: 32px; }
 
 /* NOTE BAR */
-.note-bar { background: var(--ink); color: rgba(255,255,255,0.7); text-align: center; padding: 16px 24px; font-size: 0.75rem; letter-spacing: 0.12em; line-height: 1.8; }
+.note-bar { background: var(--ink); color: rgba(255,255,255,0.7); padding: 28px 24px; font-size: 0.75rem; letter-spacing: 0.05em; line-height: 1.9; }
+.note-bar-inner { max-width: 640px; margin: 0 auto; }
+.note-bar-inner p { margin-bottom: 8px; }
+.note-bar-inner p:last-child { margin-bottom: 0; }
 .note-bar a { color: rgba(255,255,255,0.9); }
 
 /* REVEAL */
@@ -465,9 +468,14 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 
 <!-- NOTE BAR -->
 <div class="note-bar">
-  ※ メニュー・価格は近日公開予定です。最新情報は
-  <a href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener">Instagram @kojun_kobe</a>
-  にてご確認ください。
+  <div class="note-bar-inner">
+    <p>※ メニュー・価格は近日公開予定です。最新情報は
+    <a href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener">Instagram @kojun_kobe</a>
+    にてご確認ください。</p>
+    <p>※ 時間帯によって、ご注文いただけるメニューが異なります。</p>
+    <p>※ アラカルトは、コースのメニューをもとに構成しています。</p>
+    <p>※ コースは2ヶ月に1回内容が変わるため、アラカルトの内容もあわせて変わります。</p>
+  </div>
 </div>
 
 <!-- MORE PAGES -->
