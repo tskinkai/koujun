@@ -9,293 +9,503 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F8F6F3;--bg2:#F0EDE8;--white:#FFFFFF;--ink:#1A1A1A;--gold:#8B3A1A;--gold2:#A04520;--muted:#6B6560;--rule:rgba(0,0,0,0.1);}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--ink);background:var(--bg);line-height:1.85;-webkit-font-smoothing:antialiased;}
-h1,h2,h3,h4{font-family:'Noto Serif JP',serif;font-weight:400;letter-spacing:.02em;}
-a{color:inherit;text-decoration:none;}
-.container{max-width:1120px;margin:0 auto;padding:0 32px;}
-.eyebrow{font-size:.75rem;letter-spacing:.22em;color:var(--gold);margin-bottom:14px;display:block;}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:    #F8F6F3;
+  --bg2:   #F0EDE8;
+  --white: #FFFFFF;
+  --ink:   #1A1A1A;
+  --gold:  #8B3A1A;
+  --gold2: #A04520;
+  --muted: #6B6560;
+  --rule:  rgba(0,0,0,0.1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans JP', sans-serif; background: var(--white); color: var(--ink); font-weight: 300; line-height: 1.8; overflow-x: hidden; }
+a { color: inherit; }
+img, svg { max-width: 100%; display: block; }
 
-/* NAV (shared) */
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(248,246,243,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);}
-.nav-inner{max-width:1120px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-family:'Noto Serif JP',serif;font-size:1.25rem;letter-spacing:.18em;color:var(--ink);}
-.logo span{color:var(--gold);}
-.nav-links{display:flex;gap:30px;align-items:center;font-size:.82rem;letter-spacing:.04em;}
-.nav-links a{position:relative;padding:4px 0;color:var(--ink);}
-.nav-links a.active{color:var(--gold);}
-.nav-cta{background:var(--gold);color:var(--white);padding:10px 22px;border-radius:2px;font-size:.78rem;letter-spacing:.1em;transition:background .25s;white-space:nowrap;}
-.nav-cta:hover{background:var(--gold2);}
-.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
-.nav-toggle span{width:22px;height:1px;background:var(--ink);display:block;}
-@media (max-width:900px){
-  .nav-links{position:fixed;top:63px;left:0;right:0;background:var(--white);flex-direction:column;align-items:flex-start;padding:24px 32px;gap:18px;border-bottom:1px solid var(--rule);transform:translateY(-8px);opacity:0;pointer-events:none;transition:all .25s;}
-  .nav-links.open{opacity:1;transform:translateY(0);pointer-events:auto;}
-  .nav-toggle{display:flex;}
-  .nav-cta{order:99;}
+/* NAV (共通) */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; display: flex; justify-content: space-between; align-items: center; padding: 0 56px; background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
+.nav-logo { font-family: 'Noto Serif JP', serif; font-size: 0.95rem; color: var(--ink); letter-spacing: 0.16em; text-decoration: none; }
+.nav-center { display: flex; gap: 32px; list-style: none; }
+.nav-center a { font-size: 0.7rem; letter-spacing: 0.2em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-center a:hover, .nav-center a.active { color: var(--gold); }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-cta { font-size: 0.68rem; letter-spacing: 0.2em; color: var(--white); background: var(--ink); padding: 9px 22px; text-decoration: none; transition: background 0.25s; white-space: nowrap; }
+.nav-cta:hover { background: var(--gold2); }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
+.nav-toggle span { width: 20px; height: 1px; background: var(--ink); display: block; }
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-center { flex-direction: column; align-items: flex-start; gap: 0; position: fixed; top: 64px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--rule); padding: 4px 24px 16px; transform: translateY(-8px); opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; }
+  .nav-center.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .nav-center a { display: block; padding: 14px 0; font-size: 0.75rem; border-bottom: 1px solid var(--rule); }
+  .nav-toggle { display: flex; }
 }
 
-/* PAGE HERO */
-.page-hero{padding:150px 0 60px;text-align:center;background:var(--bg2);border-bottom:1px solid var(--rule);}
-.page-hero h1{font-size:1.9rem;margin-bottom:10px;}
-.page-hero p{color:var(--muted);font-size:.88rem;}
-
 /* NOTICE BAR */
-.notice{background:#F3E4DA;border-bottom:1px solid var(--rule);padding:14px 0;text-align:center;font-size:.82rem;color:var(--gold2);}
+.notice { margin-top: 64px; background: #F3E4DA; border-bottom: 1px solid var(--rule); padding: 14px 24px; text-align: center; font-size: 0.78rem; letter-spacing: 0.04em; color: var(--gold2); }
 
-/* TABS */
-.tabs-nav{position:sticky;top:63px;z-index:900;background:var(--bg);border-bottom:1px solid var(--rule);display:flex;justify-content:center;gap:8px;padding:0;}
-.tabs-nav button{background:none;border:none;padding:20px 28px;font-family:'Noto Serif JP',serif;font-size:.95rem;color:var(--muted);cursor:pointer;position:relative;letter-spacing:.05em;}
-.tabs-nav button.active{color:var(--gold);}
-.tabs-nav button.active::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:2px;background:var(--gold);}
-.tab-panel{display:none;padding:80px 0;}
-.tab-panel.active{display:block;}
+/* PAGE HERO */
+.page-hero { padding: 80px 80px; border-bottom: 1px solid var(--rule); background: var(--bg); }
+.page-hero-label { display: block; font-size: 0.6rem; letter-spacing: 0.45em; color: var(--gold); margin-bottom: 16px; }
+.page-hero-title { font-family: 'Noto Serif JP', serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 300; letter-spacing: 0.12em; line-height: 1.3; color: var(--ink); margin-bottom: 20px; }
+.page-hero-desc { font-size: 0.875rem; line-height: 2.1; color: var(--muted); max-width: 560px; }
 
-/* COURSE */
-.course-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
-.course-card{background:var(--white);border:1px solid var(--rule);padding:32px;}
-.course-card .step{font-size:.72rem;letter-spacing:.15em;color:var(--gold);margin-bottom:8px;}
-.course-card h3{font-size:1.15rem;margin-bottom:10px;}
-.course-card p{color:var(--muted);font-size:.86rem;}
-.course-info{max-width:640px;margin:56px auto 0;background:var(--bg2);padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:center;}
-.course-info div span{display:block;font-size:.72rem;color:var(--muted);letter-spacing:.1em;margin-bottom:6px;}
-.course-info div strong{font-family:'Noto Serif JP',serif;font-size:1.15rem;color:var(--gold2);}
-@media (max-width:900px){.course-grid{grid-template-columns:1fr;}.course-info{grid-template-columns:1fr;}}
+/* TAB NAV */
+.tab-nav { position: sticky; top: 64px; z-index: 100; background: var(--white); border-bottom: 1px solid var(--rule); display: flex; }
+.tab-btn { flex: 1; padding: 20px 0; font-size: 0.75rem; letter-spacing: 0.22em; color: var(--muted); background: none; border: none; cursor: pointer; transition: color 0.2s, border-color 0.2s; border-bottom: 2px solid transparent; font-family: 'Noto Sans JP', sans-serif; font-weight: 300; }
+.tab-btn.active { color: var(--ink); border-bottom-color: var(--gold); }
+.tab-btn:hover { color: var(--ink); }
+
+/* SECTION UTILS */
+.sec { padding: 80px; max-width: 1160px; margin: 0 auto; }
+.sec-label { display: block; font-size: 0.58rem; letter-spacing: 0.45em; color: var(--gold); margin-bottom: 14px; }
+.sec-heading { font-family: 'Noto Serif JP', serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 300; letter-spacing: 0.1em; line-height: 1.5; color: var(--ink); margin-bottom: 12px; }
+.sec-sub { font-size: 0.83rem; line-height: 2; color: var(--muted); margin-bottom: 56px; max-width: 540px; }
+.sec-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; font-size: 0.68rem; letter-spacing: 0.28em; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(160,120,64,0.35); padding-bottom: 3px; transition: opacity 0.2s; }
+.sec-link:hover { opacity: 0.65; }
+.sec-link::after { content: '→'; }
+.divider { border: none; border-top: 1px solid var(--rule); margin: 0 80px; }
+
+/* PHOTO PLACEHOLDER */
+.photo-ph { position: relative; overflow: hidden; background: var(--bg2); display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; }
+.photo-ph-swap { position: absolute; inset: auto 0 0 0; background: rgba(26,26,26,0.6); color: rgba(255,255,255,0.92); font-size: 0.62rem; letter-spacing: 0.1em; padding: 8px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px; opacity: 0; transition: opacity 0.2s; cursor: pointer; }
+.photo-ph:hover .photo-ph-swap { opacity: 1; }
+
+/* COURSE DISHES */
+.dish-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.dish-card { background: var(--white); transition: background 0.3s; }
+.dish-card:hover { background: var(--bg); }
+.dish-img-wrap { position: relative; overflow: hidden; }
+.dish-img-wrap .photo-ph { width: 100%; aspect-ratio: 4/3; }
+.dish-num { position: absolute; top: 14px; left: 14px; font-family: 'Noto Serif JP', serif; font-size: 0.75rem; letter-spacing: 0.18em; color: var(--white); background: rgba(0,0,0,0.38); padding: 4px 10px; z-index: 2; }
+.dish-info { padding: 24px 28px 32px; }
+.dish-en { display: block; font-size: 0.6rem; letter-spacing: 0.38em; color: var(--gold); margin-bottom: 8px; }
+.dish-name { font-family: 'Noto Serif JP', serif; font-size: 1.05rem; font-weight: 400; letter-spacing: 0.1em; color: var(--ink); margin-bottom: 10px; }
+.dish-desc { font-size: 0.8rem; line-height: 1.9; color: var(--muted); }
+
+/* COURSE INFO BOX */
+.course-info { margin-top: 48px; background: var(--bg); border: 1px solid var(--rule); padding: 36px 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.course-info-label { font-size: 0.62rem; letter-spacing: 0.28em; color: var(--gold); display: block; margin-bottom: 8px; }
+.course-info-val { font-family: 'Noto Serif JP', serif; font-size: 0.95rem; font-weight: 300; color: var(--ink); line-height: 1.7; }
 
 /* ALACARTE */
-.ac-category{margin-bottom:56px;}
-.ac-category h3{font-size:1.15rem;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--rule);}
-.ac-list{display:grid;grid-template-columns:1fr 1fr;gap:16px 32px;}
-.ac-item{display:flex;justify-content:space-between;font-size:.9rem;padding:10px 0;border-bottom:1px dashed var(--rule);}
-.ac-item .name{color:var(--ink);}
-.ac-item .price{color:var(--muted);white-space:nowrap;margin-left:16px;}
-@media (max-width:600px){.ac-list{grid-template-columns:1fr;}}
+.alacarte-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 64px; }
+.alacarte-header { border-bottom: 1px solid var(--rule); padding-bottom: 14px; margin-bottom: 20px; display: flex; align-items: baseline; gap: 14px; }
+.alacarte-en { font-size: 0.6rem; letter-spacing: 0.38em; color: var(--gold); }
+.alacarte-category { font-family: 'Noto Serif JP', serif; font-size: 1rem; font-weight: 400; letter-spacing: 0.1em; color: var(--ink); }
+.alacarte-items { display: flex; flex-direction: column; gap: 0; }
+.alacarte-item { padding: 14px 0; border-bottom: 1px solid var(--rule); }
+.alacarte-item:last-child { border-bottom: none; }
+.alacarte-item-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; gap: 12px; }
+.alacarte-name { font-size: 0.875rem; color: var(--ink); letter-spacing: 0.05em; }
+.alacarte-price { font-size: 0.68rem; letter-spacing: 0.14em; color: var(--gold); white-space: nowrap; }
+.alacarte-item-desc { font-size: 0.75rem; line-height: 1.7; color: var(--muted); }
 
-.original-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
-.original-card{background:var(--white);border:1px solid var(--rule);padding:0;overflow:hidden;position:relative;}
-.original-visual{aspect-ratio:4/3;background:var(--bg2);display:flex;align-items:center;justify-content:center;position:relative;}
-.original-visual svg{width:64px;height:64px;opacity:.55;}
-.swap-btn{position:absolute;inset:0;background:rgba(26,26,26,.55);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.78rem;opacity:0;transition:opacity .25s;cursor:pointer;}
-.original-visual:hover .swap-btn{opacity:1;}
-.original-body{padding:22px 24px;}
-.original-body h4{font-size:1rem;margin-bottom:8px;}
-.original-body p{font-size:.83rem;color:var(--muted);}
-@media (max-width:900px){.original-grid{grid-template-columns:1fr;}}
+/* アラカルト写真付きアイテム（香醇オリジナル） */
+.alacarte-item--photo { display: grid; grid-template-columns: 140px 1fr; gap: 20px; align-items: start; }
+.alacarte-item--photo .photo-ph { width: 140px; height: 105px; }
+.alacarte-item-body { flex: 1; }
+@media (max-width: 600px) { .alacarte-item--photo { grid-template-columns: 100px 1fr; gap: 14px; } .alacarte-item--photo .photo-ph { width: 100px; height: 75px; } }
 
 /* WINE */
-.wine{background:var(--bg2);padding:80px 0;text-align:center;}
-.wine h2{font-size:1.6rem;margin-bottom:24px;}
-.wine p{color:var(--muted);font-size:.9rem;max-width:640px;margin:0 auto;}
+.wine-section-bg { background: var(--bg); border-top: 1px solid var(--rule); }
+.wine-note { font-size: 0.8rem; line-height: 2; color: var(--muted); border-left: 2px solid var(--gold); padding-left: 20px; margin-top: 32px; }
 
-/* FOOTER */
-.footer{background:var(--ink);color:#D9D5CF;padding:64px 0 28px;}
-.footer .container{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:48px;}
-.footer .f-logo{font-family:'Noto Serif JP',serif;color:var(--white);font-size:1.15rem;letter-spacing:.15em;margin-bottom:16px;}
-.footer .f-logo span{color:#C77B4E;}
-.footer p.addr{font-size:.8rem;color:#A8A29A;max-width:280px;}
-.footer h4{color:var(--white);font-size:.85rem;letter-spacing:.1em;margin-bottom:18px;font-weight:400;}
-.footer a{color:#B8B3AC;font-size:.85rem;display:block;margin-bottom:10px;}
-.footer a:hover{color:var(--white);}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:22px;text-align:center;font-size:.72rem;color:#8A857D;}
-@media (max-width:900px){.footer .container{grid-template-columns:1fr;gap:32px;}}
+/* NOTE BAR */
+.note-bar { background: var(--ink); color: rgba(255,255,255,0.7); text-align: center; padding: 16px 24px; font-size: 0.75rem; letter-spacing: 0.12em; line-height: 1.8; }
+.note-bar a { color: rgba(255,255,255,0.9); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* FOOTER（共通） */
+footer { background: #1A1A1A; padding: 64px 80px 36px; }
+.footer-top { display: grid; grid-template-columns: auto 1fr auto; gap: 80px; align-items: start; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.footer-logo { font-family: 'Noto Serif JP', serif; font-size: 1rem; color: #C8A96E; letter-spacing: 0.16em; margin-bottom: 12px; }
+.footer-address { font-size: 0.73rem; line-height: 2; color: rgba(255,255,255,0.38); }
+.footer-nav { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-nav a { font-size: 0.7rem; letter-spacing: 0.18em; color: rgba(255,255,255,0.42); text-decoration: none; transition: color 0.2s; }
+.footer-nav a:hover { color: #C8A96E; }
+.footer-sns { display: flex; gap: 12px; }
+.footer-sns a { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.38); transition: border-color 0.2s, color 0.2s; text-decoration: none; }
+.footer-sns a:hover { border-color: #C8A96E; color: #C8A96E; }
+.footer-sns svg { width: 16px; height: 16px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; flex-wrap: wrap; gap: 10px; }
+.footer-copy { font-size: 0.63rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.28); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .page-hero { padding: 56px 24px; }
+  .sec { padding: 56px 24px; }
+  .divider { margin: 0 24px; }
+  .dish-grid { grid-template-columns: 1fr; }
+  .course-info { grid-template-columns: 1fr 1fr; gap: 24px; padding: 24px; }
+  .alacarte-grid { grid-template-columns: 1fr; gap: 36px; }
+  footer { padding: 48px 24px 32px; }
+  .footer-top { grid-template-columns: 1fr; gap: 36px; }
+}
+@media (max-width: 600px) {
+  .dish-grid { grid-template-columns: 1fr; }
+  .course-info { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">香<span>醇</span> KOUJUN</a>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">ホーム</a>
-      <a href="index.html#concept">コンセプト</a>
-      <a href="menu.html" class="active">メニュー</a>
-      <a href="index.html#gallery">ギャラリー</a>
-      <a href="index.html#chef">店主紹介</a>
-      <a href="index.html#info">店舗情報</a>
-      <a href="news.html">お知らせ</a>
-      <a href="reservation.html" class="nav-cta">ご予約はこちら</a>
-    </div>
-    <button class="nav-toggle" id="navToggle" aria-label="menu"><span></span><span></span><span></span></button>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">中國菜 香醇</a>
+  <ul class="nav-center" id="navCenter">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">香醇について</a></li>
+    <li><a href="course.html">コース</a></li>
+    <li><a href="menu.html" class="active">メニュー</a></li>
+    <li><a href="access.html">アクセス</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="nav-cta" href="reserve.html">ご予約はこちら</a>
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <div class="notice">現在開業準備中です。価格・内容は変更となる場合がございます。</div>
 
-<header class="page-hero">
-  <span class="eyebrow">MENU</span>
-  <h1>料理とワインについて</h1>
-  <p>素材の香りを活かしたお料理と、それを引き立てるワインをご用意します。</p>
-</header>
-
-<div class="tabs-nav">
-  <button class="active" data-tab="course">おまかせコース</button>
-  <button data-tab="alacarte">アラカルト</button>
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <span class="page-hero-label">MENU</span>
+  <h1 class="page-hero-title">料理と<br>ワインについて</h1>
+  <p class="page-hero-desc">
+    中華料理とワインを通じて、食卓に豊かな時間をお届けします。<br>
+    おまかせコースとアラカルト、お好みのスタイルでお楽しみください。<br>
+    詳細なメニューと価格は開業時に正式公開予定です。
+  </p>
 </div>
 
-<section class="tab-panel active" id="course" >
-  <div class="container">
-    <div class="course-grid">
-      <div class="course-card"><span class="step">01 ／ 前菜</span><h3>前菜三種盛り</h3><p>季節の食材を使った小さな前菜を三種、少しずつお楽しみいただけます。</p></div>
-      <div class="course-card"><span class="step">02 ／ スープ</span><h3>香り高い薬膳スープ</h3><p>じっくり煮込んだ滋味深いスープで、コースの始まりを整えます。</p></div>
-      <div class="course-card"><span class="step">03 ／ 魚</span><h3>本日の魚料理</h3><p>その日仕入れた魚を、素材の香りを活かした調理法でご提供します。</p></div>
-      <div class="course-card"><span class="step">04 ／ 肉</span><h3>厳選肉の一品</h3><p>火入れにこだわった肉料理。ワインとの相性を考えた味付けです。</p></div>
-      <div class="course-card"><span class="step">05 ／ 点心</span><h3>手作り点心</h3><p>店主が仕上げる点心を、蒸し立てでお楽しみいただきます。</p></div>
-      <div class="course-card"><span class="step">06 ／ 御飯</span><h3>看板炒飯</h3><p>コースの締めに、香醇自慢の一皿をコンパクトにご用意します。</p></div>
-    </div>
-    <div class="course-info">
-      <div><span>料金</span><strong>開業後に公開予定</strong></div>
-      <div><span>所要時間</span><strong>約120分</strong></div>
-      <div><span>ワインペアリング</span><strong>ご用意可能</strong></div>
-      <div><span>ご予約</span><strong>前日までにお願いします</strong></div>
-    </div>
-  </div>
-</section>
+<!-- TAB NAV -->
+<div class="tab-nav">
+  <button class="tab-btn active" id="tab-course" onclick="switchTab('course')">おまかせコース &nbsp; Course</button>
+  <button class="tab-btn" id="tab-alacarte" onclick="switchTab('alacarte')">アラカルト &nbsp; À La Carte</button>
+</div>
 
-<section class="tab-panel" id="alacarte">
-  <div class="container">
-
-    <div class="ac-category">
-      <h3>前菜</h3>
-      <div class="ac-list">
-        <div class="ac-item"><span class="name">よだれ鶏</span><span class="price">価格未定</span></div>
-        <div class="ac-item"><span class="name">香醇風前菜盛り合わせ</span><span class="price">価格未定</span></div>
-        <div class="ac-item"><span class="name">季節野菜の和え物</span><span class="price">価格未定</span></div>
-        <div class="ac-item"><span class="name">自家製ザーサイ</span><span class="price">価格未定</span></div>
-      </div>
-    </div>
-
-    <div class="ac-category">
-      <h3>点心・蒸し物</h3>
-      <div class="ac-list">
-        <div class="ac-item"><span class="name">小籠包</span><span class="price">価格未定</span></div>
-        <div class="ac-item"><span class="name">海老蒸し餃子</span><span class="price">価格未定</span></div>
-        <div class="ac-item"><span class="name">焼売</span><span class="price">価格未定</span></div>
-        <div class="ac-item"><span class="name">蒸し鶏の香味ソース</span><span class="price">価格未定</span></div>
-      </div>
-    </div>
-
-    <div class="ac-category">
-      <h3>炒め物・揚げ物</h3>
-      <div class="ac-list">
-        <div class="ac-item"><span class="name">青椒肉絲</span><span class="price">価格未定</span></div>
-        <div class="ac-item"><span class="name">酢豚</span><span class="price">価格未定</span></div>
-        <div class="ac-item"><span class="name">海鮮の中華炒め</span><span class="price">価格未定</span></div>
-        <div class="ac-item"><span class="name">唐揚げ 香醇風</span><span class="price">価格未定</span></div>
-      </div>
-    </div>
-
-    <div class="ac-category">
-      <h3>御飯・麺</h3>
-      <div class="ac-list">
-        <div class="ac-item"><span class="name">貴兵衛の貴族チャーハン（小）</span><span class="price">価格未定</span></div>
-        <div class="ac-item"><span class="name">担々麺</span><span class="price">価格未定</span></div>
-        <div class="ac-item"><span class="name">五目焼きそば</span><span class="price">価格未定</span></div>
-        <div class="ac-item"><span class="name">季節の炊き込み御飯</span><span class="price">価格未定</span></div>
-      </div>
-    </div>
-
-    <div class="ac-category">
-      <h3 style="border-bottom:none;margin-bottom:8px;">香醇オリジナルメニュー</h3>
-      <p style="color:var(--muted);font-size:.85rem;margin-bottom:24px;">写真にマウスを合わせると、実写真への差し替えボタンが表示されます（ファイル未選択の場合はイラストのままです）。</p>
-      <div class="original-grid">
-        <div class="original-card">
-          <div class="original-visual">
-            <svg viewBox="0 0 64 64" fill="none"><path d="M8 40h48v6a8 8 0 01-8 8H16a8 8 0 01-8-8v-6z" stroke="#8B3A1A" stroke-width="2"/><path d="M14 40c0-10 8-18 18-18s18 8 18 18" stroke="#8B3A1A" stroke-width="2"/></svg>
-            <label class="swap-btn">写真を差し替える<input type="file" accept="image/*" style="display:none" data-swap></label>
+<!-- COURSE SECTION -->
+<div id="section-course">
+  <section class="sec">
+    <span class="sec-label">COURSE</span>
+    <h2 class="sec-heading">おまかせコース</h2>
+    <p class="sec-sub">
+      旬の食材と丁寧な仕込みによる中華料理を、コースでお楽しみいただきます。<br>
+      香りと味わいの変化を感じながら、料理とワインのペアリングをご堪能ください。
+    </p>
+    <div class="dish-grid">
+      <div class="dish-card reveal">
+        <div class="dish-img-wrap">
+          <div class="photo-ph" id="ph-c1">
+            <!-- PHOTO PLACEHOLDER: 前菜 三種盛り -->
+            <span class="dish-num">01</span>
+            <label class="photo-ph-swap" for="upload-c1">写真を差し替える</label>
+            <input type="file" id="upload-c1" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c1')">
           </div>
-          <div class="original-body"><h4>マーライオン豆腐</h4><p>豆腐の上から特製甘辛ソースが流れ落ちる、マーライオンの放水から着想した一品。</p></div>
         </div>
-        <div class="original-card">
-          <div class="original-visual">
-            <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="34" rx="24" ry="14" stroke="#8B3A1A" stroke-width="2"/><path d="M12 34c0 8 9 14 20 14s20-6 20-14" stroke="#8B3A1A" stroke-width="2"/></svg>
-            <label class="swap-btn">写真を差し替える<input type="file" accept="image/*" style="display:none" data-swap></label>
-          </div>
-          <div class="original-body"><h4>貴兵衛の貴族チャーハン</h4><p>店主「貴」泰の名を冠した看板チャーハン。贅沢な具材と高温仕上げで香りを最大限に。</p></div>
-        </div>
-        <div class="original-card">
-          <div class="original-visual">
-            <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="20" stroke="#8B3A1A" stroke-width="2"/><path d="M22 32h20M32 22v20" stroke="#8B3A1A" stroke-width="2"/></svg>
-            <label class="swap-btn">写真を差し替える<input type="file" accept="image/*" style="display:none" data-swap></label>
-          </div>
-          <div class="original-body"><h4>あま辛大マヨ大</h4><p>唐揚げに自家製甘辛だれとマヨネーズをたっぷりと。やみつきになる一皿。</p></div>
-        </div>
-        <div class="original-card">
-          <div class="original-visual">
-            <svg viewBox="0 0 64 64" fill="none"><rect x="14" y="18" width="36" height="28" rx="4" stroke="#8B3A1A" stroke-width="2"/><path d="M20 46l6 8M44 46l-6 8" stroke="#8B3A1A" stroke-width="2"/></svg>
-            <label class="swap-btn">写真を差し替える<input type="file" accept="image/*" style="display:none" data-swap></label>
-          </div>
-          <div class="original-body"><h4>鳥塩大マヨ大</h4><p>塩ダレの鶏肉にレモンとマヨネーズを合わせた、あっさりながら深みのある味わい。</p></div>
+        <div class="dish-info">
+          <span class="dish-en">Assorted Appetizers</span>
+          <h3 class="dish-name">前菜 三種盛り</h3>
+          <p class="dish-desc">季節の食材を使った小さな前菜を三種、少しずつお楽しみいただけます。香醇らしい香りと彩りで、コースの幕開けを飾ります。</p>
         </div>
       </div>
+      <div class="dish-card reveal">
+        <div class="dish-img-wrap">
+          <div class="photo-ph" id="ph-c2">
+            <!-- PHOTO PLACEHOLDER: 香り高い薬膳スープ -->
+            <span class="dish-num">02</span>
+            <label class="photo-ph-swap" for="upload-c2">写真を差し替える</label>
+            <input type="file" id="upload-c2" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c2')">
+          </div>
+        </div>
+        <div class="dish-info">
+          <span class="dish-en">Soup</span>
+          <h3 class="dish-name">香り高い薬膳スープ</h3>
+          <p class="dish-desc">じっくり煮込んだ滋味深いスープで、コースの始まりを整えます。ほっとひと息つける優しい味わいです。</p>
+        </div>
+      </div>
+      <div class="dish-card reveal">
+        <div class="dish-img-wrap">
+          <div class="photo-ph" id="ph-c3">
+            <!-- PHOTO PLACEHOLDER: 本日の魚料理 -->
+            <span class="dish-num">03</span>
+            <label class="photo-ph-swap" for="upload-c3">写真を差し替える</label>
+            <input type="file" id="upload-c3" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c3')">
+          </div>
+        </div>
+        <div class="dish-info">
+          <span class="dish-en">Fish</span>
+          <h3 class="dish-name">本日の魚料理</h3>
+          <p class="dish-desc">その日仕入れた魚を、素材の香りを活かした調理法でご提供します。旨みを最大限に引き出した一皿です。</p>
+        </div>
+      </div>
+      <div class="dish-card reveal">
+        <div class="dish-img-wrap">
+          <div class="photo-ph" id="ph-c4">
+            <!-- PHOTO PLACEHOLDER: 厳選肉の一品 -->
+            <span class="dish-num">04</span>
+            <label class="photo-ph-swap" for="upload-c4">写真を差し替える</label>
+            <input type="file" id="upload-c4" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c4')">
+          </div>
+        </div>
+        <div class="dish-info">
+          <span class="dish-en">Meat</span>
+          <h3 class="dish-name">厳選肉の一品</h3>
+          <p class="dish-desc">火入れにこだわった肉料理。ワインとの相性を考えた味付けで、柔らかく深いコクをお楽しみください。</p>
+        </div>
+      </div>
+      <div class="dish-card reveal">
+        <div class="dish-img-wrap">
+          <div class="photo-ph" id="ph-c5">
+            <!-- PHOTO PLACEHOLDER: 手作り点心 -->
+            <span class="dish-num">05</span>
+            <label class="photo-ph-swap" for="upload-c5">写真を差し替える</label>
+            <input type="file" id="upload-c5" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c5')">
+          </div>
+        </div>
+        <div class="dish-info">
+          <span class="dish-en">Dim Sum</span>
+          <h3 class="dish-name">手作り点心</h3>
+          <p class="dish-desc">店主が仕上げる点心を、蒸し立てでお楽しみいただきます。薄皮の中に旨みをぎゅっと閉じ込めた一品です。</p>
+        </div>
+      </div>
+      <div class="dish-card reveal">
+        <div class="dish-img-wrap">
+          <div class="photo-ph" id="ph-c6">
+            <!-- PHOTO PLACEHOLDER: 看板炒飯 -->
+            <span class="dish-num">06</span>
+            <label class="photo-ph-swap" for="upload-c6">写真を差し替える</label>
+            <input type="file" id="upload-c6" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c6')">
+          </div>
+        </div>
+        <div class="dish-info">
+          <span class="dish-en">Rice</span>
+          <h3 class="dish-name">看板炒飯</h3>
+          <p class="dish-desc">コースの締めに、香醇自慢の一皿をコンパクトにご用意します。素朴でいて、記憶に残る味です。</p>
+        </div>
+      </div>
     </div>
 
-  </div>
-</section>
+    <div class="course-info reveal">
+      <div><span class="course-info-label">料金</span><p class="course-info-val">開業後に公開予定</p></div>
+      <div><span class="course-info-label">所要時間</span><p class="course-info-val">約120分</p></div>
+      <div><span class="course-info-label">ワインペアリング</span><p class="course-info-val">ご用意可能</p></div>
+      <div><span class="course-info-label">ご予約</span><p class="course-info-val">前日までにお願いします</p></div>
+    </div>
+    <a class="sec-link" href="course.html">コースページで詳しく見る</a>
+  </section>
+</div>
 
-<section class="wine">
-  <div class="container">
-    <span class="eyebrow">WINE</span>
-    <h2>料理を引き立てるワイン</h2>
-    <p>中華料理とワインは、実は相性の良い組み合わせです。香醇では、油の香りや香辛料の風味に寄り添う赤・白・自然派ワインを中心に、一皿ごとに楽しめるペアリングをご用意する予定です。詳細は開業後に公開いたします。</p>
-  </div>
-</section>
+<!-- ALACARTE SECTION -->
+<div id="section-alacarte" style="display:none;">
+  <section class="sec">
+    <span class="sec-label">À LA CARTE</span>
+    <h2 class="sec-heading">アラカルト</h2>
+    <p class="sec-sub">
+      香醇の料理を一品ずつお楽しみいただけます。<br>
+      お好みのワインと組み合わせながら、気軽に中華料理の世界をお楽しみください。
+    </p>
+    <div class="alacarte-grid">
+      <div class="alacarte-section reveal">
+        <div class="alacarte-header"><span class="alacarte-en">Appetizers</span><h3 class="alacarte-category">前菜</h3></div>
+        <div class="alacarte-items">
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">よだれ鶏</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">花椒の痺れとラー油の香りが効いた、しっとり蒸し鶏の定番前菜。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">香醇風前菜盛り合わせ</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">季節の小皿を少しずつ。会話の始まりにぴったりの盛り合わせ。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">季節野菜の和え物</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">その時期ならではの野菜を、香り高いタレでさっぱりと。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">自家製ザーサイ</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">じっくり漬け込んだ自家製ザーサイ。箸休めの一品。</p></div>
+        </div>
+      </div>
+      <div class="alacarte-section reveal">
+        <div class="alacarte-header"><span class="alacarte-en">Dim Sum</span><h3 class="alacarte-category">点心・蒸し物</h3></div>
+        <div class="alacarte-items">
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">小籠包</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">薄皮を割ると溢れ出す、熱々の肉汁が自慢の一品。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">海老蒸し餃子</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">プリプリの海老を包んだ、見た目にも美しい蒸し餃子。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">焼売</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">粗みじんの肉の食感を活かした、香醇の焼売。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">蒸し鶏の香味ソース</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">しっとり蒸し上げた鶏に、香味野菜たっぷりのソースを。</p></div>
+        </div>
+      </div>
+      <div class="alacarte-section reveal">
+        <div class="alacarte-header"><span class="alacarte-en">Main Dishes</span><h3 class="alacarte-category">炒め物・揚げ物</h3></div>
+        <div class="alacarte-items">
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">青椒肉絲</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">細切りにした肉とピーマンを、香ばしく強火で炒め上げて。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">酢豚</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">カリッと揚げた豚肉に、甘酸っぱい特製ソースを絡めた定番。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">海鮮の中華炒め</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">その日の魚介を、旨みを閉じ込めるように手早く炒めます。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">唐揚げ 香醇風</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">香醇特製の下味でカリッと揚げた、香り高い唐揚げ。</p></div>
+        </div>
+      </div>
+      <div class="alacarte-section reveal">
+        <div class="alacarte-header"><span class="alacarte-en">Rice &amp; Noodles</span><h3 class="alacarte-category">御飯・麺</h3></div>
+        <div class="alacarte-items">
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">貴兵衛の貴族チャーハン（小）</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">看板チャーハンの小サイズ。〆の一品としても。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">担々麺</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">濃厚な胡麻とラー油の香りが広がる、香醇の担々麺。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">五目焼きそば</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">香ばしく炒めた麺に、彩り豊かな具材をたっぷりと。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">季節の炊き込み御飯</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">旬の食材を炊き込んだ、優しい味わいの御飯。</p></div>
+        </div>
+      </div>
+      <div class="alacarte-section reveal" style="grid-column: 1 / -1;">
+        <div class="alacarte-header"><span class="alacarte-en">Originals</span><h3 class="alacarte-category">香醇オリジナルメニュー</h3></div>
+        <p style="font-size:0.78rem;color:var(--muted);margin-bottom:20px;">写真にマウスを合わせると、実写真への差し替えボタンが表示されます（未着手のため現在はプレースホルダーです）。</p>
+        <div class="alacarte-items" style="display:grid;grid-template-columns:1fr 1fr;gap:20px 40px;">
+          <div class="alacarte-item alacarte-item--photo">
+            <div class="photo-ph" id="ph-o1">
+              <!-- PHOTO PLACEHOLDER: マーライオン豆腐 -->
+              <label class="photo-ph-swap" for="upload-o1">差し替え</label>
+              <input type="file" id="upload-o1" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-o1')">
+            </div>
+            <div class="alacarte-item-body">
+              <div class="alacarte-item-top"><span class="alacarte-name">マーライオン豆腐</span><span class="alacarte-price">価格未定</span></div>
+              <p class="alacarte-item-desc">豆腐の上から特製甘辛ソースが流れ落ちる、マーライオンの放水から着想した一品。</p>
+            </div>
+          </div>
+          <div class="alacarte-item alacarte-item--photo">
+            <div class="photo-ph" id="ph-o2">
+              <!-- PHOTO PLACEHOLDER: 貴兵衛の貴族チャーハン -->
+              <label class="photo-ph-swap" for="upload-o2">差し替え</label>
+              <input type="file" id="upload-o2" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-o2')">
+            </div>
+            <div class="alacarte-item-body">
+              <div class="alacarte-item-top"><span class="alacarte-name">貴兵衛の貴族チャーハン</span><span class="alacarte-price">価格未定</span></div>
+              <p class="alacarte-item-desc">店主「貴」泰の名を冠した看板チャーハン。贅沢な具材と高温仕上げで香りを最大限に。</p>
+            </div>
+          </div>
+          <div class="alacarte-item alacarte-item--photo">
+            <div class="photo-ph" id="ph-o3">
+              <!-- PHOTO PLACEHOLDER: あま辛大マヨ大 -->
+              <label class="photo-ph-swap" for="upload-o3">差し替え</label>
+              <input type="file" id="upload-o3" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-o3')">
+            </div>
+            <div class="alacarte-item-body">
+              <div class="alacarte-item-top"><span class="alacarte-name">あま辛大マヨ大</span><span class="alacarte-price">価格未定</span></div>
+              <p class="alacarte-item-desc">唐揚げに自家製甘辛だれとマヨネーズをたっぷりと。やみつきになる一皿。</p>
+            </div>
+          </div>
+          <div class="alacarte-item alacarte-item--photo">
+            <div class="photo-ph" id="ph-o4">
+              <!-- PHOTO PLACEHOLDER: 鳥塩大マヨ大 -->
+              <label class="photo-ph-swap" for="upload-o4">差し替え</label>
+              <input type="file" id="upload-o4" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-o4')">
+            </div>
+            <div class="alacarte-item-body">
+              <div class="alacarte-item-top"><span class="alacarte-name">鳥塩大マヨ大</span><span class="alacarte-price">価格未定</span></div>
+              <p class="alacarte-item-desc">塩ダレの鶏肉にレモンとマヨネーズを合わせた、あっさりながら深みのある味わい。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
-<footer class="footer">
-  <div class="container">
+<!-- WINE -->
+<div class="wine-section-bg">
+  <section class="sec">
+    <span class="sec-label reveal">WINE</span>
+    <h2 class="sec-heading reveal">料理を引き立てるワイン</h2>
+    <p class="sec-sub reveal">
+      中華料理とワインは、実は相性の良い組み合わせです。香醇では、油の香りや香辛料の風味に寄り添う赤・白・自然派ワインを中心に、一皿ごとに楽しめるペアリングをご用意する予定です。
+    </p>
+    <div class="wine-note reveal">
+      産地や品種を問わず、その日の料理に最もふさわしいワインをセレクトしています。<br>
+      グラスワインからボトルまで、スタッフにお気軽にご相談ください。詳細は開業後に公開いたします。
+    </div>
+  </section>
+</div>
+
+<!-- NOTE BAR -->
+<div class="note-bar">
+  ※ メニュー・価格は開業時に正式公開予定です。最新情報は
+  <a href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener">Instagram @kojun_kobe</a>
+  にてご確認ください。
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
     <div>
-      <div class="f-logo">香<span>醇</span> KOUJUN</div>
-      <p class="addr">〒650-0012 兵庫県神戸市中央区北長狭通１丁目２１−２１ 2TAKAIB.L D2F</p>
+      <p class="footer-logo">中國菜 香醇</p>
+      <p class="footer-address">〒650-0012<br>兵庫県神戸市中央区北長狭通１丁目２１−２１<br>2TAKAIB.L D2F</p>
     </div>
+    <ul class="footer-nav">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="about.html">香醇について</a></li>
+      <li><a href="course.html">コース</a></li>
+      <li><a href="menu.html">メニュー</a></li>
+      <li><a href="access.html">アクセス</a></li>
+      <li><a href="reserve.html">ご予約・お問い合わせ</a></li>
+      <li><a href="news.html">お知らせ</a></li>
+      <li><a href="privacy.html">プライバシーポリシー</a></li>
+    </ul>
     <div>
-      <h4>NAVIGATION</h4>
-      <a href="index.html">ホーム</a>
-      <a href="menu.html">メニュー</a>
-      <a href="news.html">お知らせ</a>
-      <a href="reservation.html">ご予約</a>
-      <a href="contact.html">お問い合わせ</a>
-    </div>
-    <div>
-      <h4>OTHER</h4>
-      <a href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener">Instagram</a>
-      <a href="privacy.html">プライバシーポリシー</a>
+      <p class="sec-label" style="color:rgba(247,243,236,0.3);margin-bottom:14px;">FOLLOW</p>
+      <div class="footer-sns">
+        <a href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="footer-bottom">&copy; 2026 中國菜 香醇（Koujun）</div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 中國菜 香醇 All rights reserved.</p>
+    <p class="footer-copy">店主 村川 貴泰</p>
+  </div>
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded',()=>{
-  const toggle=document.getElementById('navToggle');
-  const links=document.getElementById('navLinks');
-  if(toggle){toggle.addEventListener('click',()=>links.classList.toggle('open'));
-    links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));}
+  // Tab switching
+  function switchTab(tab) {
+    const course   = document.getElementById('section-course');
+    const alacarte = document.getElementById('section-alacarte');
+    const btnC = document.getElementById('tab-course');
+    const btnA = document.getElementById('tab-alacarte');
+    if (tab === 'course') {
+      course.style.display = 'block'; alacarte.style.display = 'none';
+      btnC.classList.add('active'); btnA.classList.remove('active');
+    } else {
+      course.style.display = 'none'; alacarte.style.display = 'block';
+      btnC.classList.remove('active'); btnA.classList.add('active');
+    }
+    document.querySelectorAll('.reveal').forEach(el => el.classList.remove('visible'));
+    setTimeout(() => document.querySelectorAll('.reveal').forEach(el => io.observe(el)), 50);
+  }
+  if (location.hash === '#alacarte') { switchTab('alacarte'); document.getElementById('tab-alacarte').classList.add('active'); document.getElementById('tab-course').classList.remove('active'); }
 
-  const tabBtns=document.querySelectorAll('.tabs-nav button');
-  const panels={course:document.getElementById('course'),alacarte:document.getElementById('alacarte')};
-  tabBtns.forEach(btn=>btn.addEventListener('click',()=>{
-    tabBtns.forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    Object.values(panels).forEach(p=>p.classList.remove('active'));
-    panels[btn.dataset.tab].classList.add('active');
-    history.replaceState(null,'','#'+btn.dataset.tab);
-  }));
-  if(location.hash==='#alacarte'){document.querySelector('[data-tab="alacarte"]').click();}
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  document.querySelectorAll('[data-swap]').forEach(input=>{
-    input.addEventListener('change',e=>{
-      const file=e.target.files[0];
-      if(!file)return;
-      const url=URL.createObjectURL(file);
-      const visual=input.closest('.original-visual');
-      visual.style.backgroundImage='url('+url+')';
-      visual.style.backgroundSize='cover';
-      visual.style.backgroundPosition='center';
-      visual.querySelector('svg').style.display='none';
-    });
-  });
-});
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navCenter = document.getElementById('navCenter');
+  if (navToggle) {
+    navToggle.addEventListener('click', () => navCenter.classList.toggle('open'));
+    navCenter.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navCenter.classList.remove('open')));
+  }
+
+  // 写真プレースホルダーの差し替え
+  function replacePhoto(input, phId) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const el = document.getElementById(phId);
+      el.style.backgroundImage = 'url(' + e.target.result + ')';
+      el.querySelectorAll('svg').forEach(s => s.style.display = 'none');
+    };
+    reader.readAsDataURL(file);
+  }
 </script>
 </body>
 </html>
