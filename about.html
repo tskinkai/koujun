@@ -90,6 +90,19 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 .concept-quote em { font-style: normal; color: var(--gold); }
 .concept-sig { font-size: 0.78rem; letter-spacing: 0.2em; color: var(--muted); }
 
+/* PROMISE */
+.promise-bg { background: var(--bg); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 48px; }
+.pillar-card { background: var(--white); padding: 40px 28px; position: relative; overflow: hidden; }
+.pillar-num-ja {
+  font-family: 'Noto Serif JP', serif; font-size: 7rem; font-weight: 300; line-height: 1; color: transparent;
+  -webkit-text-stroke: 1px rgba(0,0,0,0.07); position: absolute; top: 16px; right: 20px;
+  pointer-events: none; user-select: none;
+}
+.pillar-title { font-family: 'Noto Serif JP', serif; font-size: 1.05rem; font-weight: 400; letter-spacing: 0.1em; color: var(--ink); margin-bottom: 14px; }
+.pillar-title span { display: block; font-size: 0.58rem; letter-spacing: 0.38em; color: var(--gold); margin-bottom: 10px; font-family: 'Noto Sans JP', sans-serif; }
+.pillar-desc { font-size: 0.8rem; line-height: 2.1; color: var(--muted); }
+
 /* NAME */
 .name-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .name-logo-col { display: flex; align-items: center; justify-content: center; padding: 20px 40px; }
@@ -133,6 +146,7 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   .concept-wrap, .name-wrap, .chef-wrap { grid-template-columns: 1fr; gap: 40px; }
   .concept-text-col { padding-top: 0; }
   .concept-img { aspect-ratio: 16/9; }
+  .pillars-grid { grid-template-columns: 1fr; }
   footer { padding: 48px 24px 32px; }
   .footer-top { grid-template-columns: 1fr; gap: 36px; }
 }
@@ -204,6 +218,33 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
     </div>
   </div>
 </section>
+
+<!-- PROMISE -->
+<div class="promise-bg">
+  <section class="sec" id="promise">
+    <div class="reveal">
+      <span class="sec-label">PROMISE</span>
+      <h2 class="sec-heading">香醇が守る、<br>三つの約束。</h2>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <p class="pillar-num-ja">壱</p>
+          <p class="pillar-title"><span>中國菜</span>素材と仕込みに嘘をつかない</p>
+          <p class="pillar-desc">中華料理には、火の入れ方ひとつで表情が変わる繊細さがあります。香醇では、手間を省かず、素材が持つ本来の香りと旨みを丁寧に引き出すことを第一に考えます。はじめて中華料理を召し上がる方にも、食べ慣れた方にも、「これは特別だ」と感じていただける一皿を目指しています。</p>
+        </div>
+        <div class="pillar-card">
+          <p class="pillar-num-ja">弐</p>
+          <p class="pillar-title"><span>ワイン</span>料理の可能性を広げる一杯を</p>
+          <p class="pillar-desc">ワインは料理を引き立て、料理はワインを深める。産地や品種にこだわらず、その夜の料理に最もふさわしい一杯を選びます。「中華にワインなんて」と思っていた方が、その組み合わせの豊かさに気づいてくださる瞬間が、私たちにとって何より嬉しい瞬間です。</p>
+        </div>
+        <div class="pillar-card">
+          <p class="pillar-num-ja">参</p>
+          <p class="pillar-title"><span>空間・時間</span>食事の後も、記憶に残る場所へ</p>
+          <p class="pillar-desc">料理が美味しくても、空間が居心地よくなければ、人はまた来ようとは思わない。香醇では、料理とワインだけでなく、照明の角度、器の選び方、スタッフとの会話まで——すべてがひとつの体験になるよう、細部まで丁寧に整えます。帰り道に「また行きたい」と思っていただけることが、私たちの約束です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
 <hr class="divider">
 

@@ -187,28 +187,6 @@ nav {
 .photo-band-item { overflow: hidden; position: relative; }
 .photo-band-item + .photo-band-item { border-left: 1px solid var(--rule); }
 
-/* APPEAL / PROMISE */
-.appeal-bg { background: var(--bg); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.appeal-wrap { max-width: 1160px; margin: 0 auto; padding: 96px 80px; }
-.pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 48px; }
-.pillar-card { background: var(--white); padding: 40px 28px; position: relative; overflow: hidden; }
-.pillar-num-ja {
-  font-family: 'Noto Serif JP', serif; font-size: 7rem; font-weight: 300; line-height: 1; color: transparent;
-  -webkit-text-stroke: 1px rgba(0,0,0,0.07); position: absolute; top: 16px; right: 20px;
-  pointer-events: none; user-select: none;
-}
-.pillar-title { font-family: 'Noto Serif JP', serif; font-size: 1.05rem; font-weight: 400; letter-spacing: 0.1em; color: var(--ink); margin-bottom: 14px; }
-.pillar-title span { display: block; font-size: 0.58rem; letter-spacing: 0.38em; color: var(--gold); margin-bottom: 10px; font-family: 'Noto Sans JP', sans-serif; }
-.pillar-desc { font-size: 0.8rem; line-height: 2.1; color: var(--muted); }
-
-/* NAME */
-.name-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.name-logo-col { display: flex; align-items: center; justify-content: center; padding: 20px 40px; }
-.name-logo-col svg { width: 100%; max-width: 260px; }
-.name-body p { font-size: 0.875rem; line-height: 2.2; color: var(--muted); margin-bottom: 18px; }
-.name-body strong { font-weight: 400; color: var(--gold); }
-.name-em { font-style: normal; font-family: 'Noto Serif JP', serif; font-size: 1.15em; font-weight: 500; color: var(--ink); letter-spacing: 0.05em; }
-
 /* GALLERY SLIDER */
 .gallery-section { background: var(--white); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); overflow: hidden; }
 .gallery-track-outer { overflow: hidden; width: 100%; }
@@ -229,13 +207,6 @@ nav {
 .news-title { font-size: 0.83rem; line-height: 1.7; color: var(--ink); text-decoration: none; }
 .news-title:hover { color: var(--gold); }
 .news-links { display: flex; gap: 32px; margin-top: 32px; flex-wrap: wrap; }
-
-/* CHEF */
-.chef-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-.chef-photo img, .chef-photo .photo-ph { aspect-ratio: 3/4; width: 100%; }
-.chef-name { font-family: 'Noto Serif JP', serif; font-size: 1.15rem; font-weight: 400; color: var(--ink); letter-spacing: 0.08em; margin-bottom: 20px; }
-.chef-name span { display: block; font-family: 'Noto Sans JP', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; color: var(--muted); margin-top: 4px; font-weight: 300; }
-.chef-body p { font-size: 0.875rem; line-height: 2.2; color: var(--muted); margin-bottom: 16px; }
 
 /* MENU PREVIEW */
 .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 48px; }
@@ -302,14 +273,12 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   .hero-content { left: 32px; bottom: 72px; }
   .sec { padding: 64px 32px; }
   .divider { margin: 0 32px; }
-  .concept-wrap, .name-wrap, .chef-wrap, .info-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .concept-wrap, .info-wrap { grid-template-columns: 1fr; gap: 40px; }
   .concept-text-col { padding-top: 0; }
   .concept-img { aspect-ratio: 16/9; }
   .photo-band { grid-template-columns: 1fr; height: auto; }
   .photo-band-item { height: 260px; }
   .photo-band-item:nth-child(2), .photo-band-item:nth-child(3) { display: none; }
-  .appeal-wrap { padding: 64px 32px; }
-  .pillars-grid { grid-template-columns: 1fr; }
   .menu-grid { grid-template-columns: 1fr; }
   footer { padding: 48px 32px 32px; }
   .footer-top { grid-template-columns: 1fr; gap: 36px; }
@@ -423,58 +392,6 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   </div>
 </div>
 
-<!-- APPEAL / PROMISE -->
-<div class="appeal-bg" id="appeal">
-  <div class="appeal-wrap">
-    <div class="reveal">
-      <span class="sec-label">PROMISE</span>
-      <h2 class="sec-heading">香醇が守りたい、<br>三つの約束。</h2>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <p class="pillar-num-ja">壱</p>
-          <p class="pillar-title"><span>中國菜</span>素材と仕込みに嘘をつかない</p>
-          <p class="pillar-desc">中華料理には、火の入れ方ひとつで表情が変わる繊細さがあります。香醇では、手間を省かず、素材が持つ本来の香りと旨みを丁寧に引き出すことを第一に考えます。はじめて中華料理を召し上がる方にも、食べ慣れた方にも、「これは特別だ」と感じていただける一皿を目指しています。</p>
-        </div>
-        <div class="pillar-card">
-          <p class="pillar-num-ja">弐</p>
-          <p class="pillar-title"><span>ワイン</span>料理の可能性を広げる一杯を</p>
-          <p class="pillar-desc">ワインは料理を引き立て、料理はワインを深める。産地や品種にこだわらず、その夜の料理に最もふさわしい一杯を選びます。「中華にワインなんて」と思っていた方が、その組み合わせの豊かさに気づいてくださる瞬間が、私たちにとって何より嬉しい瞬間です。</p>
-        </div>
-        <div class="pillar-card">
-          <p class="pillar-num-ja">参</p>
-          <p class="pillar-title"><span>空間・時間</span>食事の後も、記憶に残る場所へ</p>
-          <p class="pillar-desc">料理が美味しくても、空間が居心地よくなければ、人はまた来ようとは思わない。香醇では、料理とワインだけでなく、照明の角度、器の選び方、スタッフとの会話まで——すべてがひとつの体験になるよう、細部まで丁寧に整えます。帰り道に「また行きたい」と思っていただけることが、私たちの約束です。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- NAME -->
-<section class="sec" id="name">
-  <div class="name-wrap">
-    <div class="name-logo-col reveal">
-      <svg viewBox="0 0 320 560" xmlns="http://www.w3.org/2000/svg">
-        <rect width="320" height="560" fill="#F8F6F3"/>
-        <line x1="160" y1="48" x2="160" y2="512" stroke="#8B3A1A" stroke-width="0.6" opacity="0.2"/>
-        <text x="160" y="196" font-family="Noto Serif JP, serif" font-size="200" font-weight="300" fill="none" stroke="#8B3A1A" stroke-width="1.2" stroke-linejoin="round" text-anchor="middle" dominant-baseline="middle" opacity="0.75">香</text>
-        <circle cx="160" cy="296" r="2.5" fill="#8B3A1A" opacity="0.35"/>
-        <text x="160" y="400" font-family="Noto Serif JP, serif" font-size="200" font-weight="300" fill="none" stroke="#8B3A1A" stroke-width="1.2" stroke-linejoin="round" text-anchor="middle" dominant-baseline="middle" opacity="0.75">醇</text>
-      </svg>
-    </div>
-    <div class="reveal">
-      <span class="sec-label">THOUGHT</span>
-      <h2 class="sec-heading">「香醇」という<br>名前に込めた想い</h2>
-      <div class="name-body">
-        <p><em class="name-em">「香」</em>という字は、芳しい香りを意味します。中華料理が放つ複雑な香辛料の薫り、ワインが注がれた瞬間にグラスから立ち上る果実や土の香り。その一瞬に、人は思わず息を止め、次の一口への期待を膨らませます。香醇では、その「香り」を食体験の入口として大切にしたいと考えています。</p>
-        <p><em class="name-em">「醇」</em>には、<strong>コク・旨み・まろやかさ</strong>という意味があります。発酵や熟成、長い仕込みの時間を経てはじめて生まれる、角のとれた深い味わい。それは料理にも、ワインにも、そして人間関係にも宿るものだと思っています。</p>
-        <p>急がず、丁寧に、時間をかけて作られたものだけが持つ豊かさ。<em class="name-em">「香醇」</em>という名には、料理やワインの味わいだけでなく、その場で過ごす時間そのものが、まろやかで満ち足りたものであってほしいという願いを込めました。</p>
-        <a class="sec-link" href="about.html">店名の由来をもっと読む</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- GALLERY SLIDER -->
 <div class="gallery-section">
   <div class="gallery-track-outer">
@@ -524,32 +441,6 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       </div>
     </div>
   </div>
-</div>
-
-<!-- CHEF -->
-<div style="background:var(--white);border-top:1px solid var(--rule);">
-  <section class="sec" id="chef">
-    <div class="chef-wrap">
-      <div class="chef-photo reveal">
-        <div class="photo-ph" id="ph-chef">
-          <img src="images/chef.jpg" alt="" class="ph-img">
-          <!-- PHOTO PLACEHOLDER: 店主 村川 貴泰。現在はサンプル写真(images/chef.jpg)を仮当てしています -->
-          <label class="photo-ph-swap" for="upload-chef">写真を差し替える</label>
-          <input type="file" id="upload-chef" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-chef')">
-        </div>
-      </div>
-      <div class="reveal">
-        <span class="sec-label">CHEF</span>
-        <h2 class="sec-heading">店主について</h2>
-        <p class="chef-name">村川 貴泰 <span>Takayasu Murakawa</span></p>
-        <div class="chef-body">
-          <p>長年にわたり、ホテルの料理長や中華料理店のシェフたちと直接向き合う仕事をしてきました。食材の提案、メニュー開発の相談、季節ごとの食材の使い方——そうした現場での対話を重ねるなかで、中華料理が持つ奥深さと、その可能性の広さを肌で学んできました。</p>
-          <p>中華料理やワインに詳しくない方にこそ、その豊かさを体験してほしい。肩肘張らず、でも手を抜かない。現場で培った食への眼と、料理への純粋な敬意を持って、神戸・三宮にその場所を作ります。</p>
-          <a class="sec-link" href="about.html">店主紹介をもっと読む</a>
-        </div>
-      </div>
-    </div>
-  </section>
 </div>
 
 <hr class="divider">
