@@ -10,73 +10,92 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F8F6F3;--bg2:#F0EDE8;--white:#FFFFFF;--ink:#1A1A1A;--gold:#8B3A1A;--gold2:#A04520;--muted:#6B6560;--rule:rgba(0,0,0,0.1);}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--ink);background:var(--bg);line-height:1.9;-webkit-font-smoothing:antialiased;}
-h1,h2,h3,h4{font-family:'Noto Serif JP',serif;font-weight:400;letter-spacing:.02em;}
-a{color:inherit;text-decoration:none;}
-.container{max-width:760px;margin:0 auto;padding:0 32px;}
-.eyebrow{font-size:.75rem;letter-spacing:.22em;color:var(--gold);margin-bottom:14px;display:block;}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:    #F8F6F3;
+  --bg2:   #F0EDE8;
+  --white: #FFFFFF;
+  --ink:   #1A1A1A;
+  --gold:  #8B3A1A;
+  --gold2: #A04520;
+  --muted: #6B6560;
+  --rule:  rgba(0,0,0,0.1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans JP', sans-serif; background: var(--white); color: var(--ink); font-weight: 300; line-height: 1.9; overflow-x: hidden; }
+a { color: inherit; }
+img, svg { max-width: 100%; display: block; }
+.container { max-width: 760px; margin: 0 auto; padding: 0 32px; }
 
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(248,246,243,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);}
-.nav-inner{max-width:1120px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-family:'Noto Serif JP',serif;font-size:1.25rem;letter-spacing:.18em;color:var(--ink);}
-.logo span{color:var(--gold);}
-.nav-links{display:flex;gap:30px;align-items:center;font-size:.82rem;letter-spacing:.04em;}
-.nav-links a{position:relative;padding:4px 0;color:var(--ink);}
-.nav-links a.active{color:var(--gold);}
-.nav-cta{background:var(--gold);color:var(--white);padding:10px 22px;border-radius:2px;font-size:.78rem;letter-spacing:.1em;transition:background .25s;white-space:nowrap;}
-.nav-cta:hover{background:var(--gold2);}
-.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
-.nav-toggle span{width:22px;height:1px;background:var(--ink);display:block;}
-@media (max-width:900px){
-  .nav-links{position:fixed;top:63px;left:0;right:0;background:var(--white);flex-direction:column;align-items:flex-start;padding:24px 32px;gap:18px;border-bottom:1px solid var(--rule);transform:translateY(-8px);opacity:0;pointer-events:none;transition:all .25s;}
-  .nav-links.open{opacity:1;transform:translateY(0);pointer-events:auto;}
-  .nav-toggle{display:flex;}
-  .nav-cta{order:99;}
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; display: flex; justify-content: space-between; align-items: center; padding: 0 56px; background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
+.nav-logo { font-family: 'Noto Serif JP', serif; font-size: 0.95rem; color: var(--ink); letter-spacing: 0.16em; text-decoration: none; }
+.nav-center { display: flex; gap: 32px; list-style: none; }
+.nav-center a { font-size: 0.7rem; letter-spacing: 0.2em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-center a:hover, .nav-center a.active { color: var(--gold); }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-cta { font-size: 0.68rem; letter-spacing: 0.2em; color: var(--white); background: var(--ink); padding: 9px 22px; text-decoration: none; transition: background 0.25s; white-space: nowrap; }
+.nav-cta:hover { background: var(--gold2); }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
+.nav-toggle span { width: 20px; height: 1px; background: var(--ink); display: block; }
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-center { flex-direction: column; align-items: flex-start; gap: 0; position: fixed; top: 64px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--rule); padding: 4px 24px 16px; transform: translateY(-8px); opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; }
+  .nav-center.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .nav-center a { display: block; padding: 14px 0; font-size: 0.75rem; border-bottom: 1px solid var(--rule); }
+  .nav-toggle { display: flex; }
 }
 
-.article-header{padding:150px 0 40px;}
-.article-header .cat{display:inline-block;font-size:.7rem;color:var(--gold);border:1px solid var(--gold);padding:2px 8px;margin-bottom:16px;letter-spacing:.05em;}
-.article-header h1{font-size:1.7rem;margin-bottom:12px;}
-.article-header time{color:var(--muted);font-size:.82rem;}
+.article-header { padding: 128px 0 40px; }
+.article-header .cat { display: inline-block; font-size: 0.7rem; color: var(--gold); border: 1px solid var(--gold); padding: 2px 8px; margin-bottom: 16px; letter-spacing: 0.05em; }
+.article-header h1 { font-family: 'Noto Serif JP', serif; font-weight: 400; font-size: 1.7rem; letter-spacing: 0.04em; margin-bottom: 12px; }
+.article-header time { color: var(--muted); font-size: 0.82rem; }
 
-.article-body{padding:20px 0 100px;font-size:.95rem;color:var(--ink);}
-.article-body p{margin-bottom:22px;}
-.article-body img{width:100%;border-radius:2px;margin:32px 0;}
+.article-body { padding: 20px 0 100px; font-size: 0.95rem; color: var(--ink); }
+.article-body p { margin-bottom: 22px; }
+.article-body img { width: 100%; margin: 32px 0; }
 
-.article-back{padding:0 0 60px;}
-.article-back a{font-size:.85rem;color:var(--gold);border-bottom:1px solid var(--gold);}
+.article-back { padding: 0 0 60px; }
+.article-back a { font-size: 0.85rem; color: var(--gold); border-bottom: 1px solid var(--gold); text-decoration: none; }
 
-.footer{background:var(--ink);color:#D9D5CF;padding:64px 0 28px;}
-.footer .container{max-width:1120px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:48px;}
-.footer .f-logo{font-family:'Noto Serif JP',serif;color:var(--white);font-size:1.15rem;letter-spacing:.15em;margin-bottom:16px;}
-.footer .f-logo span{color:#C77B4E;}
-.footer p.addr{font-size:.8rem;color:#A8A29A;max-width:280px;}
-.footer h4{color:var(--white);font-size:.85rem;letter-spacing:.1em;margin-bottom:18px;font-weight:400;}
-.footer a{color:#B8B3AC;font-size:.85rem;display:block;margin-bottom:10px;}
-.footer a:hover{color:var(--white);}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:22px;text-align:center;font-size:.72rem;color:#8A857D;}
-@media (max-width:900px){.footer .container{grid-template-columns:1fr;gap:32px;}}
+/* FOOTER */
+footer { background: #1A1A1A; padding: 64px 80px 36px; }
+.footer-top { display: grid; grid-template-columns: auto 1fr auto; gap: 80px; align-items: start; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); max-width: 1160px; margin: 0 auto; }
+.footer-logo { font-family: 'Noto Serif JP', serif; font-size: 1rem; color: #C8A96E; letter-spacing: 0.16em; margin-bottom: 12px; }
+.footer-address { font-size: 0.73rem; line-height: 2; color: rgba(255,255,255,0.38); }
+.footer-nav { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-nav a { font-size: 0.7rem; letter-spacing: 0.18em; color: rgba(255,255,255,0.42); text-decoration: none; transition: color 0.2s; }
+.footer-nav a:hover { color: #C8A96E; }
+.footer-sns { display: flex; gap: 12px; }
+.footer-sns a { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.38); transition: border-color 0.2s, color 0.2s; text-decoration: none; }
+.footer-sns a:hover { border-color: #C8A96E; color: #C8A96E; }
+.footer-sns svg { width: 16px; height: 16px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; flex-wrap: wrap; gap: 10px; max-width: 1160px; margin: 0 auto; }
+.footer-copy { font-size: 0.63rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.28); }
+.sec-label { display: block; font-size: 0.58rem; letter-spacing: 0.45em; color: var(--gold); margin-bottom: 16px; }
+
+@media (max-width: 900px) {
+  .article-header { padding: 100px 0 32px; }
+  footer { padding: 48px 24px 32px; }
+  .footer-top { grid-template-columns: 1fr; gap: 36px; }
+}
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">香<span>醇</span> KOUJUN</a>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">ホーム</a>
-      <a href="index.html#concept">コンセプト</a>
-      <a href="menu.html">メニュー</a>
-      <a href="index.html#gallery">ギャラリー</a>
-      <a href="index.html#chef">店主紹介</a>
-      <a href="index.html#info">店舗情報</a>
-      <a href="news.html" class="active">お知らせ</a>
-      <a href="reservation.html" class="nav-cta">ご予約はこちら</a>
-    </div>
-    <button class="nav-toggle" id="navToggle" aria-label="menu"><span></span><span></span><span></span></button>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">中國菜 香醇</a>
+  <ul class="nav-center" id="navCenter">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">香醇について</a></li>
+    <li><a href="course.html">コース</a></li>
+    <li><a href="menu.html">メニュー</a></li>
+    <li><a href="access.html">アクセス</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="nav-cta" href="reserve.html">ご予約はこちら</a>
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -95,36 +114,49 @@ a{color:inherit;text-decoration:none;}
   <a href="news.html">← お知らせ一覧へ戻る</a>
 </div>
 
-<footer class="footer">
-  <div class="container">
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
     <div>
-      <div class="f-logo">香<span>醇</span> KOUJUN</div>
-      <p class="addr">〒650-0012 兵庫県神戸市中央区北長狭通１丁目２１−２１ 2TAKAIB.L D2F</p>
+      <p class="footer-logo">中國菜 香醇</p>
+      <p class="footer-address">〒650-0012<br>兵庫県神戸市中央区北長狭通１丁目２１−２１<br>2TAKAIB.L D2F</p>
     </div>
+    <ul class="footer-nav">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="about.html">香醇について</a></li>
+      <li><a href="course.html">コース</a></li>
+      <li><a href="menu.html">メニュー</a></li>
+      <li><a href="access.html">アクセス</a></li>
+      <li><a href="reserve.html">ご予約・お問い合わせ</a></li>
+      <li><a href="news.html">お知らせ</a></li>
+      <li><a href="privacy.html">プライバシーポリシー</a></li>
+    </ul>
     <div>
-      <h4>NAVIGATION</h4>
-      <a href="index.html">ホーム</a>
-      <a href="menu.html">メニュー</a>
-      <a href="news.html">お知らせ</a>
-      <a href="reservation.html">ご予約</a>
-      <a href="contact.html">お問い合わせ</a>
-    </div>
-    <div>
-      <h4>OTHER</h4>
-      <a href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener">Instagram</a>
-      <a href="privacy.html">プライバシーポリシー</a>
+      <p class="sec-label" style="color:rgba(247,243,236,0.3);margin-bottom:14px;">FOLLOW</p>
+      <div class="footer-sns">
+        <a href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="footer-bottom">&copy; 2026 中國菜 香醇（Koujun）</div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 中國菜 香醇 All rights reserved.</p>
+    <p class="footer-copy">店主 村川 貴泰</p>
+  </div>
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded',()=>{
-  const toggle=document.getElementById('navToggle');
-  const links=document.getElementById('navLinks');
-  if(toggle){toggle.addEventListener('click',()=>links.classList.toggle('open'));
-    links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));}
-});
+  const navToggle = document.getElementById('navToggle');
+  const navCenter = document.getElementById('navCenter');
+  if (navToggle) {
+    navToggle.addEventListener('click', () => navCenter.classList.toggle('open'));
+    navCenter.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navCenter.classList.remove('open')));
+  }
 </script>
 </body>
 </html>
