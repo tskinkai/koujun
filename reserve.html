@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ご予約・お問い合わせ｜中國菜 香醇（こうじゅん）</title>
+<meta name="description" content="中國菜 香醇のご予約・お問い合わせ。開業前は Instagram DM もしくはフォームにてお問い合わせください。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:    #F8F6F3;
+  --bg2:   #F0EDE8;
+  --white: #FFFFFF;
+  --ink:   #1A1A1A;
+  --gold:  #8B3A1A;
+  --gold2: #A04520;
+  --muted: #6B6560;
+  --rule:  rgba(0,0,0,0.1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans JP', sans-serif; background: var(--white); color: var(--ink); font-weight: 300; line-height: 1.8; overflow-x: hidden; }
+a { color: inherit; }
+img, svg { max-width: 100%; display: block; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; display: flex; justify-content: space-between; align-items: center; padding: 0 56px; background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
+.nav-logo { font-family: 'Noto Serif JP', serif; font-size: 0.95rem; color: var(--ink); letter-spacing: 0.16em; text-decoration: none; }
+.nav-center { display: flex; gap: 32px; list-style: none; }
+.nav-center a { font-size: 0.7rem; letter-spacing: 0.2em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-center a:hover, .nav-center a.active { color: var(--gold); }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-cta { font-size: 0.68rem; letter-spacing: 0.2em; color: var(--white); background: var(--ink); padding: 9px 22px; text-decoration: none; transition: background 0.25s; white-space: nowrap; }
+.nav-cta:hover { background: var(--gold2); }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
+.nav-toggle span { width: 20px; height: 1px; background: var(--ink); display: block; }
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-center { flex-direction: column; align-items: flex-start; gap: 0; position: fixed; top: 64px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--rule); padding: 4px 24px 16px; transform: translateY(-8px); opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; }
+  .nav-center.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .nav-center a { display: block; padding: 14px 0; font-size: 0.75rem; border-bottom: 1px solid var(--rule); }
+  .nav-toggle { display: flex; }
+}
+
+/* PAGE HERO */
+.page-hero { padding: 144px 80px 80px; border-bottom: 1px solid var(--rule); background: var(--bg); }
+.page-hero-label { display: block; font-size: 0.6rem; letter-spacing: 0.45em; color: var(--gold); margin-bottom: 16px; }
+.page-hero-title { font-family: 'Noto Serif JP', serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 300; letter-spacing: 0.12em; line-height: 1.3; color: var(--ink); margin-bottom: 20px; }
+.page-hero-desc { font-size: 0.875rem; line-height: 2.1; color: var(--muted); max-width: 560px; }
+
+/* SECTION UTILS */
+.sec { padding: 96px 80px; max-width: 1160px; margin: 0 auto; }
+.sec-label { display: block; font-size: 0.58rem; letter-spacing: 0.45em; color: var(--gold); margin-bottom: 16px; }
+.sec-heading { font-family: 'Noto Serif JP', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 300; letter-spacing: 0.1em; line-height: 1.6; color: var(--ink); margin-bottom: 24px; }
+.sec-body { font-size: 0.875rem; line-height: 2.2; color: var(--muted); }
+.divider { border: none; border-top: 1px solid var(--rule); margin: 0 80px; }
+
+/* BADGE */
+.badge { display: inline-block; background: #F3E4DA; color: var(--gold2); font-size: 0.72rem; letter-spacing: 0.14em; padding: 8px 18px; margin-bottom: 24px; }
+
+/* RESERVE */
+.reserve-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.reserve-methods { margin-top: 24px; display: flex; flex-direction: column; }
+.reserve-method { display: flex; align-items: baseline; gap: 20px; border-bottom: 1px solid var(--rule); padding: 18px 0; }
+.reserve-method:first-child { border-top: 1px solid var(--rule); }
+.reserve-method-label { font-size: 0.65rem; letter-spacing: 0.22em; color: var(--gold); width: 100px; flex-shrink: 0; }
+.reserve-method-val { font-size: 0.83rem; color: var(--muted); text-decoration: none; }
+.reserve-method-val.link:hover { color: var(--gold); }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--white); padding: 13px 28px; font-size: 0.78rem; letter-spacing: 0.12em; text-decoration: none; transition: background .25s; margin-top: 28px; }
+.btn-primary:hover { background: var(--gold2); }
+
+.reserve-note-inner { border: 1px solid var(--rule); padding: 36px; background: var(--white); }
+.reserve-note-head { font-family: 'Noto Serif JP', serif; font-size: 0.95rem; font-weight: 400; color: var(--ink); letter-spacing: 0.1em; margin-bottom: 20px; }
+.reserve-note-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.reserve-note-list li { font-size: 0.8rem; line-height: 1.8; color: var(--muted); padding-left: 16px; position: relative; }
+.reserve-note-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 0.7rem; }
+
+/* CONTACT */
+.contact-wrap { background: var(--bg); border-top: 1px solid var(--rule); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 8px; }
+.contact-card { background: var(--white); border: 1px solid var(--rule); padding: 40px; }
+.contact-card h3 { font-family: 'Noto Serif JP', serif; font-size: 1.05rem; font-weight: 400; margin-bottom: 16px; letter-spacing: 0.06em; }
+.contact-card p { color: var(--muted); font-size: 0.85rem; margin-bottom: 22px; line-height: 2; }
+
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 0.75rem; color: var(--muted); margin-bottom: 6px; letter-spacing: 0.04em; }
+.form-group input, .form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--rule); background: var(--bg); font-family: inherit; font-size: 0.85rem; color: var(--ink); }
+.form-group textarea { min-height: 120px; resize: vertical; }
+.form-submit { background: var(--ink); color: var(--white); border: none; padding: 13px 30px; font-size: 0.8rem; letter-spacing: 0.12em; cursor: pointer; transition: background 0.25s; }
+.form-submit:hover { background: var(--gold2); }
+.form-note { font-size: 0.72rem; color: var(--muted); margin-top: 14px; line-height: 1.8; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* FOOTER */
+footer { background: #1A1A1A; padding: 64px 80px 36px; }
+.footer-top { display: grid; grid-template-columns: auto 1fr auto; gap: 80px; align-items: start; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.footer-logo { font-family: 'Noto Serif JP', serif; font-size: 1rem; color: #C8A96E; letter-spacing: 0.16em; margin-bottom: 12px; }
+.footer-address { font-size: 0.73rem; line-height: 2; color: rgba(255,255,255,0.38); }
+.footer-nav { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-nav a { font-size: 0.7rem; letter-spacing: 0.18em; color: rgba(255,255,255,0.42); text-decoration: none; transition: color 0.2s; }
+.footer-nav a:hover { color: #C8A96E; }
+.footer-sns { display: flex; gap: 12px; }
+.footer-sns a { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.38); transition: border-color 0.2s, color 0.2s; text-decoration: none; }
+.footer-sns a:hover { border-color: #C8A96E; color: #C8A96E; }
+.footer-sns svg { width: 16px; height: 16px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; flex-wrap: wrap; gap: 10px; }
+.footer-copy { font-size: 0.63rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.28); }
+
+@media (max-width: 900px) {
+  .page-hero { padding: 120px 24px 56px; }
+  .sec { padding: 64px 24px; }
+  .divider { margin: 0 24px; }
+  .reserve-wrap, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  footer { padding: 48px 24px 32px; }
+  .footer-top { grid-template-columns: 1fr; gap: 36px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">中國菜 香醇</a>
+  <ul class="nav-center" id="navCenter">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">香醇について</a></li>
+    <li><a href="course.html">コース</a></li>
+    <li><a href="menu.html">メニュー</a></li>
+    <li><a href="access.html">アクセス</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="nav-cta" href="reserve.html">ご予約はこちら</a>
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <span class="page-hero-label">RESERVE &amp; CONTACT</span>
+  <h1 class="page-hero-title">ご予約・<br>お問い合わせ</h1>
+  <p class="page-hero-desc">
+    現在、開業に向けて準備を進めております。<br>
+    ご予約・お問い合わせは下記の方法でお気軽にご連絡ください。
+  </p>
+</div>
+
+<!-- RESERVE -->
+<!--
+  今後の予定：開業に合わせて TableCheck 等の外部予約サービスを導入予定。
+  導入後は下記 .reserve-method（TableCheck予約）の値をウィジェット／リンクに差し替えてください。
+-->
+<section class="sec" id="reserve">
+  <span class="badge reveal">開業準備中</span>
+  <h2 class="sec-heading reveal">ご予約</h2>
+  <p class="sec-body reveal" style="max-width:640px;">
+    オンラインでのご予約受付は、開業に合わせて開始いたします。現在は店舗の開業準備を進めており、ご予約システムは近日公開予定です。開業日・詳細が決まりましたら、Instagramにてお知らせいたします。お急ぎのお問い合わせはInstagram DMにてご連絡ください。
+  </p>
+
+  <div class="reserve-wrap" style="margin-top:48px;">
+    <div class="reveal">
+      <div class="reserve-methods">
+        <div class="reserve-method">
+          <span class="reserve-method-label">TableCheck等</span>
+          <span class="reserve-method-val">オンライン予約は準備中です。開業に合わせて導入予定です。</span>
+        </div>
+        <div class="reserve-method">
+          <span class="reserve-method-label">Instagram DM</span>
+          <a class="reserve-method-val link" href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener">@kojun_kobe に直接メッセージ</a>
+        </div>
+        <div class="reserve-method">
+          <span class="reserve-method-label">フォーム</span>
+          <a class="reserve-method-val link" href="#contact">下記のお問い合わせフォームより</a>
+        </div>
+      </div>
+      <a class="btn-primary" href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener">Instagramで問い合わせる</a>
+    </div>
+
+    <div class="reveal">
+      <div class="reserve-note-inner">
+        <p class="reserve-note-head">ご予約開始までの流れ</p>
+        <ul class="reserve-note-list">
+          <li>開業日が決定し、Instagramにてお知らせいたします。</li>
+          <li>オンライン予約システムを本ページに設置いたします。</li>
+          <li>営業時間・定休日を公開し、通常のご予約受付を開始いたします。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<div class="contact-wrap">
+  <section class="sec" id="contact">
+    <span class="sec-label reveal">CONTACT</span>
+    <h2 class="sec-heading reveal">お問い合わせ</h2>
+    <p class="sec-body reveal" style="max-width:640px;margin-bottom:8px;">ご不明点・ご相談がございましたら、お気軽にご連絡ください。</p>
+
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <span class="sec-label" style="margin-bottom:8px;">FASTEST</span>
+        <h3>Instagram DMでのお問い合わせ</h3>
+        <p>現在、最もお返事の早い窓口はInstagramのDMです。開業準備の状況などお気軽にお問い合わせください。</p>
+        <a class="btn-primary" style="margin-top:0;" href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener">@kojun_kobe にDMを送る</a>
+      </div>
+
+      <div class="contact-card reveal">
+        <span class="sec-label" style="margin-bottom:8px;">FORM</span>
+        <h3>フォームでのお問い合わせ</h3>
+        <!--
+          バックエンドが無いため mailto: を使用した簡易フォームです。
+          実運用時は、フォーム送信を受け付けるサービス（例：Googleフォーム／Formspree等）への差し替えを推奨します。
+        -->
+        <form id="contactForm" action="mailto:info@kojun-kobe.example" method="post" enctype="text/plain">
+          <div class="form-group">
+            <label for="name">お名前</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">お問い合わせ内容</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">送信する</button>
+          <p class="form-note">送信すると、ご利用のメールソフトが起動します。（フォーム送信機能は開業後に正式導入予定です）</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <p class="footer-logo">中國菜 香醇</p>
+      <p class="footer-address">〒650-0012<br>兵庫県神戸市中央区北長狭通１丁目２１−２１<br>2TAKAIB.L D2F</p>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="about.html">香醇について</a></li>
+      <li><a href="course.html">コース</a></li>
+      <li><a href="menu.html">メニュー</a></li>
+      <li><a href="access.html">アクセス</a></li>
+      <li><a href="reserve.html">ご予約・お問い合わせ</a></li>
+      <li><a href="news.html">お知らせ</a></li>
+      <li><a href="privacy.html">プライバシーポリシー</a></li>
+    </ul>
+    <div>
+      <p class="sec-label" style="color:rgba(247,243,236,0.3);margin-bottom:14px;">FOLLOW</p>
+      <div class="footer-sns">
+        <a href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 中國菜 香醇 All rights reserved.</p>
+    <p class="footer-copy">店主 村川 貴泰</p>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const navToggle = document.getElementById('navToggle');
+  const navCenter = document.getElementById('navCenter');
+  if (navToggle) {
+    navToggle.addEventListener('click', () => navCenter.classList.toggle('open'));
+    navCenter.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navCenter.classList.remove('open')));
+  }
+</script>
+</body>
+</html>
