@@ -42,7 +42,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 @media (max-width: 900px) {
   .mobile-reserve-bar {
     display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 600;
-    background: var(--ink); box-shadow: 0 -2px 12px rgba(0,0,0,0.15);
+    background: var(--ink); box-shadow: 0 -2px 12px rgba(0,0,0,0.15); border-top: 1px solid rgba(255,255,255,0.4);
   }
   .mobile-reserve-bar a {
     display: block; padding: 17px; text-align: center;
@@ -94,6 +94,17 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 /* REVEAL */
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.75s ease, transform 0.75s ease; }
 .reveal.visible { opacity: 1; transform: none; }
+
+/* MORE PAGES（回遊コンテンツ） */
+.more-pages-bg { background: var(--bg); border-top: 1px solid var(--rule); }
+.more-pages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 32px; }
+.more-page-card { display: block; background: var(--white); padding: 32px 28px; text-decoration: none; transition: background 0.25s; }
+.more-page-card:hover { background: var(--bg); }
+.more-page-label { display: block; font-size: 0.58rem; letter-spacing: 0.35em; color: var(--gold); margin-bottom: 12px; }
+.more-page-title { display: block; font-family: 'Noto Serif JP', serif; font-size: 1rem; font-weight: 400; color: var(--ink); letter-spacing: 0.06em; }
+.more-page-title::after { content: ' \2192'; color: var(--gold); }
+.more-page-desc { display: block; font-size: 0.76rem; color: var(--muted); margin-top: 10px; line-height: 1.8; }
+@media (max-width: 900px) { .more-pages-grid { grid-template-columns: 1fr; } }
 
 /* FOOTER */
 footer { background: #1A1A1A; padding: 64px 80px 36px; }
@@ -203,6 +214,31 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
     </div>
   </div>
 </section>
+
+<!-- MORE PAGES -->
+<div class="more-pages-bg">
+  <section class="sec">
+    <span class="sec-label">MORE</span>
+    <h2 class="sec-heading">こちらもご覧ください</h2>
+    <div class="more-pages-grid">
+      <a class="more-page-card reveal" href="reserve.html">
+        <span class="more-page-label">RESERVE</span>
+        <span class="more-page-title">ご予約・お問い合わせ</span>
+        <span class="more-page-desc">ご予約はこちらから</span>
+      </a>
+      <a class="more-page-card reveal" href="menu.html">
+        <span class="more-page-label">MENU</span>
+        <span class="more-page-title">メニュー</span>
+        <span class="more-page-desc">アラカルト・ワインのご紹介</span>
+      </a>
+      <a class="more-page-card reveal" href="about.html">
+        <span class="more-page-label">ABOUT</span>
+        <span class="more-page-title">香醇について</span>
+        <span class="more-page-desc">コンセプトと店主の想い</span>
+      </a>
+    </div>
+  </section>
+</div>
 
 <!-- FOOTER -->
 <footer>

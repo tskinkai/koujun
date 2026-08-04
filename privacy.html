@@ -43,7 +43,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 @media (max-width: 900px) {
   .mobile-reserve-bar {
     display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 600;
-    background: var(--ink); box-shadow: 0 -2px 12px rgba(0,0,0,0.15);
+    background: var(--ink); box-shadow: 0 -2px 12px rgba(0,0,0,0.15); border-top: 1px solid rgba(255,255,255,0.4);
   }
   .mobile-reserve-bar a {
     display: block; padding: 17px; text-align: center;
@@ -75,6 +75,17 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 .policy li { margin-bottom: 8px; }
 .policy .updated { color: var(--muted); font-size: 0.8rem; margin-top: 48px; text-align: right; }
 .policy .disclaimer { background: var(--bg2); padding: 20px 24px; font-size: 0.8rem; color: var(--muted); margin-bottom: 44px; border-left: 2px solid var(--gold); }
+
+/* MORE PAGES（回遊コンテンツ） */
+.more-pages-bg { background: var(--bg); border-top: 1px solid var(--rule); }
+.more-pages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 32px; }
+.more-page-card { display: block; background: var(--white); padding: 32px 28px; text-decoration: none; transition: background 0.25s; }
+.more-page-card:hover { background: var(--bg); }
+.more-page-label { display: block; font-size: 0.58rem; letter-spacing: 0.35em; color: var(--gold); margin-bottom: 12px; }
+.more-page-title { display: block; font-family: 'Noto Serif JP', serif; font-size: 1rem; font-weight: 400; color: var(--ink); letter-spacing: 0.06em; }
+.more-page-title::after { content: ' \2192'; color: var(--gold); }
+.more-page-desc { display: block; font-size: 0.76rem; color: var(--muted); margin-top: 10px; line-height: 1.8; }
+@media (max-width: 900px) { .more-pages-grid { grid-template-columns: 1fr; } }
 
 /* FOOTER */
 footer { background: #1A1A1A; padding: 64px 80px 36px; }
@@ -185,6 +196,31 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 
   <p class="updated">最終更新日：2026年7月31日</p>
 </section>
+
+<!-- MORE PAGES -->
+<div class="more-pages-bg">
+  <div class="container" style="padding:64px 32px;">
+    <span class="sec-label" style="display:block;font-size:0.58rem;letter-spacing:0.35em;color:var(--gold);margin-bottom:16px;">MORE</span>
+    <h2 style="font-family:'Noto Serif JP',serif;font-weight:400;font-size:1.3rem;letter-spacing:0.06em;margin-bottom:8px;">こちらもご覧ください</h2>
+    <div class="more-pages-grid">
+      <a class="more-page-card reveal" href="about.html">
+        <span class="more-page-label">ABOUT</span>
+        <span class="more-page-title">香醇について</span>
+        <span class="more-page-desc">コンセプトと店主の想い</span>
+      </a>
+      <a class="more-page-card reveal" href="reserve.html">
+        <span class="more-page-label">RESERVE</span>
+        <span class="more-page-title">ご予約・お問い合わせ</span>
+        <span class="more-page-desc">ご予約はこちらから</span>
+      </a>
+      <a class="more-page-card reveal" href="news.html">
+        <span class="more-page-label">NEWS</span>
+        <span class="more-page-title">お知らせ</span>
+        <span class="more-page-desc">開業準備の最新情報</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
