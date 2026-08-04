@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>取材・撮影について｜中國菜 香醇（こうじゅん）</title>
-<meta name="description" content="中國菜 香醇では、報道関係者様からの取材・撮影のお問い合わせを歓迎いたします。取材でご対応可能な内容とお問い合わせ方法のご案内。">
+<title>ワインについて｜中國菜 香醇（こうじゅん）</title>
+<meta name="description" content="中國菜 香醇のワインセレクション。中華料理と好相性な赤・白・自然派ワイン・スパークリングをご紹介。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
@@ -60,58 +60,38 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
   .nav-cta { display: none; }
 }
 
-/* PHOTO PLACEHOLDER (base) */
-.photo-ph { position: relative; overflow: hidden; background: var(--bg2); display: flex; align-items: center; justify-content: center; }
-.photo-ph img.ph-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-/* MEDIA HERO（写真＋オーバーレイボックス。飄香メディアページのUIを参考にしたレイアウト） */
-.media-hero { position: relative; height: 440px; margin-top: 64px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.media-hero .photo-ph { position: absolute; inset: 0; height: 100%; }
-.media-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.55) 100%); }
-.media-hero-box {
-  position: relative; z-index: 1;
-  background: rgba(20,16,12,0.82); border: 1px solid rgba(255,255,255,0.18);
-  padding: 44px 64px; text-align: center; width: min(90%, 620px);
-}
-.media-hero-label { display: block; font-size: 0.6rem; letter-spacing: 0.42em; color: #E0B98F; margin-bottom: 16px; }
-.media-hero-title { font-family: 'Noto Serif JP', serif; font-size: clamp(1.6rem, 3.6vw, 2.4rem); font-weight: 400; letter-spacing: 0.1em; color: #fff; margin-bottom: 16px; white-space: nowrap; }
-.media-hero-desc { font-size: 0.83rem; line-height: 2; color: rgba(255,255,255,0.85); }
-@media (max-width: 600px) {
-  .media-hero { height: 380px; }
-  .media-hero-box { padding: 32px 24px; }
-  .media-hero-title { white-space: normal; }
-}
+/* PAGE HERO */
+.page-hero { padding: 144px 80px 80px; border-bottom: 1px solid var(--rule); background: var(--bg); }
+.page-hero-label { display: block; font-size: 0.6rem; letter-spacing: 0.45em; color: var(--gold); margin-bottom: 16px; }
+.page-hero-title { font-family: 'Noto Serif JP', serif; font-size: clamp(1.5rem, 3.4vw, 2.6rem); font-weight: 300; letter-spacing: 0.08em; line-height: 1.3; color: var(--ink); margin-bottom: 20px; }
+.page-hero-desc { font-size: 0.875rem; line-height: 2.1; color: var(--muted); max-width: 560px; }
 
 /* SECTION UTILS */
-.sec { padding: 88px 80px; max-width: 960px; margin: 0 auto; }
+.sec { padding: 96px 80px; max-width: 1160px; margin: 0 auto; }
 .sec-label { display: block; font-size: 0.58rem; letter-spacing: 0.45em; color: var(--gold); margin-bottom: 16px; }
-.sec-heading { font-family: 'Noto Serif JP', serif; font-size: clamp(1.3rem, 2.6vw, 1.7rem); font-weight: 300; letter-spacing: 0.08em; line-height: 1.6; color: var(--ink); margin-bottom: 24px; }
+.sec-heading { font-family: 'Noto Serif JP', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 300; letter-spacing: 0.1em; line-height: 1.6; color: var(--ink); margin-bottom: 24px; }
 .sec-body { font-size: 0.875rem; line-height: 2.2; color: var(--muted); }
 .divider { border: none; border-top: 1px solid var(--rule); margin: 0 80px; }
 
-/* CONTACT LINE */
-.press-contact-line { margin-top: 28px; background: var(--bg); border: 1px solid var(--rule); padding: 24px 28px; }
-.press-contact-line p { font-size: 0.85rem; color: var(--ink); margin-bottom: 6px; }
-.press-contact-line .note { font-size: 0.75rem; color: var(--muted); }
+/* PHOTO PLACEHOLDER */
+.photo-ph { position: relative; overflow: hidden; background: var(--bg2); display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; }
+.photo-ph-swap { position: absolute; inset: auto 0 0 0; background: rgba(26,26,26,0.6); color: rgba(255,255,255,0.92); font-size: 0.66rem; letter-spacing: 0.12em; padding: 10px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px; opacity: 0; transition: opacity 0.2s; cursor: pointer; }
+.photo-ph:hover .photo-ph-swap { opacity: 1; }
+.photo-ph img.ph-img { width: 100%; height: 100%; object-fit: cover; display: block; position: relative; z-index: 0; }
 
-/* CHECKLIST */
-.press-list { list-style: none; margin-top: 8px; display: flex; flex-direction: column; }
-.press-list li { position: relative; padding: 16px 0 16px 26px; border-bottom: 1px solid var(--rule); font-size: 0.875rem; color: var(--ink); line-height: 1.9; }
-.press-list li:first-child { border-top: 1px solid var(--rule); }
-.press-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+/* WINE INTRO */
+.wine-intro-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.wine-intro-img .photo-ph { width: 100%; aspect-ratio: 3/4; }
 
-/* CONTACT METHODS */
-.press-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
-.press-method-card { border: 1px solid var(--rule); padding: 32px; background: var(--white); }
-.press-method-card .sec-label { margin-bottom: 10px; }
-.press-method-card h3 { font-family: 'Noto Serif JP', serif; font-size: 1rem; font-weight: 400; margin-bottom: 12px; letter-spacing: 0.06em; }
-.press-method-card p { font-size: 0.83rem; color: var(--muted); margin-bottom: 20px; line-height: 2; }
-.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--white); padding: 13px 26px; font-size: 0.78rem; letter-spacing: 0.1em; text-decoration: none; transition: background 0.25s; }
-.btn-primary:hover { background: var(--gold2); }
-@media (max-width: 900px) { .press-methods { grid-template-columns: 1fr; } }
+/* WINE TYPES */
+.wine-type-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 48px; }
+.wine-type-card { background: var(--white); padding: 36px 32px; }
+.wine-type-label { display: block; font-size: 0.6rem; letter-spacing: 0.35em; color: var(--gold); margin-bottom: 12px; }
+.wine-type-title { font-family: 'Noto Serif JP', serif; font-size: 1.05rem; font-weight: 400; letter-spacing: 0.06em; color: var(--ink); margin-bottom: 12px; }
+.wine-type-desc { font-size: 0.8rem; line-height: 1.9; color: var(--muted); }
 
-/* COVERAGE PLACEHOLDER */
-.coverage-empty { margin-top: 8px; padding: 32px 0; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.85rem; line-height: 2; }
+/* PAIRING NOTE */
+.wine-note { font-size: 0.8rem; line-height: 2; color: var(--muted); border-left: 2px solid var(--gold); padding-left: 20px; margin-top: 40px; }
 
 /* REVEAL */
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.75s ease, transform 0.75s ease; }
@@ -144,8 +124,12 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 .footer-copy { font-size: 0.63rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.28); }
 
 @media (max-width: 900px) {
-  .sec { padding: 56px 24px; }
+  .page-hero { padding: 120px 24px 56px; }
+  .sec { padding: 64px 24px; }
   .divider { margin: 0 24px; }
+  .wine-intro-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .wine-intro-img .photo-ph { aspect-ratio: 16/9; }
+  .wine-type-grid { grid-template-columns: 1fr; }
   footer { padding: 48px 24px 32px; }
   .footer-top { grid-template-columns: 1fr; gap: 36px; }
 }
@@ -153,7 +137,7 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 </head>
 <body>
 
-<!-- NAV（取材ページはグローバルナビには含めない） -->
+<!-- NAV -->
 <nav>
   <a class="nav-logo" href="index.html">中國菜 香醇</a>
   <div class="nav-right-group">
@@ -173,82 +157,70 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   <a href="reserve.html">ご予約はこちら</a>
 </div>
 
-<!-- MEDIA HERO -->
-<div class="media-hero">
-  <div class="photo-ph" id="ph-press-hero">
-    <img src="images/interior.jpg" alt="" class="ph-img">
-  </div>
-  <div class="media-hero-overlay"></div>
-  <div class="media-hero-box reveal">
-    <span class="media-hero-label">PRESS</span>
-    <h1 class="media-hero-title">取材・撮影について</h1>
-    <p class="media-hero-desc">香醇では取材・撮影のご協力を<br>積極的にお受けしています。</p>
-  </div>
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <span class="page-hero-label">WINE</span>
+  <h1 class="page-hero-title">ワインについて</h1>
+  <p class="page-hero-desc">
+    中華料理と好相性なワインを、一皿ごとにセレクト。<br>
+    香醇のワインへのこだわりをご紹介します。
+  </p>
 </div>
 
-<!-- INTRO -->
-<section class="sec">
-  <span class="sec-label reveal">ABOUT KOUJUN</span>
-  <h2 class="sec-heading reveal">香醇のご紹介（メディア向け）</h2>
-  <p class="sec-body reveal">
-    神戸・三宮に新しく生まれる「中國菜 香醇」は、伝統的な中華料理の技法とワインとの新しいペアリングを提案する店です。店主・村川貴泰は、長年にわたりホテルの料理長や中華料理店のシェフたちと直接向き合い、食材の提案やメニュー開発に携わってきました。その経験を活かし、素材の香りを丁寧に引き出した一皿と、それに寄り添うワインをご用意します。「香醇」という名には、香り高くまろやかな味わいを、料理・ワイン・時間のすべてに込めたいという想いがあります。
-  </p>
-  <p class="sec-body reveal" style="margin-top:20px;">
-    店主のこれまでの歩みや料理・ワインへのこだわり、中華料理とワインという新しい組み合わせの魅力など、メディアの皆様にご紹介できる話題を多数ご用意しております。取材・撮影をご希望の方は、お気軽にお問い合わせください。
-  </p>
-
-  <div class="press-contact-line reveal">
-    <p>取材・撮影に関するお問い合わせは、下記の方法にてお願いいたします。</p>
-    <p class="note">※ 専任の広報窓口は設けておりませんが、Instagram DM またはお問い合わせフォームに「取材について」とご記載いただくとスムーズです。</p>
+<!-- WINE INTRO -->
+<section class="sec" id="wine-intro">
+  <div class="wine-intro-wrap">
+    <div class="wine-intro-img reveal">
+      <div class="photo-ph" id="ph-wine-intro">
+        <img src="images/wine-glasses.jpg" alt="" class="ph-img">
+        <!-- PHOTO PLACEHOLDER: グラスに注がれたワインのイメージ。現在はサンプル写真(images/wine-glasses.jpg)を仮当てしています -->
+        <label class="photo-ph-swap" for="upload-wine-intro">写真を差し替える</label>
+        <input type="file" id="upload-wine-intro" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-wine-intro')">
+      </div>
+    </div>
+    <div class="reveal">
+      <span class="sec-label">CONCEPT</span>
+      <h2 class="sec-heading">中華料理と、<br>意外なほど好相性。</h2>
+      <p class="sec-body">
+        「中華にワイン？」そう感じる方は多いでしょう。けれど、香辛料や発酵の香りが幾重にも重なる中華料理は、ワインの酸味や果実味と重なり合うことで、思いがけない美味しさを引き出します。香醇では、油の香りや香辛料の風味に寄り添う赤・白・自然派ワインを中心に、一皿ごとに楽しめるペアリングをご用意する予定です。
+      </p>
+    </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- 対応可能な内容 -->
-<section class="sec">
-  <span class="sec-label reveal">WHAT WE CAN OFFER</span>
-  <h2 class="sec-heading reveal">取材・撮影で対応可能な内容</h2>
-  <ul class="press-list">
-    <li class="reveal">店内・料理・ワインの撮影</li>
-    <li class="reveal">店主インタビュー（経歴・料理へのこだわり・「香醇」という店名の由来など）</li>
-    <li class="reveal">仕込み・試作等、日々の様子の取材</li>
-    <li class="reveal">SNS・オンラインメディアでのご紹介、コラボレーション企画のご相談</li>
-  </ul>
-</section>
-
-<hr class="divider">
-
-<!-- お問い合わせ方法 -->
-<section class="sec">
-  <span class="sec-label reveal">CONTACT</span>
-  <h2 class="sec-heading reveal">お問い合わせ方法</h2>
-  <div class="press-methods">
-    <div class="press-method-card reveal">
-      <span class="sec-label">FASTEST</span>
-      <h3>Instagram DM</h3>
-      <p>現在、最もお返事の早い窓口はInstagramのDMです。撮影のご希望日時や企画内容など、お気軽にご相談ください。</p>
-      <a class="btn-primary" href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener">@kojun_kobe にDMを送る</a>
+<!-- WINE TYPES -->
+<section class="sec" id="wine-types">
+  <span class="sec-label reveal">SELECTION</span>
+  <h2 class="sec-heading reveal">ワインのセレクション</h2>
+  <div class="wine-type-grid">
+    <div class="wine-type-card reveal">
+      <span class="wine-type-label">RED</span>
+      <h3 class="wine-type-title">赤ワイン</h3>
+      <p class="wine-type-desc">香辛料の効いた料理や煮込み料理と。タンニンと旨みが響き合い、味わいに深みを添えます。</p>
     </div>
-    <div class="press-method-card reveal">
-      <span class="sec-label">FORM</span>
-      <h3>お問い合わせフォーム</h3>
-      <p>お問い合わせフォームからもご連絡いただけます。「お問い合わせ内容」に取材のご希望内容をご記載ください。</p>
-      <a class="btn-primary" href="reserve.html#contact">お問い合わせフォームへ</a>
+    <div class="wine-type-card reveal">
+      <span class="wine-type-label">WHITE</span>
+      <h3 class="wine-type-title">白ワイン</h3>
+      <p class="wine-type-desc">点心や海鮮料理と。爽やかな酸味が、料理の香りをすっと引き立てます。</p>
+    </div>
+    <div class="wine-type-card reveal">
+      <span class="wine-type-label">NATURAL</span>
+      <h3 class="wine-type-title">自然派ワイン</h3>
+      <p class="wine-type-desc">発酵の香りが層をなす料理と。個性のある味わいが、中華料理との好相性を生みます。</p>
+    </div>
+    <div class="wine-type-card reveal">
+      <span class="wine-type-label">SPARKLING</span>
+      <h3 class="wine-type-title">スパークリング</h3>
+      <p class="wine-type-desc">食事のはじまりや前菜と。軽やかな泡立ちが、心地よく食欲を誘います。</p>
     </div>
   </div>
+  <div class="wine-note reveal">
+    産地や品種を問わず、その日の料理に最もふさわしいワインをセレクトしています。<br>
+    グラスワインからボトルまで、スタッフにお気軽にご相談ください。詳細は近日公開いたします。
+  </div>
 </section>
-
-<!-- メディア掲載実績（実績が入り次第更新） -->
-<div style="background:var(--bg);border-top:1px solid var(--rule);">
-  <section class="sec">
-    <span class="sec-label reveal">COVERAGE</span>
-    <h2 class="sec-heading reveal">メディア掲載実績</h2>
-    <div class="coverage-empty reveal">
-      メディア掲載実績が決まり次第、こちらのページとInstagramでご案内いたします。
-    </div>
-  </section>
-</div>
 
 <!-- MORE PAGES -->
 <div class="more-pages-bg">
@@ -256,15 +228,15 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
     <span class="sec-label">MORE</span>
     <h2 class="sec-heading">こちらもご覧ください</h2>
     <div class="more-pages-grid">
+      <a class="more-page-card reveal" href="menu.html">
+        <span class="more-page-label">MENU</span>
+        <span class="more-page-title">メニュー</span>
+        <span class="more-page-desc">おまかせコース・アラカルト</span>
+      </a>
       <a class="more-page-card reveal" href="about.html">
         <span class="more-page-label">ABOUT</span>
         <span class="more-page-title">香醇について</span>
         <span class="more-page-desc">コンセプトと店主の想い</span>
-      </a>
-      <a class="more-page-card reveal" href="access.html">
-        <span class="more-page-label">ACCESS</span>
-        <span class="more-page-title">アクセス</span>
-        <span class="more-page-desc">店舗情報と地図</span>
       </a>
       <a class="more-page-card reveal" href="news.html">
         <span class="more-page-label">NEWS</span>
@@ -323,6 +295,24 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   if (navToggle) {
     navToggle.addEventListener('click', () => navCenter.classList.toggle('open'));
     navCenter.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navCenter.classList.remove('open')));
+  }
+
+  function replacePhoto(input, phId) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const el = document.getElementById(phId);
+      let img = el.querySelector('img.ph-img');
+      if (!img) {
+        img = document.createElement('img');
+        img.className = 'ph-img';
+        img.alt = '';
+        el.insertBefore(img, el.firstChild);
+      }
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
   }
 </script>
 </body>

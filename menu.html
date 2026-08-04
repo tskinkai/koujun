@@ -131,7 +131,10 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 
 /* WINE */
 .wine-section-bg { background: var(--bg); border-top: 1px solid var(--rule); }
-.wine-note { font-size: 0.8rem; line-height: 2; color: var(--muted); border-left: 2px solid var(--gold); padding-left: 20px; margin-top: 32px; }
+.wine-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.wine-img-col .photo-ph { width: 100%; aspect-ratio: 3/4; }
+.wine-desc { font-size: 0.83rem; line-height: 2.1; color: var(--muted); margin-top: 8px; }
+.wine-note { font-size: 0.8rem; line-height: 2; color: var(--muted); border-left: 2px solid var(--gold); padding-left: 20px; margin-top: 28px; }
 
 /* NOTE BAR */
 .note-bar { background: var(--ink); color: rgba(255,255,255,0.7); padding: 28px 24px; font-size: 0.75rem; letter-spacing: 0.05em; line-height: 1.9; }
@@ -178,6 +181,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   .dish-grid { grid-template-columns: 1fr; }
   .course-info { grid-template-columns: 1fr 1fr; gap: 24px; padding: 24px; }
   .alacarte-grid { grid-template-columns: 1fr; gap: 36px; }
+  .wine-wrap { grid-template-columns: 1fr; gap: 32px; }
+  .wine-img-col .photo-ph { aspect-ratio: 16/9; }
   footer { padding: 48px 24px 32px; }
   .footer-top { grid-template-columns: 1fr; gap: 36px; }
 }
@@ -452,14 +457,27 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 <!-- WINE -->
 <div class="wine-section-bg">
   <section class="sec">
-    <span class="sec-label reveal">WINE</span>
-    <h2 class="sec-heading reveal">料理を引き立てるワイン</h2>
-    <p class="sec-sub reveal">
-      中華料理とワインは、実は相性の良い組み合わせです。香醇では、油の香りや香辛料の風味に寄り添う赤・白・自然派ワインを中心に、一皿ごとに楽しめるペアリングをご用意する予定です。
-    </p>
-    <div class="wine-note reveal">
-      産地や品種を問わず、その日の料理に最もふさわしいワインをセレクトしています。<br>
-      グラスワインからボトルまで、スタッフにお気軽にご相談ください。詳細は近日公開いたします。
+    <div class="wine-wrap">
+      <div class="wine-img-col reveal">
+        <div class="photo-ph" id="ph-wine">
+          <img src="images/wine-bottles.jpg" alt="" class="ph-img">
+          <!-- PHOTO PLACEHOLDER: セラーやワインボトルのイメージ。現在はサンプル写真(images/wine-bottles.jpg)を仮当てしています -->
+          <label class="photo-ph-swap" for="upload-wine">写真を差し替える</label>
+          <input type="file" id="upload-wine" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-wine')">
+        </div>
+      </div>
+      <div class="wine-text-col reveal">
+        <span class="sec-label">WINE</span>
+        <h2 class="sec-heading">料理を引き立てるワイン</h2>
+        <p class="wine-desc">
+          中華料理とワインは、実は相性の良い組み合わせです。香醇では、油の香りや香辛料の風味に寄り添う赤・白・自然派ワインを中心に、一皿ごとに楽しめるペアリングをご用意する予定です。
+        </p>
+        <div class="wine-note">
+          産地や品種を問わず、その日の料理に最もふさわしいワインをセレクトしています。<br>
+          グラスワインからボトルまで、スタッフにお気軽にご相談ください。
+        </div>
+        <a class="sec-link" href="wine.html">ワインについて詳しく見る</a>
+      </div>
     </div>
   </section>
 </div>
@@ -512,6 +530,7 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       <li><a href="index.html">HOME</a></li>
       <li><a href="about.html">香醇について</a></li>
       <li><a href="menu.html">メニュー</a></li>
+      <li><a href="wine.html">ワイン</a></li>
       <li><a href="access.html">アクセス</a></li>
       <li><a href="reserve.html">ご予約・お問い合わせ</a></li>
       <li><a href="news.html">お知らせ</a></li>
