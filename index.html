@@ -153,6 +153,7 @@ nav {
   opacity: 0; transition: opacity 0.2s; cursor: pointer;
 }
 .photo-ph:hover .photo-ph-swap { opacity: 1; }
+.photo-ph img.ph-img { width: 100%; height: 100%; object-fit: cover; display: block; position: relative; z-index: 0; }
 
 /* CONCEPT */
 .concept-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
@@ -197,8 +198,9 @@ nav {
 .gallery-track-outer { overflow: hidden; width: 100%; }
 .gallery-track { display: flex; gap: 12px; animation: galleryScroll 32s linear infinite; width: max-content; }
 .gallery-track:hover { animation-play-state: paused; }
-.gallery-slide { flex: 0 0 400px; height: 280px; background: var(--bg2); display: flex; align-items: center; justify-content: center; }
-.gallery-slide span { font-family: 'Noto Serif JP', serif; font-size: 0.8rem; letter-spacing: 0.14em; color: var(--muted); }
+.gallery-slide { position: relative; flex: 0 0 400px; height: 280px; background: var(--bg2); overflow: hidden; }
+.gallery-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery-slide span { position: absolute; left: 12px; bottom: 12px; font-family: 'Noto Serif JP', serif; font-size: 0.72rem; letter-spacing: 0.1em; color: #fff; background: rgba(0,0,0,0.45); padding: 5px 12px; }
 @keyframes galleryScroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 6px)); } }
 @media (max-width: 900px) { .gallery-slide { flex: 0 0 280px; height: 200px; } }
 
@@ -323,7 +325,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 <!-- HERO -->
 <div class="hero">
   <div class="hero-bg photo-ph" id="ph-hero">
-    <!-- PHOTO PLACEHOLDER: 店内 or 料理のヒーロー写真（横長、画面いっぱい） -->
+          <img src="images/hero.jpg" alt="" class="ph-img">
+    <!-- PHOTO PLACEHOLDER: 店内 or 料理のヒーロー写真（横長、画面いっぱい）。現在はサンプル写真(images/hero.jpg)を仮当てしています -->
     <label class="photo-ph-swap" for="upload-hero">写真を差し替える</label>
     <input type="file" id="upload-hero" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-hero')">
   </div>
@@ -348,7 +351,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   <div class="concept-wrap">
     <div class="reveal">
       <div class="concept-img photo-ph" id="ph-concept">
-        <!-- PHOTO PLACEHOLDER: 料理と会話が弾む食卓のイメージ -->
+          <img src="images/concept.jpg" alt="" class="ph-img">
+        <!-- PHOTO PLACEHOLDER: 料理と会話が弾む食卓のイメージ。現在はサンプル写真(images/concept.jpg)を仮当てしています -->
         <label class="photo-ph-swap" for="upload-concept">写真を差し替える</label>
         <input type="file" id="upload-concept" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-concept')">
       </div>
@@ -378,17 +382,20 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 <!-- PHOTO BAND -->
 <div class="photo-band">
   <div class="photo-band-item photo-ph" id="ph-band1">
-    <!-- PHOTO PLACEHOLDER: ワインセラーに並ぶボトル -->
+          <img src="images/wine-bottles.jpg" alt="" class="ph-img">
+    <!-- PHOTO PLACEHOLDER: ワインセラーに並ぶボトル。現在はサンプル写真(images/wine-bottles.jpg)を仮当てしています -->
     <label class="photo-ph-swap" for="upload-band1">差し替え</label>
     <input type="file" id="upload-band1" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-band1')">
   </div>
   <div class="photo-band-item photo-ph" id="ph-band2">
-    <!-- PHOTO PLACEHOLDER: 香り高い中華料理 -->
+          <img src="images/chinese-dish.jpg" alt="" class="ph-img">
+    <!-- PHOTO PLACEHOLDER: 香り高い中華料理。現在はサンプル写真(images/chinese-dish.jpg)を仮当てしています -->
     <label class="photo-ph-swap" for="upload-band2">差し替え</label>
     <input type="file" id="upload-band2" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-band2')">
   </div>
   <div class="photo-band-item photo-ph" id="ph-band3">
-    <!-- PHOTO PLACEHOLDER: 厳選されたワイン -->
+          <img src="images/wine-glasses.jpg" alt="" class="ph-img">
+    <!-- PHOTO PLACEHOLDER: 厳選されたワイン。現在はサンプル写真(images/wine-glasses.jpg)を仮当てしています -->
     <label class="photo-ph-swap" for="upload-band3">差し替え</label>
     <input type="file" id="upload-band3" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-band3')">
   </div>
@@ -450,22 +457,22 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 <div class="gallery-section">
   <div class="gallery-track-outer">
     <div class="gallery-track" id="galleryTrack">
-      <div class="gallery-slide"><span>餃子</span></div>
-      <div class="gallery-slide"><span>月餅</span></div>
-      <div class="gallery-slide"><span>麺料理</span></div>
-      <div class="gallery-slide"><span>麻婆豆腐</span></div>
-      <div class="gallery-slide"><span>揚げ餃子</span></div>
-      <div class="gallery-slide"><span>チャーシュー</span></div>
-      <div class="gallery-slide"><span>東坡肉</span></div>
-      <div class="gallery-slide"><span>中華料理</span></div>
-      <div class="gallery-slide" aria-hidden="true"><span>餃子</span></div>
-      <div class="gallery-slide" aria-hidden="true"><span>月餅</span></div>
-      <div class="gallery-slide" aria-hidden="true"><span>麺料理</span></div>
-      <div class="gallery-slide" aria-hidden="true"><span>麻婆豆腐</span></div>
-      <div class="gallery-slide" aria-hidden="true"><span>揚げ餃子</span></div>
-      <div class="gallery-slide" aria-hidden="true"><span>チャーシュー</span></div>
-      <div class="gallery-slide" aria-hidden="true"><span>東坡肉</span></div>
-      <div class="gallery-slide" aria-hidden="true"><span>中華料理</span></div>
+      <div class="gallery-slide"><img src="images/gyoza.jpg" alt="餃子" loading="lazy"><span>餃子</span></div>
+      <div class="gallery-slide"><img src="images/mooncake.jpg" alt="月餅" loading="lazy"><span>月餅</span></div>
+      <div class="gallery-slide"><img src="images/noodles.jpg" alt="麺料理" loading="lazy"><span>麺料理</span></div>
+      <div class="gallery-slide"><img src="images/mapo-tofu.jpg" alt="麻婆豆腐" loading="lazy"><span>麻婆豆腐</span></div>
+      <div class="gallery-slide"><img src="images/fried-gyoza.jpg" alt="揚げ餃子" loading="lazy"><span>揚げ餃子</span></div>
+      <div class="gallery-slide"><img src="images/charsiu.jpg" alt="チャーシュー" loading="lazy"><span>チャーシュー</span></div>
+      <div class="gallery-slide"><img src="images/dongpo-pork.jpg" alt="東坡肉" loading="lazy"><span>東坡肉</span></div>
+      <div class="gallery-slide"><img src="images/chinese-dish.jpg" alt="中華料理" loading="lazy"><span>中華料理</span></div>
+      <div class="gallery-slide" aria-hidden="true"><img src="images/gyoza.jpg" alt="餃子" loading="lazy"><span>餃子</span></div>
+      <div class="gallery-slide" aria-hidden="true"><img src="images/mooncake.jpg" alt="月餅" loading="lazy"><span>月餅</span></div>
+      <div class="gallery-slide" aria-hidden="true"><img src="images/noodles.jpg" alt="麺料理" loading="lazy"><span>麺料理</span></div>
+      <div class="gallery-slide" aria-hidden="true"><img src="images/mapo-tofu.jpg" alt="麻婆豆腐" loading="lazy"><span>麻婆豆腐</span></div>
+      <div class="gallery-slide" aria-hidden="true"><img src="images/fried-gyoza.jpg" alt="揚げ餃子" loading="lazy"><span>揚げ餃子</span></div>
+      <div class="gallery-slide" aria-hidden="true"><img src="images/charsiu.jpg" alt="チャーシュー" loading="lazy"><span>チャーシュー</span></div>
+      <div class="gallery-slide" aria-hidden="true"><img src="images/dongpo-pork.jpg" alt="東坡肉" loading="lazy"><span>東坡肉</span></div>
+      <div class="gallery-slide" aria-hidden="true"><img src="images/chinese-dish.jpg" alt="中華料理" loading="lazy"><span>中華料理</span></div>
     </div>
   </div>
 </div>
@@ -503,7 +510,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
     <div class="chef-wrap">
       <div class="chef-photo reveal">
         <div class="photo-ph" id="ph-chef">
-          <!-- PHOTO PLACEHOLDER: 店主 村川 貴泰 -->
+          <img src="images/chef.jpg" alt="" class="ph-img">
+          <!-- PHOTO PLACEHOLDER: 店主 村川 貴泰。現在はサンプル写真(images/chef.jpg)を仮当てしています -->
           <label class="photo-ph-swap" for="upload-chef">写真を差し替える</label>
           <input type="file" id="upload-chef" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-chef')">
         </div>
@@ -578,7 +586,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 <!-- FOOD VISUAL + SNS -->
 <div class="fv-sns-wrap">
   <div class="fv-sns-photo photo-ph" id="ph-fvsns">
-    <!-- PHOTO PLACEHOLDER: 香醇の中華料理 -->
+          <img src="images/food-wide.jpg" alt="" class="ph-img">
+    <!-- PHOTO PLACEHOLDER: 香醇の中華料理。現在はサンプル写真(images/food-wide.jpg)を仮当てしています -->
     <label class="photo-ph-swap" for="upload-fvsns">写真を差し替える</label>
     <input type="file" id="upload-fvsns" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-fvsns')">
   </div>
@@ -658,8 +667,14 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
     const reader = new FileReader();
     reader.onload = (e) => {
       const el = document.getElementById(phId);
-      el.style.backgroundImage = 'url(' + e.target.result + ')';
-      el.querySelectorAll('svg').forEach(s => s.style.display = 'none');
+      let img = el.querySelector('img.ph-img');
+      if (!img) {
+        img = document.createElement('img');
+        img.className = 'ph-img';
+        img.alt = '';
+        el.insertBefore(img, el.firstChild);
+      }
+      img.src = e.target.result;
     };
     reader.readAsDataURL(file);
   }

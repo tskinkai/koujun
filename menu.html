@@ -73,6 +73,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 .photo-ph { position: relative; overflow: hidden; background: var(--bg2); display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; }
 .photo-ph-swap { position: absolute; inset: auto 0 0 0; background: rgba(26,26,26,0.6); color: rgba(255,255,255,0.92); font-size: 0.62rem; letter-spacing: 0.1em; padding: 8px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px; opacity: 0; transition: opacity 0.2s; cursor: pointer; }
 .photo-ph:hover .photo-ph-swap { opacity: 1; }
+.photo-ph img.ph-img { width: 100%; height: 100%; object-fit: cover; display: block; position: relative; z-index: 0; }
 
 /* COURSE DISHES */
 .dish-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
@@ -204,7 +205,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       <div class="dish-card reveal">
         <div class="dish-img-wrap">
           <div class="photo-ph" id="ph-c1">
-            <!-- PHOTO PLACEHOLDER: 前菜 三種盛り -->
+            <img src="images/appetizer.jpg" alt="" class="ph-img">
+            <!-- PHOTO PLACEHOLDER: 前菜 三種盛り。現在はサンプル写真(images/appetizer.jpg)を仮当てしています -->
             <span class="dish-num">01</span>
             <label class="photo-ph-swap" for="upload-c1">写真を差し替える</label>
             <input type="file" id="upload-c1" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c1')">
@@ -219,7 +221,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       <div class="dish-card reveal">
         <div class="dish-img-wrap">
           <div class="photo-ph" id="ph-c2">
-            <!-- PHOTO PLACEHOLDER: 香り高い薬膳スープ -->
+            <img src="images/soup.jpg" alt="" class="ph-img">
+            <!-- PHOTO PLACEHOLDER: 香り高い薬膳スープ。現在はサンプル写真(images/soup.jpg)を仮当てしています -->
             <span class="dish-num">02</span>
             <label class="photo-ph-swap" for="upload-c2">写真を差し替える</label>
             <input type="file" id="upload-c2" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c2')">
@@ -234,7 +237,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       <div class="dish-card reveal">
         <div class="dish-img-wrap">
           <div class="photo-ph" id="ph-c3">
-            <!-- PHOTO PLACEHOLDER: 本日の魚料理 -->
+            <img src="images/fish.jpg" alt="" class="ph-img">
+            <!-- PHOTO PLACEHOLDER: 本日の魚料理。現在はサンプル写真(images/fish.jpg)を仮当てしています -->
             <span class="dish-num">03</span>
             <label class="photo-ph-swap" for="upload-c3">写真を差し替える</label>
             <input type="file" id="upload-c3" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c3')">
@@ -249,7 +253,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       <div class="dish-card reveal">
         <div class="dish-img-wrap">
           <div class="photo-ph" id="ph-c4">
-            <!-- PHOTO PLACEHOLDER: 厳選肉の一品 -->
+            <img src="images/meat.jpg" alt="" class="ph-img">
+            <!-- PHOTO PLACEHOLDER: 厳選肉の一品。現在はサンプル写真(images/meat.jpg)を仮当てしています -->
             <span class="dish-num">04</span>
             <label class="photo-ph-swap" for="upload-c4">写真を差し替える</label>
             <input type="file" id="upload-c4" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c4')">
@@ -264,7 +269,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       <div class="dish-card reveal">
         <div class="dish-img-wrap">
           <div class="photo-ph" id="ph-c5">
-            <!-- PHOTO PLACEHOLDER: 手作り点心 -->
+            <img src="images/dimsum.jpg" alt="" class="ph-img">
+            <!-- PHOTO PLACEHOLDER: 手作り点心。現在はサンプル写真(images/dimsum.jpg)を仮当てしています -->
             <span class="dish-num">05</span>
             <label class="photo-ph-swap" for="upload-c5">写真を差し替える</label>
             <input type="file" id="upload-c5" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c5')">
@@ -279,7 +285,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       <div class="dish-card reveal">
         <div class="dish-img-wrap">
           <div class="photo-ph" id="ph-c6">
-            <!-- PHOTO PLACEHOLDER: 看板炒飯 -->
+            <img src="images/fried-rice.jpg" alt="" class="ph-img">
+            <!-- PHOTO PLACEHOLDER: 看板炒飯。現在はサンプル写真(images/fried-rice.jpg)を仮当てしています -->
             <span class="dish-num">06</span>
             <label class="photo-ph-swap" for="upload-c6">写真を差し替える</label>
             <input type="file" id="upload-c6" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c6')">
@@ -355,7 +362,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
         <div class="alacarte-items" style="display:grid;grid-template-columns:1fr 1fr;gap:20px 40px;">
           <div class="alacarte-item alacarte-item--photo">
             <div class="photo-ph" id="ph-o1">
-              <!-- PHOTO PLACEHOLDER: マーライオン豆腐 -->
+            <img src="images/tofu-dish.jpg" alt="" class="ph-img">
+              <!-- PHOTO PLACEHOLDER: マーライオン豆腐。現在はサンプル写真(images/tofu-dish.jpg)を仮当てしています -->
               <label class="photo-ph-swap" for="upload-o1">差し替え</label>
               <input type="file" id="upload-o1" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-o1')">
             </div>
@@ -366,7 +374,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
           </div>
           <div class="alacarte-item alacarte-item--photo">
             <div class="photo-ph" id="ph-o2">
-              <!-- PHOTO PLACEHOLDER: 貴兵衛の貴族チャーハン -->
+            <img src="images/fried-rice.jpg" alt="" class="ph-img">
+              <!-- PHOTO PLACEHOLDER: 貴兵衛の貴族チャーハン。現在はサンプル写真(images/fried-rice.jpg)を仮当てしています -->
               <label class="photo-ph-swap" for="upload-o2">差し替え</label>
               <input type="file" id="upload-o2" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-o2')">
             </div>
@@ -377,7 +386,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
           </div>
           <div class="alacarte-item alacarte-item--photo">
             <div class="photo-ph" id="ph-o3">
-              <!-- PHOTO PLACEHOLDER: あま辛大マヨ大 -->
+            <img src="images/fried-chicken.jpg" alt="" class="ph-img">
+              <!-- PHOTO PLACEHOLDER: あま辛大マヨ大。現在はサンプル写真(images/fried-chicken.jpg)を仮当てしています -->
               <label class="photo-ph-swap" for="upload-o3">差し替え</label>
               <input type="file" id="upload-o3" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-o3')">
             </div>
@@ -388,7 +398,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
           </div>
           <div class="alacarte-item alacarte-item--photo">
             <div class="photo-ph" id="ph-o4">
-              <!-- PHOTO PLACEHOLDER: 鳥塩大マヨ大 -->
+            <img src="images/fried-chicken.jpg" alt="" class="ph-img">
+              <!-- PHOTO PLACEHOLDER: 鳥塩大マヨ大。現在はサンプル写真(images/fried-chicken.jpg)を仮当てしています -->
               <label class="photo-ph-swap" for="upload-o4">差し替え</label>
               <input type="file" id="upload-o4" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-o4')">
             </div>
@@ -501,8 +512,14 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
     const reader = new FileReader();
     reader.onload = (e) => {
       const el = document.getElementById(phId);
-      el.style.backgroundImage = 'url(' + e.target.result + ')';
-      el.querySelectorAll('svg').forEach(s => s.style.display = 'none');
+      let img = el.querySelector('img.ph-img');
+      if (!img) {
+        img = document.createElement('img');
+        img.className = 'ph-img';
+        img.alt = '';
+        el.insertBefore(img, el.firstChild);
+      }
+      img.src = e.target.result;
     };
     reader.readAsDataURL(file);
   }

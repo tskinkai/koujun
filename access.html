@@ -71,6 +71,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 .photo-ph { position: relative; overflow: hidden; background: var(--bg2); display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; }
 .photo-ph-swap { position: absolute; inset: auto 0 0 0; background: rgba(26,26,26,0.6); color: rgba(255,255,255,0.92); font-size: 0.66rem; letter-spacing: 0.12em; padding: 10px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px; opacity: 0; transition: opacity 0.2s; cursor: pointer; }
 .photo-ph:hover .photo-ph-swap { opacity: 1; }
+.photo-ph img.ph-img { width: 100%; height: 100%; object-fit: cover; display: block; position: relative; z-index: 0; }
 .exterior-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
 .exterior-grid .photo-ph { aspect-ratio: 4/3; width: 100%; }
 
@@ -151,12 +152,14 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 
       <div class="exterior-grid">
         <div class="photo-ph" id="ph-ext">
-          <!-- PHOTO PLACEHOLDER: 店舗外観 -->
+          <img src="images/exterior.jpg" alt="" class="ph-img">
+          <!-- PHOTO PLACEHOLDER: 店舗外観。現在はサンプル写真(images/exterior.jpg)を仮当てしています -->
           <label class="photo-ph-swap" for="upload-ext">写真を差し替える</label>
           <input type="file" id="upload-ext" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-ext')">
         </div>
         <div class="photo-ph" id="ph-int">
-          <!-- PHOTO PLACEHOLDER: 店内 -->
+          <img src="images/interior.jpg" alt="" class="ph-img">
+          <!-- PHOTO PLACEHOLDER: 店内。現在はサンプル写真(images/interior.jpg)を仮当てしています -->
           <label class="photo-ph-swap" for="upload-int">写真を差し替える</label>
           <input type="file" id="upload-int" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-int')">
         </div>
@@ -235,8 +238,14 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
     const reader = new FileReader();
     reader.onload = (e) => {
       const el = document.getElementById(phId);
-      el.style.backgroundImage = 'url(' + e.target.result + ')';
-      el.querySelectorAll('svg').forEach(s => s.style.display = 'none');
+      let img = el.querySelector('img.ph-img');
+      if (!img) {
+        img = document.createElement('img');
+        img.className = 'ph-img';
+        img.alt = '';
+        el.insertBefore(img, el.firstChild);
+      }
+      img.src = e.target.result;
     };
     reader.readAsDataURL(file);
   }
