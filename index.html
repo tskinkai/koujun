@@ -207,6 +207,13 @@ nav {
 .menu-card .sec-link { margin-top: 0; }
 .menu-note { font-size: 0.72rem; color: var(--muted); margin-top: 28px; letter-spacing: 0.05em; line-height: 1.8; }
 
+/* WINE */
+.wine-section-bg { background: var(--bg); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.wine-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.wine-img-col .photo-ph { width: 100%; aspect-ratio: 3/4; }
+.wine-desc { font-size: 0.875rem; line-height: 2.2; color: var(--muted); }
+.wine-note { font-size: 0.8rem; line-height: 2; color: var(--muted); border-left: 2px solid var(--gold); padding-left: 20px; margin-top: 28px; }
+
 /* INFO */
 .info-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
 .info-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
@@ -258,9 +265,10 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   .hero-content { left: 32px; right: 88px; bottom: 72px; }
   .sec { padding: 64px 32px; }
   .divider { margin: 0 32px; }
-  .concept-wrap, .info-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .concept-wrap, .info-wrap, .wine-wrap { grid-template-columns: 1fr; gap: 40px; }
   .concept-text-col { padding-top: 0; }
   .concept-img { aspect-ratio: 16/9; }
+  .wine-img-col .photo-ph { aspect-ratio: 16/9; }
   .photo-band { grid-template-columns: 1fr; height: auto; }
   .photo-band-item { height: 260px; }
   .photo-band-item:nth-child(2), .photo-band-item:nth-child(3) { display: none; }
@@ -429,6 +437,33 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   </div>
   <p class="menu-note reveal">※ メニューの詳細は近日公開予定です。最新情報はInstagramでご確認ください。</p>
 </section>
+
+<!-- WINE -->
+<div class="wine-section-bg">
+  <section class="sec">
+    <div class="wine-wrap">
+      <div class="wine-img-col reveal">
+        <div class="photo-ph" id="ph-wine">
+          <img src="images/wine-glasses.jpg" alt="" class="ph-img">
+          <!-- PHOTO PLACEHOLDER: グラスに注がれたワインのイメージ。現在はサンプル写真(images/wine-glasses.jpg)を仮当てしています -->
+          <label class="photo-ph-swap" for="upload-wine">写真を差し替える</label>
+          <input type="file" id="upload-wine" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-wine')">
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="sec-label">WINE</span>
+        <h2 class="sec-heading">料理を引き立てるワイン</h2>
+        <p class="wine-desc">
+          中華料理とワインは、実は相性の良い組み合わせです。香醇では、油の香りや香辛料の風味に寄り添う赤・白・自然派ワインを中心に、一皿ごとに楽しめるペアリングをご用意する予定です。
+        </p>
+        <div class="wine-note">
+          産地や品種を問わず、その日の料理に最もふさわしいワインをセレクトしています。グラスワインからボトルまで、スタッフにお気軽にご相談ください。
+        </div>
+        <a class="sec-link" href="wine.html">ワインについて詳しく見る</a>
+      </div>
+    </div>
+  </section>
+</div>
 
 <!-- INFO -->
 <section class="sec" id="info" style="padding-bottom:64px;">
