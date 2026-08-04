@@ -31,7 +31,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 .nav-center { display: flex; gap: 32px; list-style: none; }
 .nav-center a { font-size: 0.7rem; letter-spacing: 0.2em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
 .nav-center a:hover, .nav-center a.active { color: var(--gold); }
-.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-right-group { display: flex; align-items: center; gap: 36px; }
 .nav-cta { font-size: 0.68rem; letter-spacing: 0.2em; color: var(--white); background: var(--ink); padding: 9px 22px; text-decoration: none; transition: background 0.25s; white-space: nowrap; }
 .nav-cta:hover { background: var(--gold2); }
 .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
@@ -159,14 +159,14 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="index.html">中國菜 香醇</a>
-  <ul class="nav-center" id="navCenter">
-    <li><a href="index.html">HOME</a></li>
-    <li><a href="about.html">香醇について</a></li>
-    <li><a href="course.html">コース</a></li>
-    <li><a href="menu.html" class="active">メニュー</a></li>
-    <li><a href="access.html">アクセス</a></li>
-  </ul>
-  <div class="nav-right">
+  <div class="nav-right-group">
+    <ul class="nav-center" id="navCenter">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="about.html">香醇について</a></li>
+      <li><a href="course.html">コース</a></li>
+      <li><a href="menu.html" class="active">メニュー</a></li>
+      <li><a href="access.html">アクセス</a></li>
+    </ul>
     <a class="nav-cta" href="reserve.html">ご予約はこちら</a>
     <button class="nav-toggle" id="navToggle" aria-label="メニューを開く"><span></span><span></span><span></span></button>
   </div>
