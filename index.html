@@ -96,7 +96,7 @@ nav {
 
 /* HERO */
 .hero { position: relative; height: 100svh; min-height: 640px; overflow: hidden; }
-.hero-bg {
+.hero-bg.photo-ph {
   position: absolute; inset: 0;
   background: linear-gradient(160deg, #2a1410 0%, #3d1c12 45%, #1a1a1a 100%);
 }
@@ -225,12 +225,8 @@ nav {
 .info-table td:first-child { width: 110px; font-size: 0.66rem; letter-spacing: 0.18em; color: var(--gold); padding-top: 17px; }
 .info-table td:last-child { color: var(--muted); }
 .info-table a { color: var(--gold); text-decoration: none; }
-.map-box {
-  background: var(--bg); border: 1px solid var(--rule); min-height: 280px;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 14px; color: var(--muted); font-size: 0.78rem; letter-spacing: 0.12em; text-align: center; line-height: 2;
-  text-decoration: none;
-}
+.map-embed { width: 100%; border: 1px solid var(--rule); }
+.map-embed iframe { width: 100%; height: 280px; border: none; display: block; }
 
 /* FOOD VISUAL + SNS */
 .fv-sns-wrap { position: relative; width: 100%; border-top: 1px solid var(--rule); }
@@ -480,14 +476,13 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       <a class="sec-link" href="access.html">アクセス詳細・地図を見る</a>
     </div>
     <div class="reveal">
-      <a class="map-box" href="access.html">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8B3A1A" stroke-width="1.5">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-          <circle cx="12" cy="9" r="2.5"/>
-        </svg>
-        神戸・三宮<br>
-        <span style="font-size:0.7rem;">北長狭通１丁目２１−２１ 2TAKAIB.L D2F</span>
-      </a>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps?q=兵庫県神戸市中央区北長狭通1丁目21-21&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="中國菜 香醇 地図"></iframe>
+      </div>
     </div>
   </div>
 </section>
