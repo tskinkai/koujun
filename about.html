@@ -15,8 +15,8 @@
   --bg2:   #F0EDE8;
   --white: #FFFFFF;
   --ink:   #1A1A1A;
-  --gold:  #8B3A1A;
-  --gold2: #A04520;
+  --gold:  #6E1F2B;
+  --gold2: #8C2E3D;
   --muted: #6B6560;
   --rule:  rgba(0,0,0,0.1);
 }
@@ -71,7 +71,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 .sec-label { display: block; font-size: 0.58rem; letter-spacing: 0.45em; color: var(--gold); margin-bottom: 16px; }
 .sec-heading { font-family: 'Noto Serif JP', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 300; letter-spacing: 0.1em; line-height: 1.6; color: var(--ink); margin-bottom: 24px; }
 .sec-body { font-size: 0.875rem; line-height: 2.2; color: var(--muted); }
-.sec-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 32px; font-size: 0.68rem; letter-spacing: 0.28em; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(160,120,64,0.35); padding-bottom: 3px; transition: opacity 0.2s; }
+.sec-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 32px; font-size: 0.68rem; letter-spacing: 0.28em; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(110,31,43,0.35); padding-bottom: 3px; transition: opacity 0.2s; }
 .sec-link:hover { opacity: 0.65; }
 .sec-link::after { content: '→'; }
 .divider { border: none; border-top: 1px solid var(--rule); margin: 0 80px; }
@@ -114,8 +114,9 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 /* CHEF */
 .chef-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
 .chef-photo .photo-ph { aspect-ratio: 3/4; width: 100%; }
-.chef-name { font-family: 'Noto Serif JP', serif; font-size: 1.15rem; font-weight: 400; color: var(--ink); letter-spacing: 0.08em; margin-bottom: 20px; }
+.chef-name { font-family: 'Noto Serif JP', serif; font-size: 1.15rem; font-weight: 400; color: var(--ink); letter-spacing: 0.08em; margin-bottom: 8px; }
 .chef-name span { display: block; font-family: 'Noto Sans JP', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; color: var(--muted); margin-top: 4px; font-weight: 300; }
+.chef-credential { font-size: 0.72rem; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 20px; }
 .chef-body p { font-size: 0.875rem; line-height: 2.2; color: var(--muted); margin-bottom: 16px; }
 .chef-blockquote { font-family: 'Noto Serif JP', serif; font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 300; line-height: 2; color: var(--ink); border-left: 2px solid var(--gold); padding-left: 24px; margin-bottom: 20px; }
 .chef-sig { font-size: 0.78rem; letter-spacing: 0.2em; color: var(--muted); padding-left: 24px; }
@@ -264,10 +265,10 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
     <div class="name-logo-col reveal">
       <svg viewBox="0 0 320 560" xmlns="http://www.w3.org/2000/svg">
         <rect width="320" height="560" fill="#F8F6F3"/>
-        <line x1="160" y1="48" x2="160" y2="512" stroke="#8B3A1A" stroke-width="0.6" opacity="0.2"/>
-        <text x="160" y="196" font-family="Noto Serif JP, serif" font-size="200" font-weight="300" fill="none" stroke="#8B3A1A" stroke-width="1.2" stroke-linejoin="round" text-anchor="middle" dominant-baseline="middle" opacity="0.75">香</text>
-        <circle cx="160" cy="296" r="2.5" fill="#8B3A1A" opacity="0.35"/>
-        <text x="160" y="400" font-family="Noto Serif JP, serif" font-size="200" font-weight="300" fill="none" stroke="#8B3A1A" stroke-width="1.2" stroke-linejoin="round" text-anchor="middle" dominant-baseline="middle" opacity="0.75">醇</text>
+        <line x1="160" y1="48" x2="160" y2="512" stroke="#6E1F2B" stroke-width="0.6" opacity="0.2"/>
+        <text x="160" y="196" font-family="Noto Serif JP, serif" font-size="200" font-weight="300" fill="none" stroke="#6E1F2B" stroke-width="1.2" stroke-linejoin="round" text-anchor="middle" dominant-baseline="middle" opacity="0.75">香</text>
+        <circle cx="160" cy="296" r="2.5" fill="#6E1F2B" opacity="0.35"/>
+        <text x="160" y="400" font-family="Noto Serif JP, serif" font-size="200" font-weight="300" fill="none" stroke="#6E1F2B" stroke-width="1.2" stroke-linejoin="round" text-anchor="middle" dominant-baseline="middle" opacity="0.75">醇</text>
       </svg>
     </div>
     <div class="reveal">
@@ -299,6 +300,7 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       <span class="sec-label">CHEF</span>
       <h2 class="sec-heading">店主について</h2>
       <p class="chef-name">村川 貴泰 <span>Takayasu Murakawa</span></p>
+      <p class="chef-credential">J.S.A.ワインエキスパート</p>
       <div class="chef-body">
         <p>長年にわたり、ホテルの料理長や中華料理店のシェフたちと直接向き合う仕事をしてきました。食材の提案、メニュー開発の相談、季節ごとの食材の使い方——そうした現場での対話を重ねるなかで、中華料理が持つ奥深さと、その可能性の広さを肌で学んできました。</p>
         <p>と同時に、気づいたことがあります。プロの料理人たちが食材にかける情熱と、それが一般のお客様に届くまでの距離の遠さ。素材の良さも、調理の技も、知っている人にしか伝わっていない——その「もったいなさ」が、開業を決意した理由のひとつです。</p>
