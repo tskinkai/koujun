@@ -131,11 +131,15 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 @media (max-width: 600px) { .alacarte-item--photo { grid-template-columns: 100px 1fr; gap: 14px; } .alacarte-item--photo .photo-ph { width: 100px; height: 75px; } }
 
 /* WINE */
-.wine-section-bg { background: var(--bg); border-top: 1px solid var(--rule); }
-.wine-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.wine-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 56px; }
 .wine-img-col .photo-ph { width: 100%; aspect-ratio: 3/4; }
 .wine-desc { font-size: 0.83rem; line-height: 2.1; color: var(--muted); margin-top: 8px; }
-.wine-note { font-size: 0.8rem; line-height: 2; color: var(--muted); border-left: 2px solid var(--gold); padding-left: 20px; margin-top: 28px; }
+.wine-note { font-size: 0.8rem; line-height: 2; color: var(--muted); border-left: 2px solid var(--gold); padding-left: 20px; margin-top: 40px; }
+.wine-type-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.wine-type-card { background: var(--white); padding: 32px 28px; }
+.wine-type-label { display: block; font-size: 0.6rem; letter-spacing: 0.35em; color: var(--gold); margin-bottom: 10px; }
+.wine-type-title { font-family: 'Noto Serif JP', serif; font-size: 1rem; font-weight: 400; letter-spacing: 0.06em; color: var(--ink); margin-bottom: 10px; }
+.wine-type-desc { font-size: 0.8rem; line-height: 1.9; color: var(--muted); }
 
 /* NOTE BAR */
 .note-bar { background: var(--ink); color: rgba(255,255,255,0.7); padding: 28px 24px; font-size: 0.75rem; letter-spacing: 0.05em; line-height: 1.9; }
@@ -184,6 +188,7 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   .alacarte-grid { grid-template-columns: 1fr; gap: 36px; }
   .wine-wrap { grid-template-columns: 1fr; gap: 32px; }
   .wine-img-col .photo-ph { aspect-ratio: 16/9; }
+  .wine-type-grid { grid-template-columns: 1fr; }
   footer { padding: 48px 24px 32px; }
   .footer-top { grid-template-columns: 1fr; gap: 36px; }
 }
@@ -224,7 +229,7 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   <h1 class="page-hero-title">料理とワインについて</h1>
   <p class="page-hero-desc">
     中華料理とワインを通じて、食卓に豊かな時間をお届けします。<br>
-    おまかせコースとアラカルト、お好みのスタイルでお楽しみください。<br>
+    おまかせコース・アラカルト・ワイン、お好みのスタイルでお楽しみください。<br>
     詳細なメニューと価格は近日公開予定です。
   </p>
   </div>
@@ -232,8 +237,9 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 
 <!-- TAB NAV -->
 <div class="tab-nav">
-  <button class="tab-btn active" id="tab-course" onclick="switchTab('course')">おまかせコース &nbsp; Course</button>
-  <button class="tab-btn" id="tab-alacarte" onclick="switchTab('alacarte')">アラカルト &nbsp; À La Carte</button>
+  <button class="tab-btn active" id="tab-course">おまかせコース</button>
+  <button class="tab-btn" id="tab-alacarte">アラカルト</button>
+  <button class="tab-btn" id="tab-wine">ワイン</button>
 </div>
 
 <!-- COURSE SECTION -->
@@ -457,30 +463,54 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   </section>
 </div>
 
-<!-- WINE -->
-<div class="wine-section-bg">
+<!-- WINE SECTION -->
+<div id="section-wine" style="display:none;">
   <section class="sec">
+    <span class="sec-label">WINE</span>
+    <h2 class="sec-heading">中華料理と、<br>意外なほど好相性。</h2>
     <div class="wine-wrap">
       <div class="wine-img-col reveal">
         <div class="photo-ph" id="ph-wine">
-          <img src="images/wine-bottles.jpg" alt="" class="ph-img">
-          <!-- PHOTO PLACEHOLDER: セラーやワインボトルのイメージ。現在はサンプル写真(images/wine-bottles.jpg)を仮当てしています -->
+          <img src="images/wine-glasses.jpg" alt="" class="ph-img">
+          <!-- PHOTO PLACEHOLDER: グラスに注がれたワインのイメージ。現在はサンプル写真(images/wine-glasses.jpg)を仮当てしています -->
           <label class="photo-ph-swap" for="upload-wine">写真を差し替える</label>
           <input type="file" id="upload-wine" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-wine')">
         </div>
       </div>
-      <div class="wine-text-col reveal">
-        <span class="sec-label">WINE</span>
-        <h2 class="sec-heading">料理を引き立てるワイン</h2>
+      <div class="reveal">
         <p class="wine-desc">
-          中華料理とワインは、実は相性の良い組み合わせです。香醇では、油の香りや香辛料の風味に寄り添う赤・白・自然派ワインを中心に、一皿ごとに楽しめるペアリングをご用意する予定です。
+          「中華にワイン？」そう感じる方は多いでしょう。けれど、香辛料や発酵の香りが幾重にも重なる中華料理は、ワインの酸味や果実味と重なり合うことで、思いがけない美味しさを引き出します。香醇では、油の香りや香辛料の風味に寄り添う赤・白・自然派ワインを中心に、一皿ごとに楽しめるペアリングをご用意する予定です。
         </p>
-        <div class="wine-note">
-          産地や品種を問わず、その日の料理に最もふさわしいワインをセレクトしています。<br>
-          グラスワインからボトルまで、スタッフにお気軽にご相談ください。
-        </div>
-        <a class="sec-link" href="wine.html">ワインについて詳しく見る</a>
       </div>
+    </div>
+
+    <span class="sec-label reveal">SELECTION</span>
+    <h2 class="sec-heading reveal">ワインのセレクション</h2>
+    <div class="wine-type-grid">
+      <div class="wine-type-card reveal">
+        <span class="wine-type-label">RED</span>
+        <h3 class="wine-type-title">赤ワイン</h3>
+        <p class="wine-type-desc">香辛料の効いた料理や煮込み料理と。タンニンと旨みが響き合い、味わいに深みを添えます。</p>
+      </div>
+      <div class="wine-type-card reveal">
+        <span class="wine-type-label">WHITE</span>
+        <h3 class="wine-type-title">白ワイン</h3>
+        <p class="wine-type-desc">点心や海鮮料理と。爽やかな酸味が、料理の香りをすっと引き立てます。</p>
+      </div>
+      <div class="wine-type-card reveal">
+        <span class="wine-type-label">NATURAL</span>
+        <h3 class="wine-type-title">自然派ワイン</h3>
+        <p class="wine-type-desc">発酵の香りが層をなす料理と。個性のある味わいが、中華料理との好相性を生みます。</p>
+      </div>
+      <div class="wine-type-card reveal">
+        <span class="wine-type-label">SPARKLING</span>
+        <h3 class="wine-type-title">スパークリング</h3>
+        <p class="wine-type-desc">食事のはじまりや前菜と。軽やかな泡立ちが、心地よく食欲を誘います。</p>
+      </div>
+    </div>
+    <div class="wine-note reveal">
+      香醇では、J.S.A.ワインエキスパートの資格を持つ店主が、産地や品種を問わずその日の料理に最もふさわしいワインをセレクトしています。<br>
+      グラスワインからボトルまで、スタッフにお気軽にご相談ください。詳細は近日公開いたします。
     </div>
   </section>
 </div>
@@ -533,7 +563,7 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       <li><a href="index.html">HOME</a></li>
       <li><a href="about.html">香醇について</a></li>
       <li><a href="menu.html">メニュー</a></li>
-      <li><a href="wine.html">ワイン</a></li>
+      <li><a href="menu.html#wine">ワイン</a></li>
       <li><a href="access.html">アクセス</a></li>
       <li><a href="reserve.html">ご予約・お問い合わせ</a></li>
       <li><a href="news.html">お知らせ</a></li>
@@ -561,22 +591,21 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 
 <script>
   // Tab switching
-  function switchTab(tab) {
-    const course   = document.getElementById('section-course');
-    const alacarte = document.getElementById('section-alacarte');
-    const btnC = document.getElementById('tab-course');
-    const btnA = document.getElementById('tab-alacarte');
-    if (tab === 'course') {
-      course.style.display = 'block'; alacarte.style.display = 'none';
-      btnC.classList.add('active'); btnA.classList.remove('active');
-    } else {
-      course.style.display = 'none'; alacarte.style.display = 'block';
-      btnC.classList.remove('active'); btnA.classList.add('active');
-    }
+  const TABS = ['course', 'alacarte', 'wine'];
+  function switchTab(tab, scroll) {
+    TABS.forEach(t => {
+      document.getElementById('section-' + t).style.display = (t === tab) ? 'block' : 'none';
+      document.getElementById('tab-' + t).classList.toggle('active', t === tab);
+    });
     document.querySelectorAll('.reveal').forEach(el => el.classList.remove('visible'));
     setTimeout(() => document.querySelectorAll('.reveal').forEach(el => io.observe(el)), 50);
+    if (scroll) window.scrollTo({ top: 0, behavior: 'auto' });
   }
-  if (location.hash === '#alacarte') { switchTab('alacarte'); document.getElementById('tab-alacarte').classList.add('active'); document.getElementById('tab-course').classList.remove('active'); }
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => switchTab(btn.id.replace('tab-', ''), true));
+  });
+  const initialTab = location.hash.replace('#', '');
+  if (TABS.includes(initialTab)) switchTab(initialTab, false);
 
   // Scroll reveal
   const io = new IntersectionObserver((entries) => {
