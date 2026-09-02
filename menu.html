@@ -92,17 +92,13 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 .photo-ph:hover .photo-ph-swap { opacity: 1; }
 .photo-ph img.ph-img { width: 100%; height: 100%; object-fit: cover; display: block; position: relative; z-index: 0; }
 
-/* COURSE DISHES */
-.dish-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
-.dish-card { background: var(--white); transition: background 0.3s; }
-.dish-card:hover { background: var(--bg); }
-.dish-img-wrap { position: relative; overflow: hidden; }
-.dish-img-wrap .photo-ph { width: 100%; aspect-ratio: 4/3; }
-.dish-num { position: absolute; top: 14px; left: 14px; font-family: 'Noto Serif JP', serif; font-size: 0.75rem; letter-spacing: 0.18em; color: var(--white); background: rgba(0,0,0,0.38); padding: 4px 10px; z-index: 2; }
-.dish-info { padding: 24px 28px 32px; }
-.dish-en { display: block; font-size: 0.6rem; letter-spacing: 0.38em; color: var(--gold); margin-bottom: 8px; }
-.dish-name { font-family: 'Noto Serif JP', serif; font-size: 1.05rem; font-weight: 400; letter-spacing: 0.1em; color: var(--ink); margin-bottom: 10px; }
-.dish-desc { font-size: 0.8rem; line-height: 1.9; color: var(--muted); }
+/* COURSE FLOW */
+.course-flow { list-style: none; margin-top: 40px; }
+.course-flow-item { display: flex; align-items: baseline; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+.course-flow-item:first-child { border-top: 1px solid var(--rule); }
+.course-flow-num { font-family: 'Noto Serif JP', serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--gold); flex-shrink: 0; width: 28px; }
+.course-flow-name { font-size: 0.95rem; color: var(--ink); letter-spacing: 0.05em; margin-bottom: 4px; }
+.course-flow-name-cn { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.05em; }
 
 /* COURSE INFO BOX */
 .course-info { margin-top: 48px; background: var(--bg); border: 1px solid var(--rule); padding: 36px 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
@@ -122,24 +118,14 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 .alacarte-price { font-size: 0.68rem; letter-spacing: 0.14em; color: var(--gold); white-space: nowrap; }
 .alacarte-item-desc { font-size: 0.75rem; line-height: 1.7; color: var(--muted); }
 
-/* アラカルト写真付きアイテム（香醇オリジナル） */
-.originals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 40px; }
-.alacarte-item--photo { display: grid; grid-template-columns: 140px 1fr; gap: 20px; align-items: start; }
-.alacarte-item--photo .photo-ph { width: 140px; height: 105px; }
-.alacarte-item-body { flex: 1; }
-@media (max-width: 900px) { .originals-grid { grid-template-columns: 1fr; } }
-@media (max-width: 600px) { .alacarte-item--photo { grid-template-columns: 100px 1fr; gap: 14px; } .alacarte-item--photo .photo-ph { width: 100px; height: 75px; } }
-
 /* WINE */
 .wine-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 56px; }
 .wine-img-col .photo-ph { width: 100%; aspect-ratio: 3/4; }
 .wine-desc { font-size: 0.83rem; line-height: 2.1; color: var(--muted); margin-top: 8px; }
 .wine-note { font-size: 0.8rem; line-height: 2; color: var(--muted); border-left: 2px solid var(--gold); padding-left: 20px; margin-top: 40px; }
-.wine-type-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
-.wine-type-card { background: var(--white); padding: 32px 28px; }
-.wine-type-label { display: block; font-size: 0.6rem; letter-spacing: 0.35em; color: var(--gold); margin-bottom: 10px; }
-.wine-type-title { font-family: 'Noto Serif JP', serif; font-size: 1rem; font-weight: 400; letter-spacing: 0.06em; color: var(--ink); margin-bottom: 10px; }
-.wine-type-desc { font-size: 0.8rem; line-height: 1.9; color: var(--muted); }
+.wine-category-block { margin-bottom: 48px; }
+.wine-category-block:last-child { margin-bottom: 0; }
+.wine-rating { display: block; margin-top: 6px; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--gold); }
 
 /* NOTE BAR */
 .note-bar { background: var(--ink); color: rgba(255,255,255,0.7); padding: 28px 24px; font-size: 0.75rem; letter-spacing: 0.05em; line-height: 1.9; }
@@ -183,17 +169,14 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   .page-hero { padding: 56px 24px; }
   .sec { padding: 56px 24px; }
   .divider { margin: 0 24px; }
-  .dish-grid { grid-template-columns: 1fr; }
   .course-info { grid-template-columns: 1fr 1fr; gap: 24px; padding: 24px; }
   .alacarte-grid { grid-template-columns: 1fr; gap: 36px; }
   .wine-wrap { grid-template-columns: 1fr; gap: 32px; }
   .wine-img-col .photo-ph { aspect-ratio: 16/9; }
-  .wine-type-grid { grid-template-columns: 1fr; }
   footer { padding: 48px 24px 32px; }
   .footer-top { grid-template-columns: 1fr; gap: 36px; }
 }
 @media (max-width: 600px) {
-  .dish-grid { grid-template-columns: 1fr; }
   .course-info { grid-template-columns: 1fr; }
 }
 </style>
@@ -229,8 +212,7 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   <h1 class="page-hero-title">料理とワインについて</h1>
   <p class="page-hero-desc">
     中華料理とワインを通じて、食卓に豊かな時間をお届けします。<br>
-    おまかせコース・アラカルト・ワイン、お好みのスタイルでお楽しみください。<br>
-    詳細なメニューと価格は近日公開予定です。
+    おまかせコース・アラカルト・ワイン、お好みのスタイルでお楽しみください。
   </p>
   </div>
 </div>
@@ -251,107 +233,51 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       旬の食材と丁寧な仕込みによる中華料理を、コースでお楽しみいただきます。<br>
       香りと味わいの変化を感じながら、料理とワインのペアリングをご堪能ください。
     </p>
-    <div class="dish-grid">
-      <div class="dish-card reveal">
-        <div class="dish-img-wrap">
-          <div class="photo-ph" id="ph-c1">
-            <img src="images/appetizer.jpg" alt="" class="ph-img">
-            <!-- PHOTO PLACEHOLDER: 前菜 三種盛り。現在はサンプル写真(images/appetizer.jpg)を仮当てしています -->
-            <span class="dish-num">01</span>
-            <label class="photo-ph-swap" for="upload-c1">写真を差し替える</label>
-            <input type="file" id="upload-c1" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c1')">
-          </div>
-        </div>
-        <div class="dish-info">
-          <span class="dish-en">Assorted Appetizers</span>
-          <h3 class="dish-name">前菜 三種盛り</h3>
-          <p class="dish-desc">季節の食材を使った小さな前菜を三種、少しずつお楽しみいただけます。香醇らしい香りと彩りで、コースの幕開けを飾ります。</p>
-        </div>
-      </div>
-      <div class="dish-card reveal">
-        <div class="dish-img-wrap">
-          <div class="photo-ph" id="ph-c2">
-            <img src="images/soup.jpg" alt="" class="ph-img">
-            <!-- PHOTO PLACEHOLDER: 香り高い薬膳スープ。現在はサンプル写真(images/soup.jpg)を仮当てしています -->
-            <span class="dish-num">02</span>
-            <label class="photo-ph-swap" for="upload-c2">写真を差し替える</label>
-            <input type="file" id="upload-c2" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c2')">
-          </div>
-        </div>
-        <div class="dish-info">
-          <span class="dish-en">Soup</span>
-          <h3 class="dish-name">香り高い薬膳スープ</h3>
-          <p class="dish-desc">じっくり煮込んだ滋味深いスープで、コースの始まりを整えます。ほっとひと息つける優しい味わいです。</p>
-        </div>
-      </div>
-      <div class="dish-card reveal">
-        <div class="dish-img-wrap">
-          <div class="photo-ph" id="ph-c3">
-            <img src="images/fish.jpg" alt="" class="ph-img">
-            <!-- PHOTO PLACEHOLDER: 本日の魚料理。現在はサンプル写真(images/fish.jpg)を仮当てしています -->
-            <span class="dish-num">03</span>
-            <label class="photo-ph-swap" for="upload-c3">写真を差し替える</label>
-            <input type="file" id="upload-c3" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c3')">
-          </div>
-        </div>
-        <div class="dish-info">
-          <span class="dish-en">Fish</span>
-          <h3 class="dish-name">本日の魚料理</h3>
-          <p class="dish-desc">その日仕入れた魚を、素材の香りを活かした調理法でご提供します。旨みを最大限に引き出した一皿です。</p>
-        </div>
-      </div>
-      <div class="dish-card reveal">
-        <div class="dish-img-wrap">
-          <div class="photo-ph" id="ph-c4">
-            <img src="images/meat.jpg" alt="" class="ph-img">
-            <!-- PHOTO PLACEHOLDER: 厳選肉の一品。現在はサンプル写真(images/meat.jpg)を仮当てしています -->
-            <span class="dish-num">04</span>
-            <label class="photo-ph-swap" for="upload-c4">写真を差し替える</label>
-            <input type="file" id="upload-c4" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c4')">
-          </div>
-        </div>
-        <div class="dish-info">
-          <span class="dish-en">Meat</span>
-          <h3 class="dish-name">厳選肉の一品</h3>
-          <p class="dish-desc">火入れにこだわった肉料理。ワインとの相性を考えた味付けで、柔らかく深いコクをお楽しみください。</p>
-        </div>
-      </div>
-      <div class="dish-card reveal">
-        <div class="dish-img-wrap">
-          <div class="photo-ph" id="ph-c5">
-            <img src="images/dimsum.jpg" alt="" class="ph-img">
-            <!-- PHOTO PLACEHOLDER: 手作り点心。現在はサンプル写真(images/dimsum.jpg)を仮当てしています -->
-            <span class="dish-num">05</span>
-            <label class="photo-ph-swap" for="upload-c5">写真を差し替える</label>
-            <input type="file" id="upload-c5" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c5')">
-          </div>
-        </div>
-        <div class="dish-info">
-          <span class="dish-en">Dim Sum</span>
-          <h3 class="dish-name">手作り点心</h3>
-          <p class="dish-desc">店主が仕上げる点心を、蒸し立てでお楽しみいただきます。薄皮の中に旨みをぎゅっと閉じ込めた一品です。</p>
-        </div>
-      </div>
-      <div class="dish-card reveal">
-        <div class="dish-img-wrap">
-          <div class="photo-ph" id="ph-c6">
-            <img src="images/fried-rice.jpg" alt="" class="ph-img">
-            <!-- PHOTO PLACEHOLDER: 看板炒飯。現在はサンプル写真(images/fried-rice.jpg)を仮当てしています -->
-            <span class="dish-num">06</span>
-            <label class="photo-ph-swap" for="upload-c6">写真を差し替える</label>
-            <input type="file" id="upload-c6" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-c6')">
-          </div>
-        </div>
-        <div class="dish-info">
-          <span class="dish-en">Rice</span>
-          <h3 class="dish-name">看板炒飯</h3>
-          <p class="dish-desc">コースの締めに、香醇自慢の一皿をコンパクトにご用意します。素朴でいて、記憶に残る味です。</p>
-        </div>
-      </div>
-    </div>
+    <ol class="course-flow">
+      <li class="course-flow-item reveal">
+        <span class="course-flow-num">01</span>
+        <div><p class="course-flow-name">胡桃の飴炊き</p><p class="course-flow-name-cn">琥珀核桃</p></div>
+      </li>
+      <li class="course-flow-item reveal">
+        <span class="course-flow-num">02</span>
+        <div><p class="course-flow-name">前菜六種盛り合わせ</p><p class="course-flow-name-cn">六味彩碟</p></div>
+      </li>
+      <li class="course-flow-item reveal">
+        <span class="course-flow-num">03</span>
+        <div><p class="course-flow-name">海老と発酵赤唐辛子の春巻き</p><p class="course-flow-name-cn">泡椒鮮蝦春卷</p></div>
+      </li>
+      <li class="course-flow-item reveal">
+        <span class="course-flow-num">04</span>
+        <div><p class="course-flow-name">フカヒレスープ</p><p class="course-flow-name-cn">魚翅上湯</p></div>
+      </li>
+      <li class="course-flow-item reveal">
+        <span class="course-flow-num">05</span>
+        <div><p class="course-flow-name">海老の特製マヨネーズソース</p><p class="course-flow-name-cn">沙律明蝦球</p></div>
+      </li>
+      <li class="course-flow-item reveal">
+        <span class="course-flow-num">06</span>
+        <div><p class="course-flow-name">黒酢酢豚</p><p class="course-flow-name-cn">黑醋咕嚕肉</p></div>
+      </li>
+      <li class="course-flow-item reveal">
+        <span class="course-flow-num">07</span>
+        <div><p class="course-flow-name">麻婆豆腐 または 担々麺</p><p class="course-flow-name-cn">麻婆豆腐　或　擔擔麵</p></div>
+      </li>
+      <li class="course-flow-item reveal">
+        <span class="course-flow-num">08</span>
+        <div><p class="course-flow-name">自家製杏仁豆腐</p><p class="course-flow-name-cn">自家製杏仁豆腐</p></div>
+      </li>
+      <li class="course-flow-item reveal">
+        <span class="course-flow-num">09</span>
+        <div><p class="course-flow-name">プチエッグタルト</p><p class="course-flow-name-cn">迷你蛋撻</p></div>
+      </li>
+      <li class="course-flow-item reveal">
+        <span class="course-flow-num">10</span>
+        <div><p class="course-flow-name">中国茶</p><p class="course-flow-name-cn">中國茶</p></div>
+      </li>
+    </ol>
 
     <div class="course-info reveal">
-      <div><span class="course-info-label">料金</span><p class="course-info-val">近日公開予定</p></div>
+      <div><span class="course-info-label">料金</span><p class="course-info-val">¥7,700</p></div>
       <div><span class="course-info-label">所要時間</span><p class="course-info-val">約120分</p></div>
       <div><span class="course-info-label">ワインペアリング</span><p class="course-info-val">ご用意可能</p></div>
       <div><span class="course-info-label">ご予約</span><p class="course-info-val">前日までにお願いします</p></div>
@@ -370,93 +296,40 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
     </p>
     <div class="alacarte-grid">
       <div class="alacarte-section reveal">
-        <div class="alacarte-header"><span class="alacarte-en">Appetizers</span><h3 class="alacarte-category">前菜</h3></div>
+        <div class="alacarte-header"><span class="alacarte-en">Appetizer</span><h3 class="alacarte-category">前菜</h3></div>
         <div class="alacarte-items">
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">よだれ鶏</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">花椒の痺れとラー油の香りが効いた、しっとり蒸し鶏の定番前菜。</p></div>
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">香醇風前菜盛り合わせ</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">季節の小皿を少しずつ。会話の始まりにぴったりの盛り合わせ。</p></div>
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">季節野菜の和え物</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">その時期ならではの野菜を、香り高いタレでさっぱりと。</p></div>
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">自家製ザーサイ</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">じっくり漬け込んだ自家製ザーサイ。箸休めの一品。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">胡桃の飴炊き</span><span class="alacarte-price">¥600</span></div></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">麻辣クラゲ</span><span class="alacarte-price">¥1,000</span></div></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">よだれ鶏</span><span class="alacarte-price">¥1,100</span></div></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">蒸し鶏　葱生姜ソース</span><span class="alacarte-price">¥1,000</span></div></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">水蛸と茄子の青山椒和え</span><span class="alacarte-price">¥1,100</span></div></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">鶏白レバー　紹興酒と赤ワイン</span><span class="alacarte-price">¥1,100</span></div></div>
         </div>
       </div>
       <div class="alacarte-section reveal">
-        <div class="alacarte-header"><span class="alacarte-en">Dim Sum</span><h3 class="alacarte-category">点心・蒸し物</h3></div>
+        <div class="alacarte-header"><span class="alacarte-en">Dim Sum</span><h3 class="alacarte-category">点心</h3></div>
         <div class="alacarte-items">
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">小籠包</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">薄皮を割ると溢れ出す、熱々の肉汁が自慢の一品。</p></div>
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">海老蒸し餃子</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">プリプリの海老を包んだ、見た目にも美しい蒸し餃子。</p></div>
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">焼売</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">粗みじんの肉の食感を活かした、香醇の焼売。</p></div>
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">蒸し鶏の香味ソース</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">しっとり蒸し上げた鶏に、香味野菜たっぷりのソースを。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">本日の春巻き　二本</span><span class="alacarte-price">¥950</span></div></div>
         </div>
       </div>
       <div class="alacarte-section reveal">
-        <div class="alacarte-header"><span class="alacarte-en">Main Dishes</span><h3 class="alacarte-category">炒め物・揚げ物</h3></div>
+        <div class="alacarte-header"><span class="alacarte-en">Hot Dishes</span><h3 class="alacarte-category">温菜</h3></div>
         <div class="alacarte-items">
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">青椒肉絲</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">細切りにした肉とピーマンを、香ばしく強火で炒め上げて。</p></div>
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">酢豚</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">カリッと揚げた豚肉に、甘酸っぱい特製ソースを絡めた定番。</p></div>
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">海鮮の中華炒め</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">その日の魚介を、旨みを閉じ込めるように手早く炒めます。</p></div>
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">唐揚げ 香醇風</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">香醇特製の下味でカリッと揚げた、香り高い唐揚げ。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">大海老のチリソース　五尾</span><span class="alacarte-price">¥1,800</span></div></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">黒酢の酢豚</span><span class="alacarte-price">¥1,800</span></div></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">麻婆豆腐</span><span class="alacarte-price">¥1,300</span></div></div>
         </div>
       </div>
       <div class="alacarte-section reveal">
-        <div class="alacarte-header"><span class="alacarte-en">Rice &amp; Noodles</span><h3 class="alacarte-category">御飯・麺</h3></div>
+        <div class="alacarte-header"><span class="alacarte-en">Rice</span><h3 class="alacarte-category">お食事</h3></div>
         <div class="alacarte-items">
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">貴兵衛の貴族チャーハン（小）</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">看板チャーハンの小サイズ。〆の一品としても。</p></div>
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">担々麺</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">濃厚な胡麻とラー油の香りが広がる、香醇の担々麺。</p></div>
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">五目焼きそば</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">香ばしく炒めた麺に、彩り豊かな具材をたっぷりと。</p></div>
-          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">季節の炊き込み御飯</span><span class="alacarte-price">価格未定</span></div><p class="alacarte-item-desc">旬の食材を炊き込んだ、優しい味わいの御飯。</p></div>
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">本日の炒飯</span><span class="alacarte-price">¥1,400</span></div></div>
         </div>
       </div>
-      <div class="alacarte-section reveal" style="grid-column: 1 / -1;">
-        <div class="alacarte-header"><span class="alacarte-en">Originals</span><h3 class="alacarte-category">香醇オリジナルメニュー</h3></div>
-        <p style="font-size:0.78rem;color:var(--muted);margin-bottom:20px;">写真にマウスを合わせると、実写真への差し替えボタンが表示されます（未着手のため現在はプレースホルダーです）。</p>
-        <div class="alacarte-items originals-grid">
-          <div class="alacarte-item alacarte-item--photo">
-            <div class="photo-ph" id="ph-o1">
-            <img src="images/tofu-dish.jpg" alt="" class="ph-img">
-              <!-- PHOTO PLACEHOLDER: マーライオン豆腐。現在はサンプル写真(images/tofu-dish.jpg)を仮当てしています -->
-              <label class="photo-ph-swap" for="upload-o1">差し替え</label>
-              <input type="file" id="upload-o1" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-o1')">
-            </div>
-            <div class="alacarte-item-body">
-              <div class="alacarte-item-top"><span class="alacarte-name">マーライオン豆腐</span><span class="alacarte-price">価格未定</span></div>
-              <p class="alacarte-item-desc">豆腐の上から特製甘辛ソースが流れ落ちる、マーライオンの放水から着想した一品。</p>
-            </div>
-          </div>
-          <div class="alacarte-item alacarte-item--photo">
-            <div class="photo-ph" id="ph-o2">
-            <img src="images/fried-rice.jpg" alt="" class="ph-img">
-              <!-- PHOTO PLACEHOLDER: 貴兵衛の貴族チャーハン。現在はサンプル写真(images/fried-rice.jpg)を仮当てしています -->
-              <label class="photo-ph-swap" for="upload-o2">差し替え</label>
-              <input type="file" id="upload-o2" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-o2')">
-            </div>
-            <div class="alacarte-item-body">
-              <div class="alacarte-item-top"><span class="alacarte-name">貴兵衛の貴族チャーハン</span><span class="alacarte-price">価格未定</span></div>
-              <p class="alacarte-item-desc">店主「貴」泰の名を冠した看板チャーハン。贅沢な具材と高温仕上げで香りを最大限に。</p>
-            </div>
-          </div>
-          <div class="alacarte-item alacarte-item--photo">
-            <div class="photo-ph" id="ph-o3">
-            <img src="images/fried-chicken.jpg" alt="" class="ph-img">
-              <!-- PHOTO PLACEHOLDER: あま辛大マヨ大。現在はサンプル写真(images/fried-chicken.jpg)を仮当てしています -->
-              <label class="photo-ph-swap" for="upload-o3">差し替え</label>
-              <input type="file" id="upload-o3" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-o3')">
-            </div>
-            <div class="alacarte-item-body">
-              <div class="alacarte-item-top"><span class="alacarte-name">あま辛大マヨ大</span><span class="alacarte-price">価格未定</span></div>
-              <p class="alacarte-item-desc">唐揚げに自家製甘辛だれとマヨネーズをたっぷりと。やみつきになる一皿。</p>
-            </div>
-          </div>
-          <div class="alacarte-item alacarte-item--photo">
-            <div class="photo-ph" id="ph-o4">
-            <img src="images/fried-chicken.jpg" alt="" class="ph-img">
-              <!-- PHOTO PLACEHOLDER: 鳥塩大マヨ大。現在はサンプル写真(images/fried-chicken.jpg)を仮当てしています -->
-              <label class="photo-ph-swap" for="upload-o4">差し替え</label>
-              <input type="file" id="upload-o4" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-o4')">
-            </div>
-            <div class="alacarte-item-body">
-              <div class="alacarte-item-top"><span class="alacarte-name">鳥塩大マヨ大</span><span class="alacarte-price">価格未定</span></div>
-              <p class="alacarte-item-desc">塩ダレの鶏肉にレモンとマヨネーズを合わせた、あっさりながら深みのある味わい。</p>
-            </div>
-          </div>
+      <div class="alacarte-section reveal">
+        <div class="alacarte-header"><span class="alacarte-en">Dessert</span><h3 class="alacarte-category">デザート</h3></div>
+        <div class="alacarte-items">
+          <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">自家製杏仁豆腐</span><span class="alacarte-price">¥500</span></div></div>
         </div>
       </div>
     </div>
@@ -485,32 +358,112 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
     </div>
 
     <span class="sec-label reveal">SELECTION</span>
-    <h2 class="sec-heading reveal">ワインのセレクション</h2>
-    <div class="wine-type-grid">
-      <div class="wine-type-card reveal">
-        <span class="wine-type-label">RED</span>
-        <h3 class="wine-type-title">赤ワイン</h3>
-        <p class="wine-type-desc">香辛料の効いた料理や煮込み料理と。タンニンと旨みが響き合い、味わいに深みを添えます。</p>
-      </div>
-      <div class="wine-type-card reveal">
-        <span class="wine-type-label">WHITE</span>
-        <h3 class="wine-type-title">白ワイン</h3>
-        <p class="wine-type-desc">点心や海鮮料理と。爽やかな酸味が、料理の香りをすっと引き立てます。</p>
-      </div>
-      <div class="wine-type-card reveal">
-        <span class="wine-type-label">NATURAL</span>
-        <h3 class="wine-type-title">自然派ワイン</h3>
-        <p class="wine-type-desc">発酵の香りが層をなす料理と。個性のある味わいが、中華料理との好相性を生みます。</p>
-      </div>
-      <div class="wine-type-card reveal">
-        <span class="wine-type-label">SPARKLING</span>
-        <h3 class="wine-type-title">スパークリング</h3>
-        <p class="wine-type-desc">食事のはじまりや前菜と。軽やかな泡立ちが、心地よく食欲を誘います。</p>
+    <h2 class="sec-heading reveal">ワインリスト</h2>
+
+    <div class="wine-category-block reveal">
+      <div class="alacarte-header"><span class="alacarte-en">Wine by the Glass / 100ml</span><h3 class="alacarte-category">グラスワイン</h3></div>
+      <div class="alacarte-items">
+        <div class="alacarte-item">
+          <div class="alacarte-item-top"><span class="alacarte-name">白　ポール・クルーバー エステート シャルドネ 2022</span><span class="alacarte-price">¥1,000</span></div>
+          <p class="alacarte-item-desc">南アフリカ｜柑橘系の果実味に樽の風味。程よいコクとクリーミーさがあり、濃厚さの中にも酸がしっかりと感じられる、バランスの良い一本。幅広い料理に合わせやすいワインです。<span class="wine-rating">店主好み ★★★★★</span></p>
+        </div>
+        <div class="alacarte-item">
+          <div class="alacarte-item-top"><span class="alacarte-name">赤　キザン ファミリー リザーヴ 2023</span><span class="alacarte-price">¥1,000</span></div>
+          <p class="alacarte-item-desc">日本｜チェリーを思わせる果実味に、白胡椒のようなスパイシーさ。フレンチオークとアメリカンオーク由来の風味が調和した、バランスの良いミディアムボディ。肉料理と合わせて。<span class="wine-rating">店主好み ★★★★★</span></p>
+        </div>
       </div>
     </div>
+
+    <div class="wine-category-block reveal">
+      <div class="alacarte-header"><span class="alacarte-en">White Wine</span><h3 class="alacarte-category">白ワイン</h3></div>
+      <div class="alacarte-items">
+        <div class="alacarte-item">
+          <div class="alacarte-item-top"><span class="alacarte-name">リングス プティ リースリング 2024</span><span class="alacarte-price">¥8,000</span></div>
+          <p class="alacarte-item-desc">ドイツ｜石灰質土壌由来のミネラル感と、リースリングらしい伸びやかな酸が印象的な辛口。少し低めの温度で、前菜や春巻きと合わせて。<span class="wine-rating">店主好み ★★★☆☆</span></p>
+        </div>
+        <div class="alacarte-item">
+          <div class="alacarte-item-top"><span class="alacarte-name">アルザス GC ゲビュルツトラミネール ヴァロンブール 2024</span><span class="alacarte-price">¥9,000</span></div>
+          <p class="alacarte-item-desc">フランス・アルザス｜バラやゼラニウムを思わせる華やかな香り。トロピカルフルーツ、スパイス、ミネラルが一体となり、ほのかな残糖が味わいに厚みを与えます。前菜から海鮮料理まで幅広く合わせて。<span class="wine-rating">店主好み ★★★★☆</span></p>
+        </div>
+        <div class="alacarte-item">
+          <div class="alacarte-item-top"><span class="alacarte-name">ポール・グランシェ ジャン・コレ シャブリ ヴァイヨン 2023</span><span class="alacarte-price">¥9,500</span></div>
+          <p class="alacarte-item-desc">フランス・ブルゴーニュ｜シャブリらしいミネラル感と、キレのあるしっかりとした酸。安定感のある造りで、期待を裏切らない一本。爽快な味わいで、前菜と合わせて。<span class="wine-rating">店主好み ★★★☆☆</span></p>
+        </div>
+        <div class="alacarte-item">
+          <div class="alacarte-item-top"><span class="alacarte-name">グロ F&amp;S シャルドネ 2023</span><span class="alacarte-price">¥13,000</span></div>
+          <p class="alacarte-item-desc">フランス・ブルゴーニュ｜ブルゴーニュの名門グロ家が手掛けるシャルドネ。豊かな果実味、きれいな酸、樽のニュアンスが見事に調和した、非常にバランスの良い一本。店主が特におすすめしたい白ワインです。<span class="wine-rating">店主好み ★★★★★＋</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wine-category-block reveal">
+      <div class="alacarte-header"><span class="alacarte-en">Red Wine</span><h3 class="alacarte-category">赤ワイン</h3></div>
+      <div class="alacarte-items">
+        <div class="alacarte-item">
+          <div class="alacarte-item-top"><span class="alacarte-name">ボデガ・チャクラ バルダ ピノ・ノワール</span><span class="alacarte-price">¥8,000</span></div>
+          <p class="alacarte-item-desc">アルゼンチン｜サッシカイアを手掛けるファミリーがアルゼンチンで造るピノ・ノワール。チャーミングな果実味の中に、ほのかなスパイシーさを感じる一本。料理を選びすぎず、幅広く合わせやすい味わいです。<span class="wine-rating">店主好み ★★★★☆</span></p>
+        </div>
+        <div class="alacarte-item">
+          <div class="alacarte-item-top"><span class="alacarte-name">689 カベルネ・ソーヴィニヨン</span><span class="alacarte-price">¥8,000</span></div>
+          <p class="alacarte-item-desc">アメリカ・カリフォルニア｜カベルネ・ソーヴィニヨンらしい力強い果実味に、樽熟成由来の香りと奥行き。しっかりとした味わいながら、果実・樽・スパイスのバランスが良く、特に肉料理と合わせておすすめしたい一本。<span class="wine-rating">店主好み ★★★★★</span></p>
+        </div>
+        <div class="alacarte-item">
+          <div class="alacarte-item-top"><span class="alacarte-name">バローロ ニコレッロ 2015</span><span class="alacarte-price">¥12,000</span></div>
+          <p class="alacarte-item-desc">イタリア・ピエモンテ｜ネッビオーロから造られる、力強さと繊細さを併せ持つバローロ。熟成を経た2015年ヴィンテージならではの落ち着きと奥行きがあり、バローロらしさを素直に楽しめる一本です。<span class="wine-rating">店主好み ★★★★☆</span></p>
+        </div>
+        <div class="alacarte-item">
+          <div class="alacarte-item-top"><span class="alacarte-name">オート・コート・ド・ニュイ ルージュ 2023</span><span class="alacarte-price">¥11,000</span></div>
+          <p class="alacarte-item-desc">フランス・ブルゴーニュ｜ブルゴーニュの名門グロ家が手掛けるピノ・ノワール。チャーミングな果実味と繊細さの中に奥行きがあり、上品で長い余韻も魅力。魚介から肉料理まで幅広く合わせやすい一本です。<span class="wine-rating">店主好み ★★★★★</span></p>
+        </div>
+      </div>
+    </div>
+
     <div class="wine-note reveal">
-      香醇では、J.S.A.ワインエキスパートの資格を持つ店主が、産地や品種を問わずその日の料理に最もふさわしいワインをセレクトしています。<br>
-      グラスワインからボトルまで、スタッフにお気軽にご相談ください。詳細は近日公開いたします。
+      香醇では、J.S.A.ワインエキスパートの資格を持つ店主が、産地や品種を問わずその日の料理に最もふさわしいワインをセレクトしています。グラスワインからボトルまで、スタッフにお気軽にご相談ください。<br>
+      ※「店主好み」は、店主個人の好みと主観による評価です。
+    </div>
+
+    <span class="sec-label reveal" style="margin-top:64px;display:block;">DRINK</span>
+    <h2 class="sec-heading reveal">その他のドリンク</h2>
+
+    <div class="wine-category-block reveal">
+      <div class="alacarte-header"><span class="alacarte-en">Beer</span><h3 class="alacarte-category">ビール</h3></div>
+      <div class="alacarte-items">
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">キリン ハートランド〈中瓶〉</span><span class="alacarte-price">¥850</span></div></div>
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">アサヒ生ビール〈マルエフ〉〈中瓶〉</span><span class="alacarte-price">¥850</span></div></div>
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">サッポロラガービール〈赤星〉〈中瓶〉</span><span class="alacarte-price">¥850</span></div></div>
+      </div>
+    </div>
+
+    <div class="wine-category-block reveal">
+      <div class="alacarte-header"><span class="alacarte-en">Shaoxing Wine</span><h3 class="alacarte-category">紹興酒</h3></div>
+      <div class="alacarte-items">
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">紹興酒ジャパン 春風 からくち　グラス 100ml</span><span class="alacarte-price">¥850</span></div></div>
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">紹興酒ジャパン 春風 からくち　500ml</span><span class="alacarte-price">¥3,700</span></div></div>
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">古越龍山 純龍　500ml</span><span class="alacarte-price">¥6,500</span></div></div>
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">越王台 陳年20年紹興酒　500ml</span><span class="alacarte-price">¥9,000</span></div></div>
+      </div>
+    </div>
+
+    <div class="wine-category-block reveal">
+      <div class="alacarte-header"><span class="alacarte-en">Whisky / 30ml</span><h3 class="alacarte-category">ウイスキー</h3></div>
+      <div class="alacarte-items">
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">イチローズモルト＆グレーン ホワイトラベル</span><span class="alacarte-price">¥900</span></div></div>
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">カバラン ディスティラリーセレクト No.2</span><span class="alacarte-price">¥1,000</span></div></div>
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">余市</span><span class="alacarte-price">¥1,200</span></div><p class="alacarte-item-desc">ストレート・ロック・ハイボールからお選びいただけます。</p></div>
+      </div>
+    </div>
+
+    <div class="wine-category-block reveal">
+      <div class="alacarte-header"><span class="alacarte-en">Non-Alcohol / Soft Drink</span><h3 class="alacarte-category">ノンアルコール・ソフトドリンク</h3></div>
+      <div class="alacarte-items">
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">アサヒゼロ　334ml</span><span class="alacarte-price">¥600</span></div></div>
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">ウィルキンソン ジンジャエール〈辛口〉190ml</span><span class="alacarte-price">¥600</span></div></div>
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">アラン・ミリア ソーヴィニヨン・ブラン　100ml</span><span class="alacarte-price">¥700</span></div><p class="alacarte-item-desc">白ぶどうの品種を楽しむグレープジュース</p></div>
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">アラン・ミリア シャルドネ　100ml</span><span class="alacarte-price">¥700</span></div><p class="alacarte-item-desc">白ぶどうの品種を楽しむグレープジュース</p></div>
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">愛媛県産 はるか 100%ジュース　100ml</span><span class="alacarte-price">¥700</span></div><p class="alacarte-item-desc">数量限定</p></div>
+        <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">烏龍茶</span><span class="alacarte-price">¥500</span></div></div>
+      </div>
     </div>
   </section>
 </div>
@@ -518,9 +471,7 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 <!-- NOTE BAR -->
 <div class="note-bar">
   <div class="note-bar-inner">
-    <p>※ メニュー・価格は近日公開予定です。最新情報は
-    <a href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener">Instagram @kojun_kobe</a>
-    にてご確認ください。</p>
+    <p>※ 表示価格はすべて税込です。</p>
     <p>※ 時間帯によって、ご注文いただけるメニューが異なります。</p>
     <p>※ アラカルトは、コースのメニューをもとに構成しています。</p>
     <p>※ コースは2ヶ月に1回内容が変わるため、アラカルトの内容もあわせて変わります。</p>
