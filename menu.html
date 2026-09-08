@@ -94,12 +94,12 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 
 /* COURSE FLOW */
 .course-flow { list-style: none; margin-top: 40px; }
-.course-flow-item { display: flex; align-items: center; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+.course-flow-item { display: flex; align-items: flex-start; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--rule); }
 .course-flow-item:first-child { border-top: 1px solid var(--rule); }
-.course-flow-num { font-family: 'Noto Serif JP', serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--gold); flex-shrink: 0; width: 28px; }
-.course-flow-photo { width: 56px; height: 56px; object-fit: cover; flex-shrink: 0; }
+.course-flow-num { font-family: 'Noto Serif JP', serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--gold); flex-shrink: 0; width: 28px; padding-top: 2px; }
 .course-flow-name { font-size: 0.95rem; color: var(--ink); letter-spacing: 0.05em; margin-bottom: 4px; }
 .course-flow-name-cn { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.05em; }
+.course-flow-desc { font-size: 0.8rem; line-height: 1.9; color: var(--muted); margin-top: 8px; }
 
 /* COURSE INFO BOX */
 .course-info { margin-top: 48px; background: var(--bg); border: 1px solid var(--rule); padding: 36px 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
@@ -239,52 +239,48 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
     <ol class="course-flow">
       <li class="course-flow-item reveal">
         <span class="course-flow-num">01</span>
-        <div><p class="course-flow-name">胡桃の飴炊き</p><p class="course-flow-name-cn">琥珀核桃</p></div>
+        <div><p class="course-flow-name">胡桃の飴炊き</p><p class="course-flow-name-cn">琥珀核桃</p><p class="course-flow-desc">渋皮を丁寧に取り除いた胡桃を、麦芽糖でじっくりと飴炊きにしました。表面をキャラメリゼすることで香ばしさとカリッとした食感が加わり、内側のほろ苦さと上品な甘みとのコントラストが楽しめる先付けです。</p></div>
       </li>
       <li class="course-flow-item reveal">
         <span class="course-flow-num">02</span>
-        <div><p class="course-flow-name">前菜六種盛り合わせ</p><p class="course-flow-name-cn">六味彩碟</p></div>
+        <div><p class="course-flow-name">前菜六種盛り合わせ</p><p class="course-flow-name-cn">六味彩碟</p><p class="course-flow-desc">よだれ鶏、赤海老の紹興酒漬け、麻辣クラゲ、胡瓜の酢漬けとピータンクリーム、水蛸と茄子の青山椒和え、鶏白レバーの赤ワインと紹興酒仕立て。六つの異なる食感と味わいを、ひと皿でお楽しみいただけます。</p></div>
       </li>
       <li class="course-flow-item reveal">
         <span class="course-flow-num">03</span>
-        <img class="course-flow-photo" src="images/spring-roll-real.jpg" alt="">
-        <div><p class="course-flow-name">海老と発酵赤唐辛子の春巻き</p><p class="course-flow-name-cn">泡椒鮮蝦春卷</p></div>
+        <div><p class="course-flow-name">海老と発酵赤唐辛子の春巻き</p><p class="course-flow-name-cn">泡椒鮮蝦春卷</p><p class="course-flow-desc">四川料理に欠かせない発酵赤唐辛子（泡椒）の酸味と辛みを海老の身に纏わせ、薄皮でパリッと巻き上げました。衣の香ばしさと海老の甘みが引き立つ一品です。</p></div>
       </li>
       <li class="course-flow-item reveal">
         <span class="course-flow-num">04</span>
-        <img class="course-flow-photo" src="images/shark-fin-soup.jpg" alt="">
-        <div><p class="course-flow-name">フカヒレスープ</p><p class="course-flow-name-cn">魚翅上湯</p></div>
+        <div><p class="course-flow-name">フカヒレスープ</p><p class="course-flow-name-cn">魚翅上湯</p><p class="course-flow-desc">鶏や金華ハムなどからじっくりと引いた上湯（シャンタン）で、フカヒレをコトコトと煮含めました。旨みの層を重ねた、奥行きのあるスープです。</p></div>
       </li>
       <li class="course-flow-item reveal">
         <span class="course-flow-num">05</span>
-        <img class="course-flow-photo" src="images/shrimp-mayo.jpg" alt="">
-        <div><p class="course-flow-name">海老のマンゴーマヨネーズ</p><p class="course-flow-name-cn">沙律明蝦球</p></div>
+        <div><p class="course-flow-name">海老のマンゴーマヨネーズ</p><p class="course-flow-name-cn">沙律明蝦球</p><p class="course-flow-desc">殻を外し丁寧に下処理をした海老を香ばしく揚げ、完熟マンゴーを合わせたコクのあるマヨネーズソースで和えました。プリッとした食感と甘酸っぱい香りが調和します。</p></div>
       </li>
       <li class="course-flow-item reveal">
         <span class="course-flow-num">06</span>
-        <div><p class="course-flow-name">黒酢酢豚</p><p class="course-flow-name-cn">黑醋咕嚕肉</p></div>
+        <div><p class="course-flow-name">黒酢酢豚</p><p class="course-flow-name-cn">黑醋咕嚕肉</p><p class="course-flow-desc">豚肩ロースをカリッと揚げ、鎮江香醋（黒酢）をベースにしたソースをしっかりと絡めました。まろやかな酸味とコクのある甘みが特徴の、香醇自慢の一皿です。</p></div>
       </li>
       <li class="course-flow-item reveal">
         <span class="course-flow-num">07</span>
-        <img class="course-flow-photo" src="images/mapo-tofu.jpg" alt="">
-        <div><p class="course-flow-name">麻婆豆腐 または 担々麺</p><p class="course-flow-name-cn">麻婆豆腐　或　擔擔麵</p></div>
+        <div><p class="course-flow-name">麻婆豆腐 または 担々麺</p><p class="course-flow-name-cn">麻婆豆腐　或　擔擔麵</p><p class="course-flow-desc">花椒の痺れと豆板醤の辛みを効かせた本格麻婆豆腐、または芝麻醤のコクが香るクリーミーな担々麺から、お好みでお選びいただけます。</p></div>
       </li>
       <li class="course-flow-item reveal">
         <span class="course-flow-num">08</span>
-        <div><p class="course-flow-name">自家製杏仁豆腐</p><p class="course-flow-name-cn">自家製杏仁豆腐</p></div>
+        <div><p class="course-flow-name">自家製杏仁豆腐</p><p class="course-flow-name-cn">自家製杏仁豆腐</p><p class="course-flow-desc">杏仁霜を丁寧に漉し、なめらかな口当たりに仕上げた自家製の杏仁豆腐です。優しい甘さと、杏仁本来の芳ばしい香りをお楽しみください。</p></div>
       </li>
       <li class="course-flow-item reveal">
         <span class="course-flow-num">09</span>
-        <div><p class="course-flow-name">プチエッグタルト</p><p class="course-flow-name-cn">迷你蛋撻</p></div>
+        <div><p class="course-flow-name">プチエッグタルト</p><p class="course-flow-name-cn">迷你蛋撻</p><p class="course-flow-desc">バターの風味豊かなサクサクのクッキー生地に、とろけるようなカスタードを流し込んだ小さなエッグタルトです。焼き立ての香ばしさが魅力です。</p></div>
       </li>
       <li class="course-flow-item reveal">
         <span class="course-flow-num">10</span>
-        <div><p class="course-flow-name">中国茶</p><p class="course-flow-name-cn">中國茶</p></div>
+        <div><p class="course-flow-name">中国茶</p><p class="course-flow-name-cn">中國茶</p><p class="course-flow-desc">コースの締めくくりに、その日の料理との相性を考えてセレクトした中国茶をご用意します。香り高い一杯で、ゆったりとした余韻をお楽しみください。</p></div>
       </li>
     </ol>
 
     <div class="course-info reveal">
-      <div><span class="course-info-label">料金</span><p class="course-info-val">¥7,700</p></div>
+      <div><span class="course-info-label">料金</span><p class="course-info-val">¥7,000</p></div>
       <div><span class="course-info-label">所要時間</span><p class="course-info-val">約120分</p></div>
       <div><span class="course-info-label">ワインペアリング</span><p class="course-info-val">ご用意可能</p></div>
       <div><span class="course-info-label">ご予約</span><p class="course-info-val">前日までにお願いします</p></div>
@@ -306,18 +302,18 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
         <div class="alacarte-section reveal">
           <div class="alacarte-header"><span class="alacarte-en">Appetizer</span><h3 class="alacarte-category">前菜</h3></div>
           <div class="alacarte-items">
-            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">胡桃の飴炊き</span><span class="alacarte-price">¥600</span></div></div>
-            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">麻辣クラゲ</span><span class="alacarte-price">¥1,000</span></div></div>
-            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">よだれ鶏</span><span class="alacarte-price">¥1,100</span></div></div>
-            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">蒸し鶏　葱生姜ソース</span><span class="alacarte-price">¥1,000</span></div></div>
-            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">水蛸と茄子の青山椒和え</span><span class="alacarte-price">¥1,100</span></div></div>
-            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">鶏白レバー　紹興酒と赤ワイン</span><span class="alacarte-price">¥1,100</span></div></div>
+            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">胡桃の飴炊き</span><span class="alacarte-price">¥600</span></div><p class="alacarte-item-desc">渋皮を丁寧に取り除いた胡桃を、麦芽糖でじっくりと飴炊きにしました。表面をキャラメリゼすることで香ばしさとカリッとした食感が加わり、内側のほろ苦さと上品な甘みとのコントラストをお楽しみいただけます。</p></div>
+            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">麻辣クラゲ</span><span class="alacarte-price">¥1,000</span></div><p class="alacarte-item-desc">コリコリとした食感のクラゲを、花椒と唐辛子を効かせた麻辣ダレで和えました。痺れと辛みの奥に、ごま油の香ばしさが広がります。</p></div>
+            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">よだれ鶏</span><span class="alacarte-price">¥1,100</span></div><p class="alacarte-item-desc">蒸し鶏に、醤油・酢・ラー油をベースにした四川風のピリ辛だれをたっぷりと。花椒の痺れと香味野菜の香りが食欲をそそります。</p></div>
+            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">蒸し鶏　葱生姜ソース</span><span class="alacarte-price">¥1,000</span></div><p class="alacarte-item-desc">皮を丁寧に取り除いた鶏肉を、しっとりと蒸し上げました。香港式の葱生姜ソースをかけ、素材そのものの旨みを生かした、シンプルながら奥深い一皿です。</p></div>
+            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">水蛸と茄子の青山椒和え</span><span class="alacarte-price">¥1,100</span></div><p class="alacarte-item-desc">コリッとした水蛸と、とろけるような茄子を、爽やかな痺れの青山椒で和えました。清涼感のある香りが後を引く前菜です。</p></div>
+            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">鶏白レバー　紹興酒と赤ワイン</span><span class="alacarte-price">¥1,100</span></div><p class="alacarte-item-desc">丁寧に血抜きをした鶏白レバーを、紹興酒と赤ワインで低温調理にじっくりと仕上げました。濃厚ながらくどさのない、上品な口当たりです。</p></div>
           </div>
         </div>
         <div class="alacarte-section reveal">
           <div class="alacarte-header"><span class="alacarte-en">Dim Sum</span><h3 class="alacarte-category">点心</h3></div>
           <div class="alacarte-items">
-            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">本日の春巻き　二本</span><span class="alacarte-price">¥950</span></div></div>
+            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">本日の春巻き　二本</span><span class="alacarte-price">¥950</span></div><p class="alacarte-item-desc">その日仕入れた食材を薄皮で包み、カリッと揚げた春巻きです。皮の食感と具材の旨みの対比をお楽しみください。</p></div>
           </div>
         </div>
       </div>
@@ -325,21 +321,21 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
         <div class="alacarte-section reveal">
           <div class="alacarte-header"><span class="alacarte-en">Hot Dishes</span><h3 class="alacarte-category">温菜</h3></div>
           <div class="alacarte-items">
-            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">大海老のチリソース　五尾</span><span class="alacarte-price">¥1,800</span></div></div>
-            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">黒酢の酢豚</span><span class="alacarte-price">¥1,800</span></div></div>
-            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">麻婆豆腐</span><span class="alacarte-price">¥1,300</span></div></div>
+            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">大海老のチリソース　五尾</span><span class="alacarte-price">¥1,800</span></div><p class="alacarte-item-desc">殻付きのまま香ばしく揚げた大海老に、コクと辛みのあるチリソースを絡め、仕上げにパルミジャーノ・レッジャーノを削りかけました。ピリ辛のチリソースと芳醇なチーズの香り、両方の味わいをお楽しみいただけます。</p></div>
+            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">黒酢の酢豚</span><span class="alacarte-price">¥1,800</span></div><p class="alacarte-item-desc">香醇自慢の鎮江香醋（黒酢）ベースのソースで仕上げた酢豚です。まろやかな酸味とコクのある甘みが、ご飯にもお酒にもよく合います。</p></div>
+            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">麻婆豆腐</span><span class="alacarte-price">¥1,300</span></div><p class="alacarte-item-desc">花椒の痺れと豆板醤の辛みを効かせた、本格四川風の麻婆豆腐です。挽き肉の旨みと豆腐のなめらかさが調和します。</p></div>
           </div>
         </div>
         <div class="alacarte-section reveal">
           <div class="alacarte-header"><span class="alacarte-en">Rice</span><h3 class="alacarte-category">お食事</h3></div>
           <div class="alacarte-items">
-            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">本日の炒飯</span><span class="alacarte-price">¥1,400</span></div></div>
+            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">本日の炒飯</span><span class="alacarte-price">¥1,400</span></div><p class="alacarte-item-desc">その日の食材を使い、強火で一気に炒め上げたパラパラの炒飯です。香ばしい鑊気（ウォクの香り）をお楽しみください。</p></div>
           </div>
         </div>
         <div class="alacarte-section reveal">
           <div class="alacarte-header"><span class="alacarte-en">Dessert</span><h3 class="alacarte-category">デザート</h3></div>
           <div class="alacarte-items">
-            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">自家製杏仁豆腐</span><span class="alacarte-price">¥500</span></div></div>
+            <div class="alacarte-item"><div class="alacarte-item-top"><span class="alacarte-name">自家製杏仁豆腐</span><span class="alacarte-price">¥500</span></div><p class="alacarte-item-desc">杏仁霜を丁寧に漉し、なめらかな口当たりに仕上げた自家製の杏仁豆腐です。優しい甘さと、杏仁本来の芳ばしい香りをお楽しみください。</p></div>
           </div>
         </div>
       </div>
@@ -362,7 +358,7 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       </div>
       <div class="reveal">
         <p class="wine-desc">
-          「中華にワイン？」そう感じる方は多いでしょう。けれど、香辛料や発酵の香りが幾重にも重なる中華料理は、ワインの酸味や果実味と重なり合うことで、思いがけない美味しさを引き出します。香醇では、油の香りや香辛料の風味に寄り添う赤・白・自然派ワインを中心に、一皿ごとに楽しめるペアリングをご用意する予定です。
+          「中華にワイン？」そう感じる方は多いでしょう。けれど香辛料や発酵の香りが幾重にも重なる中華料理は、ワインの酸味や果実味と重なり合うことで、思いがけない美味しさを引き出します。
         </p>
       </div>
     </div>
@@ -375,11 +371,11 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       <div class="alacarte-items">
         <div class="alacarte-item">
           <div class="alacarte-item-top"><span class="alacarte-name">白ワイン</span><span class="alacarte-price">¥1,000</span></div>
-          <p class="alacarte-item-desc">南アフリカ｜フル｜柑橘系の果実味に樽の風味。程よいコクとクリーミーさがあり、濃厚さの中にも酸がしっかりと感じられる、バランスの良い一本。幅広い料理に合わせやすいワインです。<span class="wine-pairing"><b>このワインに合う料理</b>鶏白レバー、本日の春巻き</span></p>
+          <p class="alacarte-item-desc">南アフリカ産のフルボディのワインです。柑橘系の果実味に樽の風味が重なり、コクとクリーミーさ、しっかりとした酸のバランスが感じられる一本です。<span class="wine-pairing"><b>このワインに合う料理</b>鶏白レバー、本日の春巻き</span></p>
         </div>
         <div class="alacarte-item">
           <div class="alacarte-item-top"><span class="alacarte-name">赤ワイン</span><span class="alacarte-price">¥1,000</span></div>
-          <p class="alacarte-item-desc">日本｜ミディアム｜チェリーを思わせる果実味に、白胡椒のようなスパイシーさ。フレンチオークとアメリカンオーク由来の風味が調和した、バランスの良いミディアムボディ。肉料理と合わせて。<span class="wine-pairing"><b>このワインに合う料理</b>黒酢酢豚</span></p>
+          <p class="alacarte-item-desc">日本産のミディアムボディのワインです。チェリーを思わせる果実味に白胡椒のようなスパイシーさが感じられ、フレンチオークとアメリカンオークの香りが調和しています。<span class="wine-pairing"><b>このワインに合う料理</b>黒酢酢豚</span></p>
         </div>
       </div>
     </div>
@@ -389,23 +385,23 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       <div class="alacarte-items">
         <div class="alacarte-item">
           <div class="alacarte-item-top"><span class="alacarte-name">リングス プティ リースリング 2024</span><span class="alacarte-price">¥8,000</span></div>
-          <p class="alacarte-item-desc">ドイツ｜ライト｜石灰質土壌由来のミネラル感と、リースリングらしい伸びやかな酸が印象的な辛口。少し低めの温度で、前菜や春巻きと合わせて。<span class="wine-pairing"><b>このワインに合う料理</b>蒸し鶏　葱生姜ソース、本日の春巻き</span></p>
+          <p class="alacarte-item-desc">ドイツ産のライトボディのワインです。石灰質土壌由来のミネラル感と伸びやかな酸が印象的な、辛口の一本です。<span class="wine-pairing"><b>このワインに合う料理</b>蒸し鶏　葱生姜ソース、本日の春巻き</span></p>
         </div>
         <div class="alacarte-item">
           <div class="alacarte-item-top"><span class="alacarte-name">アルザス GC ゲビュルツトラミネール ヴァロンブール 2024</span><span class="alacarte-price">¥9,000</span></div>
-          <p class="alacarte-item-desc">フランス・アルザス｜ミディアム｜バラやゼラニウムを思わせる華やかな香り。トロピカルフルーツ、スパイス、ミネラルが一体となり、ほのかな残糖が味わいに厚みを与えます。前菜から海鮮料理まで幅広く合わせて。<span class="wine-pairing"><b>このワインに合う料理</b>水蛸と茄子の青山椒和え、鶏白レバー</span></p>
+          <p class="alacarte-item-desc">フランス産のミディアムボディのワインです。バラやゼラニウムを思わせる華やかな香りに、ほのかな甘みが厚みを添えています。<span class="wine-pairing"><b>このワインに合う料理</b>水蛸と茄子の青山椒和え、鶏白レバー</span></p>
         </div>
         <div class="alacarte-item">
           <div class="alacarte-item-top"><span class="alacarte-name">ポール・グランシェ ジャン・コレ シャブリ ヴァイヨン 2023</span><span class="alacarte-price">¥9,500</span></div>
-          <p class="alacarte-item-desc">フランス・ブルゴーニュ｜ミディアム｜シャブリらしいミネラル感と、キレのあるしっかりとした酸。安定感のある造りで、期待を裏切らない一本。爽快な味わいで、前菜と合わせて。<span class="wine-pairing"><b>このワインに合う料理</b>蒸し鶏　葱生姜ソース</span></p>
+          <p class="alacarte-item-desc">フランス産のミディアムボディのワインです。シャブリらしいミネラル感とキレのある酸が特徴で、安定感のある造りが魅力です。<span class="wine-pairing"><b>このワインに合う料理</b>蒸し鶏　葱生姜ソース</span></p>
         </div>
         <div class="alacarte-item">
           <div class="alacarte-item-top"><span class="alacarte-name">グロ F&amp;S シャルドネ 2023</span><span class="alacarte-price">¥13,000</span></div>
-          <p class="alacarte-item-desc">フランス・ブルゴーニュ｜フル｜ブルゴーニュの名門グロ家が手掛けるシャルドネ。豊かな果実味、きれいな酸、樽のニュアンスが見事に調和した、非常にバランスの良い一本。特におすすめしたい白ワインです。<span class="wine-pairing"><b>このワインに合う料理</b>蒸し鶏　葱生姜ソース、本日の春巻き、フカヒレスープ</span></p>
+          <p class="alacarte-item-desc">フランス産のフルボディのワインです。名門グロ家が手掛けるシャルドネで、果実味・酸・樽の香りが見事に調和しています。<span class="wine-pairing"><b>このワインに合う料理</b>蒸し鶏　葱生姜ソース、本日の春巻き、フカヒレスープ</span></p>
         </div>
         <div class="alacarte-item">
           <div class="alacarte-item-top"><span class="alacarte-name">ピュリニー・モンラッシェ レ・コルヴァ 2022</span><span class="alacarte-price">¥23,000</span></div>
-          <p class="alacarte-item-desc">フランス・ブルゴーニュ｜フル｜端正な果実味と伸びやかな酸、石灰質を思わせるミネラル感が調和した上品なシャルドネ。繊細さと奥行きを備え、海鮮料理からコクのある料理まで合わせて。<span class="wine-pairing"><b>このワインに合う料理</b>フカヒレスープ、海老のマンゴーマヨネーズ</span></p>
+          <p class="alacarte-item-desc">フランス産のフルボディのワインです。端正な果実味と伸びやかな酸、上品なミネラル感を備えた、格調高いシャルドネです。<span class="wine-pairing"><b>このワインに合う料理</b>フカヒレスープ、海老のマンゴーマヨネーズ</span></p>
         </div>
       </div>
     </div>
@@ -415,30 +411,30 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       <div class="alacarte-items">
         <div class="alacarte-item">
           <div class="alacarte-item-top"><span class="alacarte-name">ボデガ・チャクラ バルダ ピノ・ノワール</span><span class="alacarte-price">¥8,000</span></div>
-          <p class="alacarte-item-desc">アルゼンチン｜ミディアム｜サッシカイアを手掛けるファミリーがアルゼンチンで造るピノ・ノワール。チャーミングな果実味の中に、ほのかなスパイシーさを感じる一本。料理を選びすぎず、幅広く合わせやすい味わいです。<span class="wine-pairing"><b>このワインに合う料理</b>本日の春巻き、フカヒレスープ</span></p>
+          <p class="alacarte-item-desc">アルゼンチン産のミディアムボディのワインです。チャーミングな果実味にほのかなスパイスが感じられ、幅広い料理と合わせやすい一本です。<span class="wine-pairing"><b>このワインに合う料理</b>本日の春巻き、フカヒレスープ</span></p>
         </div>
         <div class="alacarte-item">
           <div class="alacarte-item-top"><span class="alacarte-name">689 カベルネ・ソーヴィニヨン</span><span class="alacarte-price">¥8,000</span></div>
-          <p class="alacarte-item-desc">アメリカ・カリフォルニア｜フル｜カベルネ・ソーヴィニヨンらしい力強い果実味に、樽熟成由来の香りと奥行き。しっかりとした味わいながら、果実・樽・スパイスのバランスが良く、特に肉料理と合わせておすすめしたい一本。<span class="wine-pairing"><b>このワインに合う料理</b>よだれ鶏、黒酢酢豚</span></p>
+          <p class="alacarte-item-desc">アメリカ産のフルボディのワインです。力強い果実味に樽熟成由来の香りが重なり、果実・樽・スパイスのバランスが良い一本です。<span class="wine-pairing"><b>このワインに合う料理</b>よだれ鶏、黒酢酢豚</span></p>
         </div>
         <div class="alacarte-item">
           <div class="alacarte-item-top"><span class="alacarte-name">オート・コート・ド・ニュイ ルージュ 2023</span><span class="alacarte-price">¥11,000</span></div>
-          <p class="alacarte-item-desc">フランス・ブルゴーニュ｜ミディアム｜ブルゴーニュの名門グロ家が手掛けるピノ・ノワール。チャーミングな果実味と繊細さの中に奥行きがあり、上品で長い余韻も魅力。魚介から肉料理まで幅広く合わせやすい一本です。<span class="wine-pairing"><b>このワインに合う料理</b>黒酢酢豚</span></p>
+          <p class="alacarte-item-desc">フランス産のミディアムボディのワインです。名門グロ家が手掛けるピノ・ノワールで、上品で長い余韻が魅力です。<span class="wine-pairing"><b>このワインに合う料理</b>黒酢酢豚</span></p>
         </div>
         <div class="alacarte-item">
           <div class="alacarte-item-top"><span class="alacarte-name">バローロ 2021（フラテッリ・ジャコーザ）</span><span class="alacarte-price">¥12,000</span></div>
-          <p class="alacarte-item-desc">イタリア・ピエモンテ｜フル｜ネッビオーロから造られる、力強さと繊細さを併せ持つバローロ。赤い果実やスパイスを思わせる香りと、しっかりとしたタンニンが印象的。肉料理と合わせて。<span class="wine-pairing"><b>このワインに合う料理</b>黒酢酢豚</span></p>
+          <p class="alacarte-item-desc">イタリア産のフルボディのワインです。力強さと繊細さを併せ持ち、しっかりとしたタンニンが感じられる一本です。<span class="wine-pairing"><b>このワインに合う料理</b>黒酢酢豚</span></p>
         </div>
         <div class="alacarte-item">
           <div class="alacarte-item-top"><span class="alacarte-name">スタッグス・リープ アルテミス カベルネ・ソーヴィニヨン 2021</span><span class="alacarte-price">¥26,000</span></div>
-          <p class="alacarte-item-desc">アメリカ・ナパ・ヴァレー｜フル｜1976年「パリスの審判」で同ワイナリーの1973年S.L.V.カベルネ・ソーヴィニヨンが赤ワイン部門1位に輝いた名門。豊かな果実味と力強さ、上品なタンニンを備えたナパ・カベルネ。肉料理と合わせて。<span class="wine-pairing"><b>このワインに合う料理</b>黒酢酢豚</span></p>
+          <p class="alacarte-item-desc">アメリカ産のフルボディのワインです。「パリスの審判」で名を上げた名門が手掛けるナパ・カベルネで、上品なタンニンが魅力です。<span class="wine-pairing"><b>このワインに合う料理</b>黒酢酢豚</span></p>
         </div>
       </div>
     </div>
 
     <div class="wine-note reveal">
-      香醇では、J.S.A.ワインエキスパートの資格を持つ店主が、産地や品種を問わずその日の料理に最もふさわしいワインをセレクトしています。グラスワインからボトルまで、スタッフにお気軽にご相談ください。<br>
-      ※「このワインに合う料理」は、店主がおすすめする組み合わせの一例です。お好みに応じてスタッフまでお気軽にご相談ください。
+      香醇では、J.S.A.ワインエキスパートの資格を持つ店主が、その日の料理に最もふさわしいワインをセレクトしています。グラスワインからボトルまで、お気軽にご相談ください。<br>
+      ※「このワインに合う料理」は店主がおすすめする組み合わせの一例です。
     </div>
 
     <span class="sec-label reveal" style="margin-top:64px;display:block;">DRINK</span>
