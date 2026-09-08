@@ -301,8 +301,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 <!-- HERO -->
 <div class="hero">
   <div class="hero-bg photo-ph" id="ph-hero">
-          <img src="images/07155628-hung-tong-wine-pairing-dinner_cover_2000x1200.webp" alt="" class="ph-img">
-    <!-- PHOTO PLACEHOLDER: 店内 or 料理のヒーロー写真（横長、画面いっぱい）。現在は指定写真(images/07155628-hung-tong-wine-pairing-dinner_cover_2000x1200.webp)を設定しています -->
+          <img src="images/chinese-dish.jpg" alt="" class="ph-img">
+    <!-- 実店舗の写真(images/chinese-dish.jpg): 料理とワインのテーブルコーディネート -->
     <label class="photo-ph-swap" for="upload-hero">写真を差し替える</label>
     <input type="file" id="upload-hero" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-hero')">
   </div>
@@ -342,20 +342,20 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 <!-- PHOTO BAND -->
 <div class="photo-band">
   <div class="photo-band-item photo-ph" id="ph-band1">
-          <img src="images/wine-bottles.jpg" alt="" class="ph-img">
-    <!-- PHOTO PLACEHOLDER: ワインセラーに並ぶボトル。現在はサンプル写真(images/wine-bottles.jpg)を仮当てしています -->
+          <img src="images/interior-dining-1.jpg" alt="" class="ph-img">
+    <!-- 実店舗の写真(images/interior-dining-1.jpg): 店内ダイニングの様子 -->
     <label class="photo-ph-swap" for="upload-band1">差し替え</label>
     <input type="file" id="upload-band1" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-band1')">
   </div>
   <div class="photo-band-item photo-ph" id="ph-band2">
-          <img src="images/chinese-dish.jpg" alt="" class="ph-img">
-    <!-- 実店舗の写真(images/chinese-dish.jpg): 料理とワインのテーブルコーディネート -->
+          <img src="images/dish-appetizer-cold.jpg" alt="" class="ph-img">
+    <!-- 実店舗の写真(images/dish-appetizer-cold.jpg): 冷菜の一皿 -->
     <label class="photo-ph-swap" for="upload-band2">差し替え</label>
     <input type="file" id="upload-band2" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-band2')">
   </div>
   <div class="photo-band-item photo-ph" id="ph-band3">
-          <img src="images/wine-glasses.jpg" alt="" class="ph-img">
-    <!-- PHOTO PLACEHOLDER: 厳選されたワイン。現在はサンプル写真(images/wine-glasses.jpg)を仮当てしています -->
+          <img src="images/interior-dining-2.jpg" alt="" class="ph-img">
+    <!-- 実店舗の写真(images/interior-dining-2.jpg): 店内ダイニングの様子 -->
     <label class="photo-ph-swap" for="upload-band3">差し替え</label>
     <input type="file" id="upload-band3" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-band3')">
   </div>
@@ -365,26 +365,18 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 <div class="gallery-section">
   <div class="gallery-track-outer">
     <div class="gallery-track" id="galleryTrack">
-      <div class="gallery-slide"><img src="images/gyoza.jpg" alt="餃子"><span>餃子</span></div>
       <div class="gallery-slide"><img src="images/shark-fin-soup.jpg" alt="フカヒレスープ"><span>フカヒレスープ</span></div>
-      <div class="gallery-slide"><img src="images/noodles.jpg" alt="麺料理"><span>麺料理</span></div>
       <div class="gallery-slide"><img src="images/mapo-tofu.jpg" alt="麻婆豆腐"><span>麻婆豆腐</span></div>
       <div class="gallery-slide"><img src="images/spring-roll-real.jpg" alt="春巻き"><span>春巻き</span></div>
-      <div class="gallery-slide"><img src="images/charsiu.jpg" alt="チャーシュー"><span>チャーシュー</span></div>
-      <div class="gallery-slide"><img src="images/dongpo-pork.jpg" alt="東坡肉"><span>東坡肉</span></div>
       <div class="gallery-slide"><img src="images/shrimp-mayo.jpg" alt="海老のマンゴーマヨネーズ"><span>海老のマンゴーマヨネーズ</span></div>
-      <div class="gallery-slide" aria-hidden="true"><img src="images/gyoza.jpg" alt="餃子"><span>餃子</span></div>
       <div class="gallery-slide" aria-hidden="true"><img src="images/shark-fin-soup.jpg" alt="フカヒレスープ"><span>フカヒレスープ</span></div>
-      <div class="gallery-slide" aria-hidden="true"><img src="images/noodles.jpg" alt="麺料理"><span>麺料理</span></div>
       <div class="gallery-slide" aria-hidden="true"><img src="images/mapo-tofu.jpg" alt="麻婆豆腐"><span>麻婆豆腐</span></div>
       <div class="gallery-slide" aria-hidden="true"><img src="images/spring-roll-real.jpg" alt="春巻き"><span>春巻き</span></div>
-      <div class="gallery-slide" aria-hidden="true"><img src="images/charsiu.jpg" alt="チャーシュー"><span>チャーシュー</span></div>
-      <div class="gallery-slide" aria-hidden="true"><img src="images/dongpo-pork.jpg" alt="東坡肉"><span>東坡肉</span></div>
       <div class="gallery-slide" aria-hidden="true"><img src="images/shrimp-mayo.jpg" alt="海老のマンゴーマヨネーズ"><span>海老のマンゴーマヨネーズ</span></div>
     </div>
   </div>
 </div>
-<!-- ギャラリースライダー: フカヒレスープ・麻婆豆腐・春巻き・海老のマンゴーマヨネーズは実店舗の写真。餃子・麺料理・チャーシュー・東坡肉はサンプル写真のままです。 -->
+<!-- ギャラリースライダー: フカヒレスープ・麻婆豆腐・春巻き・海老のマンゴーマヨネーズは実店舗の写真 -->
 
 <hr class="divider">
 
@@ -470,8 +462,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 <!-- FOOD VISUAL + SNS -->
 <div class="fv-sns-wrap">
   <div class="fv-sns-photo photo-ph" id="ph-fvsns">
-          <img src="images/food-wide.jpg" alt="" class="ph-img">
-    <!-- PHOTO PLACEHOLDER: 香醇の中華料理。現在はサンプル写真(images/food-wide.jpg)を仮当てしています -->
+          <img src="images/chef-cooking-2.jpg" alt="" class="ph-img">
+    <!-- 実店舗の写真(images/chef-cooking-2.jpg): 厨房で腕をふるう店主 -->
     <label class="photo-ph-swap" for="upload-fvsns">写真を差し替える</label>
     <input type="file" id="upload-fvsns" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-fvsns')">
   </div>
