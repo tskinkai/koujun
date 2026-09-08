@@ -101,10 +101,10 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 .course-flow-name-cn { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.05em; }
 .course-flow-desc { font-size: 0.8rem; line-height: 1.9; color: var(--muted); margin-top: 8px; }
 
-/* COURSE INFO BOX */
-.course-info { margin-top: 48px; background: var(--bg); border: 1px solid var(--rule); padding: 36px 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-.course-info-label { font-size: 0.62rem; letter-spacing: 0.28em; color: var(--gold); display: block; margin-bottom: 8px; }
-.course-info-val { font-family: 'Noto Serif JP', serif; font-size: 0.95rem; font-weight: 300; color: var(--ink); line-height: 1.7; }
+/* COURSE TITLE + PRICE */
+.course-title-row { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.course-title-row .sec-heading { margin-bottom: 12px; }
+.course-price-inline { font-family: 'Noto Serif JP', serif; font-size: 1.3rem; font-weight: 300; color: var(--gold); letter-spacing: 0.05em; white-space: nowrap; }
 
 /* ALACARTE */
 .alacarte-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 64px; align-items: start; }
@@ -121,8 +121,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; di
 .alacarte-item-desc { font-size: 0.75rem; line-height: 1.7; color: var(--muted); }
 
 /* WINE */
-.wine-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 56px; }
-.wine-img-col .photo-ph { width: 100%; aspect-ratio: 3/4; }
+.wine-wrap { max-width: 640px; margin-bottom: 56px; }
 .wine-desc { font-size: 0.83rem; line-height: 2.1; color: var(--muted); margin-top: 8px; }
 .wine-note { font-size: 0.8rem; line-height: 2; color: var(--muted); border-left: 2px solid var(--gold); padding-left: 20px; margin-top: 40px; }
 .wine-category-block { margin-bottom: 48px; }
@@ -172,15 +171,9 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   .page-hero { padding: 56px 24px; }
   .sec { padding: 56px 24px; }
   .divider { margin: 0 24px; }
-  .course-info { grid-template-columns: 1fr 1fr; gap: 24px; padding: 24px; }
   .alacarte-grid { grid-template-columns: 1fr; gap: 36px; }
-  .wine-wrap { grid-template-columns: 1fr; gap: 32px; }
-  .wine-img-col .photo-ph { aspect-ratio: 16/9; }
   footer { padding: 48px 24px 32px; }
   .footer-top { grid-template-columns: 1fr; gap: 36px; }
-}
-@media (max-width: 600px) {
-  .course-info { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -231,7 +224,10 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 <div id="section-course">
   <section class="sec">
     <span class="sec-label">COURSE</span>
-    <h2 class="sec-heading">おまかせコース</h2>
+    <div class="course-title-row">
+      <h2 class="sec-heading">おまかせコース</h2>
+      <span class="course-price-inline">¥7,000</span>
+    </div>
     <p class="sec-sub">
       旬の食材と丁寧な仕込みによる中華料理を、コースでお楽しみいただきます。<br>
       香りと味わいの変化を感じながら、料理とワインのペアリングをご堪能ください。
@@ -278,13 +274,6 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
         <div><p class="course-flow-name">中国茶</p><p class="course-flow-name-cn">中國茶</p><p class="course-flow-desc">コースの締めくくりに、その日の料理との相性を考えてセレクトした中国茶をご用意します。香り高い一杯で、ゆったりとした余韻をお楽しみください。</p></div>
       </li>
     </ol>
-
-    <div class="course-info reveal">
-      <div><span class="course-info-label">料金</span><p class="course-info-val">¥7,000</p></div>
-      <div><span class="course-info-label">所要時間</span><p class="course-info-val">約120分</p></div>
-      <div><span class="course-info-label">ワインペアリング</span><p class="course-info-val">ご用意可能</p></div>
-      <div><span class="course-info-label">ご予約</span><p class="course-info-val">前日までにお願いします</p></div>
-    </div>
   </section>
 </div>
 
@@ -348,19 +337,10 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   <section class="sec">
     <span class="sec-label">WINE</span>
     <h2 class="sec-heading">中華料理と、<br>意外なほど好相性。</h2>
-    <div class="wine-wrap">
-      <div class="wine-img-col reveal">
-        <div class="photo-ph" id="ph-wine">
-          <!-- PHOTO PLACEHOLDER: グラスに注がれたワインのイメージ。撮影後、差し替えてください（未着手のため現在はプレースホルダーのままです） -->
-          <label class="photo-ph-swap" for="upload-wine">写真を差し替える</label>
-          <input type="file" id="upload-wine" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-wine')">
-        </div>
-      </div>
-      <div class="reveal">
-        <p class="wine-desc">
-          「中華にワイン？」そう感じる方は多いでしょう。けれど香辛料や発酵の香りが幾重にも重なる中華料理は、ワインの酸味や果実味と重なり合うことで、思いがけない美味しさを引き出します。
-        </p>
-      </div>
+    <div class="wine-wrap reveal">
+      <p class="wine-desc">
+        「中華にワイン？」そう感じる方は多いでしょう。けれど香辛料や発酵の香りが幾重にも重なる中華料理は、ワインの酸味や果実味と重なり合うことで、思いがけない美味しさを引き出します。
+      </p>
     </div>
 
     <span class="sec-label reveal">SELECTION</span>
