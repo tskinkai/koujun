@@ -158,13 +158,6 @@ nav {
   background-size: cover; background-position: center;
 }
 .photo-ph svg { width: 40px; height: 40px; opacity: 0.3; }
-.photo-ph-swap {
-  position: absolute; inset: auto 0 0 0; background: rgba(26,26,26,0.6); color: rgba(255,255,255,0.92);
-  font-size: 0.66rem; letter-spacing: 0.12em; padding: 10px; text-align: center;
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-  opacity: 0; transition: opacity 0.2s; cursor: pointer;
-}
-.photo-ph:hover .photo-ph-swap { opacity: 1; }
 .photo-ph img.ph-img { width: 100%; height: 100%; object-fit: cover; display: block; position: relative; z-index: 0; }
 
 /* CONCEPT */
@@ -219,11 +212,9 @@ nav {
 .map-embed { width: 100%; border: 1px solid var(--rule); }
 .map-embed iframe { width: 100%; height: 280px; border: none; display: block; }
 
-/* FOOD VISUAL + SNS */
-.fv-sns-wrap { position: relative; width: 100%; border-top: 1px solid var(--rule); }
-
-.fv-sns-photo { width: 100%; height: 480px; }
-.fv-sns-card { position: absolute; right: 80px; top: 50%; transform: translateY(-50%); background: var(--white); padding: 40px 44px; width: 360px; box-shadow: 0 4px 32px rgba(0,0,0,0.1); }
+/* SNS */
+.fv-sns-wrap { width: 100%; border-top: 1px solid var(--rule); background: var(--bg); padding: 64px 80px; display: flex; justify-content: center; }
+.fv-sns-card { background: var(--white); padding: 40px 44px; width: 360px; max-width: 100%; box-shadow: 0 4px 32px rgba(0,0,0,0.1); }
 .fv-sns-heading { font-family: 'Noto Serif JP', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.06em; line-height: 1.85; color: var(--ink); margin-bottom: 28px; }
 .fv-sns-item { display: block; text-decoration: none; padding-top: 20px; border-top: 1px solid var(--rule); }
 .fv-sns-item-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; color: var(--ink); }
@@ -231,8 +222,7 @@ nav {
 .fv-sns-desc { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.04em; margin-bottom: 10px; }
 .fv-sns-check { font-size: 0.72rem; letter-spacing: 0.2em; color: var(--gold); font-weight: 600; }
 @media (max-width: 900px) {
-  .fv-sns-photo { height: 260px; }
-  .fv-sns-card { position: static; transform: none; width: 100%; box-shadow: none; border-top: 1px solid var(--rule); padding: 28px 24px 32px; }
+  .fv-sns-wrap { padding: 40px 24px; }
   .fv-sns-heading { font-size: 0.95rem; margin-bottom: 20px; }
 }
 
@@ -303,8 +293,6 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   <div class="hero-bg photo-ph" id="ph-hero">
           <img src="images/chinese-dish.jpg" alt="" class="ph-img">
     <!-- 実店舗の写真(images/chinese-dish.jpg): 料理とワインのテーブルコーディネート -->
-    <label class="photo-ph-swap" for="upload-hero">写真を差し替える</label>
-    <input type="file" id="upload-hero" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-hero')">
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -325,8 +313,6 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
       <div class="concept-img photo-ph" id="ph-concept">
           <img src="images/concept.jpg" alt="" class="ph-img">
         <!-- 実店舗の写真(images/concept.jpg): 料理とワインを囲む食卓の様子 -->
-        <label class="photo-ph-swap" for="upload-concept">写真を差し替える</label>
-        <input type="file" id="upload-concept" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-concept')">
       </div>
     </div>
     <div class="concept-text-col reveal">
@@ -344,20 +330,14 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   <div class="photo-band-item photo-ph" id="ph-band1">
           <img src="images/interior-dining-1.jpg" alt="" class="ph-img">
     <!-- 実店舗の写真(images/interior-dining-1.jpg): 店内ダイニングの様子 -->
-    <label class="photo-ph-swap" for="upload-band1">差し替え</label>
-    <input type="file" id="upload-band1" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-band1')">
   </div>
   <div class="photo-band-item photo-ph" id="ph-band2">
           <img src="images/dish-appetizer-cold.jpg" alt="" class="ph-img">
     <!-- 実店舗の写真(images/dish-appetizer-cold.jpg): 冷菜の一皿 -->
-    <label class="photo-ph-swap" for="upload-band2">差し替え</label>
-    <input type="file" id="upload-band2" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-band2')">
   </div>
   <div class="photo-band-item photo-ph" id="ph-band3">
           <img src="images/interior-dining-2.jpg" alt="" class="ph-img">
     <!-- 実店舗の写真(images/interior-dining-2.jpg): 店内ダイニングの様子 -->
-    <label class="photo-ph-swap" for="upload-band3">差し替え</label>
-    <input type="file" id="upload-band3" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-band3')">
   </div>
 </div>
 
@@ -458,13 +438,8 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
   </div>
 </section>
 
-<!-- FOOD VISUAL + SNS -->
+<!-- SNS -->
 <div class="fv-sns-wrap">
-  <div class="fv-sns-photo photo-ph" id="ph-fvsns">
-    <!-- PHOTO PLACEHOLDER: SNS欄の写真。撮影後、差し替えてください（未着手のため現在はプレースホルダーのままです） -->
-    <label class="photo-ph-swap" for="upload-fvsns">写真を差し替える</label>
-    <input type="file" id="upload-fvsns" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-fvsns')">
-  </div>
   <div class="fv-sns-card reveal">
     <h2 class="fv-sns-heading">SNSでも香醇の最新情報をお届けしています。</h2>
     <a class="fv-sns-item" href="https://www.instagram.com/kojun_kobe?igsh=MXh3aHZ5OWV3OXhtNw==" target="_blank" rel="noopener">

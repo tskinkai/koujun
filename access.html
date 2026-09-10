@@ -191,19 +191,22 @@ footer { background: #1A1A1A; padding: 64px 80px 36px; }
 
       <div class="exterior-grid">
         <div class="photo-ph" id="ph-ext">
-          <!-- PHOTO PLACEHOLDER: 店舗外観。撮影後、差し替えてください（未着手のため現在はプレースホルダーのままです） -->
+          <img src="images/exterior.jpg" alt="" class="ph-img">
+          <!-- 実店舗の写真(images/exterior.jpg): 建物外観（TAKAI B.L.D） -->
           <span class="ph-caption">外観</span>
           <label class="photo-ph-swap" for="upload-ext">写真を差し替える</label>
           <input type="file" id="upload-ext" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-ext')">
         </div>
         <div class="photo-ph" id="ph-entrance">
-          <!-- PHOTO PLACEHOLDER: ビル入口。ビル1階の入口が分かる写真を撮影後、差し替えてください（未着手のため現在はプレースホルダーのままです） -->
+          <img src="images/building-entrance.jpg" alt="" class="ph-img">
+          <!-- 実店舗の写真(images/building-entrance.jpg): ビル1階の入口 -->
           <span class="ph-caption">ビル入口</span>
           <label class="photo-ph-swap" for="upload-entrance">写真を差し替える</label>
           <input type="file" id="upload-entrance" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-entrance')">
         </div>
         <div class="photo-ph" id="ph-stairs">
-          <!-- PHOTO PLACEHOLDER: 2Fへの行き方（階段またはエレベーター）。撮影後、差し替えてください（未着手のため現在はプレースホルダーのままです） -->
+          <img src="images/stairs-to-2f.jpg" alt="" class="ph-img">
+          <!-- 実店舗の写真(images/stairs-to-2f.jpg): 2Fの案内板（フロア表示） -->
           <span class="ph-caption">2Fへの行き方</span>
           <label class="photo-ph-swap" for="upload-stairs">写真を差し替える</label>
           <input type="file" id="upload-stairs" accept="image/*" style="display:none" onchange="replacePhoto(this,'ph-stairs')">
